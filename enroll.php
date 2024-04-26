@@ -80,7 +80,7 @@
                                     <label for="floatingSelect">With LRN</label>
                                 </div>
                                 <div class="form-floating mb-3" style="display: none;" id="referenceNumber">
-                                    <input class="form-control" name="reference" type="text" placeholder="LRN (Learner Reference Number)" />
+                                    <input class="form-control" name="reference" type="text" placeholder="LRN (Learner Reference Number)" maxlength="12"/>
                                     <label id="referenceLabel"></label>
                                 </div>
                                 <!-- Name input-->
