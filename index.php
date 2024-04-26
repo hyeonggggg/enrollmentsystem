@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Home | Plaridel Integrated National High School</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+            <div class="container px-5">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/favicon.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-middle">
+                    <b></b>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Enrollment</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
+                            <li><a class="dropdown-item" href="enroll.php">Enroll Now</a></li>
+                                <li><a class="dropdown-item" href="enrollment-status.php">Check Enrollment Status</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-light py-5">
+            <div class="container px-5">
+                <div class="row gx-5 align-items-center justify-content-center">
+                    <div class="col-lg-8 col-xl-7 col-xxl-6">
+                        <div class="my-5 text-center text-xl-start">
+                            <h1 class="display-2 fw-bolder text-success mb-2" style="text-align:justify">WELCOME TO PLARIDEL INTEGRATED NATIONAL HIGH SCHOOL</h1>
+                            <p class="lead fw-normal text-success-50 mb-4 fs-4" style="text-align:justify">Your gateway to a journey of growth and academic excellence. Get ready to embark on an adventure tailored just for you!</p>
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                                <a class="btn btn-success btn-lg px-4 me-sm-3" href="enroll.php">ENROLL NOW</a>
+                                <a class="btn btn-outline-success btn-lg px-4" href="">ABOUT US</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="assets/favicon.png" alt="..." /></div>
+                </div>
+            </div>
+        </header>
+        <!-- Features section-->
+        <section class="py-5" id="features">
+            <div class="container px-5 my-5">
+                <div class="row gx-5">
+                    <div class="col-lg-4 mb-5 mb-lg-0 text-success">
+                        <h2 class="fw-bolder mb-0">We're offering an array of exciting pathways tailored to your interests and aspirations.</h2>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row gx-5 row-cols-1 row-cols-md-2">
+                            <div class="col mb-5 h-100">
+                                <div class="feature bg-success bg-gradient text-white rounded-3 mb-3"><i class="bi bi-currency-exchange"></i></div>
+                                <h2 class="h3 text-success"><b>Accountancy and Business Management (ABM)</b></h2>
+                                <p class="mb-0" style="text-align: justify;">Discover Accountancy and Business Management: where numbers meet strategy for success. Master financial management, entrepreneurship, and business ethics to lead confidently in today's dynamic world.</p>
+                            </div>
+                            <div class="col mb-5 h-100">
+                                <div class="feature bg-success bg-gradient text-white rounded-3 mb-3"><i class="bi bi-gear-fill"></i></div>
+                                <h2 class="h3 text-success"><b>Technical Vocational Livelihood (TVL)</b></h2>
+                                <p class="mb-3" style="text-align: justify;">Unlock hands-on skills and practical knowledge in Technical Vocational Livelihood. Dive into specialized training that prepares you for real-world careers in various industries. From mechanics to culinary arts, discover your passion and build a solid foundation for success.</p>
+                                <p class="d-inline-flex gap-1">
+                                    <button class="btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                        Explore Available TVL Strands
+                                    </button>
+                                </p>
+                                <div class="collapse" id="collapseExample">
+                                    <div class="card card-body">
+                                        <h3 class="h5 text-success">
+                                            <b>
+                                                <li>Agri-Fishery Arts</li>
+                                            </b>
+                                        </h3>
+                                        <p class="mb-2" style="text-align: justify;">Dive into the world of Agriculture: where innovation meets sustainability. Explore the science of farming, environmental stewardship, and agribusiness. Join us to cultivate a brighter future for generations to come.</p>
+                                        <h3 class="h5 text-success">
+                                            <b>
+                                                <li>Information and Communication Technology (ICT)</li>
+                                            </b>
+                                        </h3>
+                                        <p class="mb-2" style="text-align: justify;">Unleash the power of technology with ICT. Dive into coding, networking, and digital innovation. Explore endless possibilities and prepare to shape the future of tech.</p>
+                                        <h3 class="h5 text-success">
+                                            <b>
+                                                <li>Home Economics (HE)</li>
+                                            </b>
+                                        </h3>
+                                        <p class="mb-0" style="text-align: justify;">Dive into the realm of Home Economics, where practical skills meet creativity. Learn essential life skills in cooking, sewing, and budgeting while exploring the art of creating a nurturing home environment. Unlock your potential to thrive both in the kitchen and beyond.</p>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col mb-5 mb-md-0 h-100">
+                                <div class="feature bg-success bg-gradient text-white rounded-3 mb-3"><i class="bi bi-globe2 "></i></div>
+                                <h2 class="h3 text-success"><b>Humanities and Social Sciences (HUMSS)</b></h2>
+                                <p class="mb-0" style="text-align: justify">Dive into the realm of Humanities and Social Sciences. Explore cultures, societies, and human behavior while gaining critical thinking and communication skills. Uncover the complexities of the human experience and pave the way for positive social changeDive into the realm of Humanities and Social Sciences. Explore cultures, societies, and human behavior while gaining critical thinking and communication skills. Uncover the complexities of the human experience and pave the way for positive social change.</p>
+                            </div>
+                            <div class="col h-100">
+                                <div class="feature bg-success bg-gradient text-white rounded-3 mb-3"><i class="bi bi-tools"></i></div>
+                                <h2 class="h3 text-success"><b>Science, Technology, Engineering and Mathematics (STEM)</b></h2>
+                                <p class="mb-0">Enter the realm of STEM and embark on a journey of exploration. Delve into the realms of science, technology, engineering, and mathematics, where creativity meets practical problem-solving. Get ready to innovate and shape tomorrow's world.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer-->
+    <footer class="bg-success py-4 mt-auto">
+        <div class="container px-5">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto">
+                    <div class="small m-0 text-white"><b>Copyright &copy; Plaridel Integrated National High School | 2024</b></div>
+                </div>
+                <div class="col-auto">
+                    <b>
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </b>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <script></script>
+</body>
+
+</html>
