@@ -59,162 +59,281 @@
         <section class="py-5">
             <div class="container px-5">
                 <!-- Contact form-->
+
                 <div class="bg-light rounded-4 py-5 px-4 px-md-05 mb-5">
                     <div class="text-center mb-3">
                         <h1 class="display-4 fw-bolder text-success">ENROLL NOW</h1>
                     </div>
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-8 col-xl-6">
-                            <form id="contactForm">
-                                <div class="form-floating mb-3">
-                                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                        <option selected disabled>Select from options</option>
-                                        <option value="2024 - 2025">2024 - 2025</option>
-                                    </select>
-                                    <label for="floatingSelect">School Year</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                        <option selected disabled>Select from options</option>
-                                        <option value="Grade 11">Grade 11</option>
-                                        <option value="Grade 12">Grade 12</option>
-                                    </select>
-                                    <label for="floatingSelect">Grade Level to Enroll</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <select class="form-select" id="lrn" name="lrn">
-                                        <option selected disabled>Select from options</option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                    </select>
-                                    <label for="floatingSelect">With LRN</label>
-                                </div>
-                                <div class="form-floating mb-3" style="display: none;" id="referenceNumber">
-                                    <input class="form-control" name="reference" type="text" placeholder="LRN (Learner Reference Number)" maxlength="12" />
-                                    <label id="referenceLabel"></label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                        <option selected disabled>Select from options</option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                    </select>
-                                    <label for="floatingSelect">Returning (Balik-Aral)</label>
-                                </div>
-                                <!-- Name input-->
-                                <div class="form-floating mb-3" id="birthnumber">
-                                    <input class="form-control" name="birthnumber" type="text" placeholder="PSA Birth Certificate No. (if available upon registration)" maxlength="12" />
-                                    <label id="birthnumber">PSA Birth Certificate No. (if available upon registration)</label>
-                                </div>
-                                <div class="row g-2">
-                                    <div class="col-md">
+                    <form action="enrollstudent.php" method="POST">
+                        <div class="row gx-5 justify-content-center">
+                            <div class="col-lg-8 col-xl-6">
+                                <form id="contactForm">
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" name="schoolyear" id="floatingSelect" required aria-label="Floating label select example">
+                                            <option selected disabled>Select from options</option>
+                                            <option value="2024 - 2025">2024 - 2025</option>
+                                        </select>
+                                        <label for="floatingSelect">School Year</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="floatingSelect" name="gradelevel" required aria-label="Floating label select example">
+                                            <option selected disabled>Select from options</option>
+                                            <option value="Grade 11">Grade 11</option>
+                                            <option value="Grade 12">Grade 12</option>
+                                        </select>
+                                        <label for="floatingSelect">Grade Level to Enroll</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select"  id="lrn" name="lrn">
+                                            <option selected disabled>Select from options</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                        <label for="floatingSelect">With LRN</label>
+                                    </div>
+                                    <div class="form-floating mb-3" style="display: none;" id="referenceNumber">
+                                        <input class="form-control" name="reference" type="text" placeholder="LRN (Learner Reference Number)" maxlength="12" />
+                                        <label id="referenceLabel"></label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="floatingSelect" name="balikaral" aria-label="Floating label select example">
+                                            <option selected disabled>Select from options</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                        <label for="floatingSelect">Returning (Balik-Aral)</label>
+                                    </div>
+                                    <!-- Name input-->
+                                    <div class="form-floating mb-3" id="birthnumber">
+                                        <input class="form-control" name="birthnumber" type="text" placeholder="PSA Birth Certificate No. (if available upon registration)" maxlength="12" />
+                                        <label id="birthnumber">PSA Birth Certificate No. (if available upon registration)</label>
+                                    </div>
+                                    <div class="row g-2">
+                                        <div class="col-md">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="lastname" name="lastname" type="text" placeholder="Last Name" />
+                                                <label for="lastname">Last Name</label>
+                                            </div>
+                                        </div>
+                                        <!-- Email address input-->
+                                        <div class="col-md">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="firstname" name="firstname" type="text" placeholder="First Name" />
+                                                <label for="firstname">First Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row g-2">
+                                        <div class="col-md">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="name" name="middlename" type="text" placeholder="Middle Name" />
+                                                <label for="middlename">Middle Name</label>
+                                            </div>
+                                        </div>
+                                        <!-- Email address input-->
+                                        <div class="col-md">
+                                            <div class="form-floating">
+                                                <select class="form-select" id="floatingSelect" name="extension" aria-label="Floating label select example">
+                                                    <option selected disabled>Select from options</option>
+                                                    <option value="Jr.">Sr.</option>
+                                                    <option value="Sr.">Jr.</option>
+                                                    <option value="III">III</option>
+                                                </select>
+                                                <label for="floatingSelect">Extension Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row g-2">
+                                        <div class="col-md">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="birthday" name="birthday" type="date" max="9999-12-31" />
+                                                <label for="birthday">Birthday</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="age" name="age" type="text" placeholder="Age" readonly />
+                                                <label for="age">Age</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" name="placeofbirth" type="text" placeholder="Place of Birth" />
+                                        <label id="placeofbirth">Place of Birth (Municipality/City)</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="ip" name="ip">
+                                            <option selected disabled>Select from options</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                        <label for="floatingSelect">Belonging to any Indigenous People (IP)</label>
+                                    </div>
+                                    <div class="form-floating mb-3" style="display: none;" id="indigenousPeople">
+                                        <input class="form-control" name="indigenous" type="text" placeholder="If Yes, please specify" />
+                                        <label id="indigenousLabel"></label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="pantawid" name="pantawid">
+                                            <option selected disabled>Select from options</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                        <label for="floatingSelect">Is your family a beneficiary of 4Ps?</label>
+                                    </div>
+                                    <div class="form-floating mb-3" style="display: none;" id="pantawidProgram">
+                                        <input class="form-control" name="pantawidProgram" maxlength="20" placeholder="If Yes, type the 4Ps Household ID Number below" />
+                                        <label id="pantawidLabel"></label>
+                                    </div>
+                                    <h5 class="text-success"><strong>Current Address</strong></h5>
+                                    <div class="row g-2">
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="region_text" id="region-text" required>
+                                            <label class="form-label">Region</label>
+                                        </div>
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="province_text" id="province-text" required>
+                                            <label class="form-label">Province</label>
+                                        </div>
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="city_text" id="city-text" required>
+                                            <label class="form-label">City / Municipality</label>
+                                        </div>
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="barangay_text" id="barangay-text" required>
+                                            <label class="form-label">Barangay</label>
+                                        </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="name" name="lastname" type="text" placeholder="Last Name" />
-                                            <label for="lastname">Last Name</label>
+                                            <input type="text" class="form-control form-control-md" maxlength="4" name="zipcode" id="zipcode" required>
+                                            <label class="form-label">Zip Code</label>
                                         </div>
                                     </div>
-                                    <!-- Email address input-->
-                                    <div class="col-md">
+                                    <h5 class="text-success"><strong>Permanent Address</strong></h5>
+                                    <div class="row g-2">
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="permanent_region_text" id="permanent_region-text" required>
+                                            <label class="form-label">Region</label>
+                                        </div>
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="permanent_province_text" id="permanent_province-text" required>
+                                            <label class="form-label">Province</label>
+                                        </div>
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="permanent_city_text" id="permanent_city-text" required>
+                                            <label class="form-label">City / Municipality</label>
+                                        </div>
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="permanent_barangay_text" id="permanent_barangay-text" required>
+                                            <label class="form-label">Barangay</label>
+                                        </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="email" name="firstname" type="text" placeholder="First Name" />
-                                            <label for="firstname">First Name</label>
+                                            <input type="text" class="form-control form-control-md" maxlength="4" name="permanent_zipcode" id="permanent_zipcode" required>
+                                            <label class="form-label">Zip Code</label>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row g-2">
-                                    <div class="col-md">
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="name" name="middlename" type="text" placeholder="Middle Name" />
-                                            <label for="middlename">Middle Name</label>
+                                    <h5 class="text-success"><strong>Parents/Guardian's Information</strong></h5>
+                                    <div class="row g-2">
+                                        <div class="row g-2 mb-0">
+                                            <h6 class="text-success mb-0"><strong>Father's Name</strong></h6>
+                                            <div class="col-md">
+                                                <div class="form-floating mb-0">
+                                                    <input type="text" class="form-control" name="fathers_lastname"  id="fathers_lastname" placeholder="Last Name" required/>
+                                                    <label for="lastname">Last Name</label>
+                                                </div>
+                                            </div>
+                                            <!-- Email address input-->
+                                            <div class="col-md">
+                                                <div class="form-floating mb-0">
+                                                    <input class="form-control" type="text" name="fathers_firstname" id="fathers_firstname" placeholder="First Name" required/>
+                                                    <label for="firstname">First Name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row g-2">
+                                            <div class="col-md">
+                                                <div class="form-floating mb-2">
+                                                    <input class="form-control" type="text" name="fathers_middlename" id="fathers_middlename" type="text" placeholder="Middle Name" />
+                                                    <label for="firstname">Middle Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-2">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control form-control-lg" name="fathers_phonenumber" id="fathers_phonenumber" pattern="\+63[0-9]{10}" maxlength="13" value="+63" required oninput="this.value = this.value.replace(/[^0-9+]/g, ''); if (this.value.length < 3) this.value = '+63';" onfocus="if(this.value === '') { this.value = '+63'; }" />
+                                                    <label class="form-label" for="fathers_phonenumber">Contact Number</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <!-- Email address input-->
-                                    <div class="col-md">
-                                        <div class="form-floating">
-                                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                                <option selected disabled>Select from options</option>
-                                                <option value="Jr.">Sr.</option>
-                                                <option value="Sr.">Jr.</option>
-                                                <option value="III">III</option>
-                                            </select>
-                                            <label for="floatingSelect">Extension Name</label>
+                                    <div class="row g-2">
+                                        <div class="row g-2 mb-0">
+                                            <h6 class="text-success mb-0"><strong>Mother's Maiden Name</strong></h6>
+                                            <div class="col-md">
+                                                <div class="form-floating mb-0">
+                                                    <input class="form-control" type="text" id="mothers_lastname" name="mothers_lastname" placeholder="Last Name" />
+                                                    <label for="mothers_lastname">Last Name</label>
+                                                </div>
+                                            </div>
+                                            <!-- Email address input-->
+                                            <div class="col-md">
+                                                <div class="form-floating mb-0">
+                                                    <input class="form-control" type="text" id="mothers_firstname" name="mothers_firstname" placeholder="First Name" />
+                                                    <label for="mothers_firstname">First Name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row g-2">
+                                            <div class="col-md">
+                                                <div class="form-floating mb-2">
+                                                    <input class="form-control" type="text" id="mothers_middlename" name="mothers_middlename" placeholder="Middle Name" />
+                                                    <label for="mothers_firstname">Middle Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-2">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control form-control-lg" name="mothers_phonenumber" id="mothers_phonenumber" pattern="\+63[0-9]{10}" maxlength="13" value="+63" required oninput="this.value = this.value.replace(/[^0-9+]/g, ''); if (this.value.length < 3) this.value = '+63';" onfocus="if(this.value === '') { this.value = '+63'; }" />
+                                                    <label class="form-label" for="mothers_phonenumber">Contact Number</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row g-2">
-                                    <div class="col-md">
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="birthday" name="birthday" type="date" max="9999-12-31" />
-                                            <label for="birthday">Birthday</label>
+                                    <div class="row g-2">
+                                        <div class="row g-2 mb-0">
+                                            <h6 class="text-success mb-0"><strong>Guardian's Name</strong></h6>
+                                            <div class="col-md">
+                                                <div class="form-floating mb-0">
+                                                    <input class="form-control" id="guardians_lastname" name="guardians_lastname" type="text" placeholder="Last Name" />
+                                                    <label for="guardians_lastname">Last Name</label>
+                                                </div>
+                                            </div>
+                                            <!-- Email address input-->
+                                            <div class="col-md">
+                                                <div class="form-floating mb-0">
+                                                    <input class="form-control" id="guardians_firstname" name="guardians_firstname" type="text" placeholder="First Name" />
+                                                    <label for="guardians_firstname">First Name</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row g-2">
+                                            <div class="col-md">
+                                                <div class="form-floating mb-2">
+                                                    <input class="form-control" id="guardians_middlename" name="guardians_middlename" type="text" placeholder="Middle Name" />
+                                                    <label for="guardians_middlename">Middle Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 mb-2">
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control form-control-lg" name="guardians_phonenumber" id="guardians_phonenumber" pattern="\+63[0-9]{10}" maxlength="13" value="+63" required oninput="this.value = this.value.replace(/[^0-9+]/g, ''); if (this.value.length < 3) this.value = '+63';" onfocus="if(this.value === '') { this.value = '+63'; }" />
+                                                    <label class="form-label" for="guardians_phonenumber">Contact Number</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-2">
-                                        <div class="form-floating mb-3">
-                                            <input class="form-control" id="age" name="age" type="text" placeholder="Age" readonly />
-                                            <label for="age">Age</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-floating mb-3" id="referenceNumber">
-                                    <input class="form-control" name="placeofbirth" type="text" placeholder="Place of Birth" />
-                                    <label id="placeofbirth">Place of Birth (Municipality/City)</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <select class="form-select" id="ip" name="ip">
-                                        <option selected disabled>Select from options</option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                    </select>
-                                    <label for="floatingSelect">Belonging to any Indigenous People (IP)</label>
-                                </div>
-                                <div class="form-floating mb-3" style="display: none;" id="indigenousPeople">
-                                    <input class="form-control" name="indigenous" type="text" placeholder="If Yes, please specify" />
-                                    <label id="indigenousLabel"></label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <select class="form-select" id="pantawid" name="pantawid">
-                                        <option selected disabled>Select from options</option>
-                                        <option value="Yes">Yes</option>
-                                        <option value="No">No</option>
-                                    </select>
-                                    <label for="floatingSelect">Is your family a beneficiary of 4Ps?</label>
-                                </div>
-                                <div class="form-floating mb-3" style="display: none;" id="pantawidProgram">
-                                    <input class="form-control" name="pantawidProgram" maxlength="20" placeholder="If Yes, type the 4Ps Household ID Number below" />
-                                    <label id="pantawidLabel"></label>
-                                </div>
-                                <h5 class="text-success"><strong>Current Address</strong></h5>
-                                <div class="row g-2">
-                                    <div class="form-floating mb-2">
-                                        <select name="region" class="form-control form-control-md" id="region"></select>
-                                        <input type="hidden" class="form-control form-control-md" name="region_text" id="region-text" required>
-                                        <label class="form-label">Region</label>
-                                    </div>
-                                    <div class="form-floating mb-2">
-                                        <select name="province" class="form-control form-control-md" id="province"></select>
-                                        <input type="hidden" class="form-control form-control-md" name="province_text" id="province-text" required>
-                                        <label class="form-label">Province</label>
-                                    </div>
-                                    <div class="form-floating mb-2">
-                                        <select name="city" class="form-control form-control-md" id="city"></select>
-                                        <input type="hidden" class="form-control form-control-md" name="city_text" id="city-text" required>
-                                        <label class="form-label">City / Municipality</label>
-                                    </div>
-                                    <div class="form-floating mb-2">
-                                        <select name="barangay" class="form-control form-control-md" id="barangay"></select>
-                                        <input type="hidden" class="form-control form-control-md" name="barangay_text" id="barangay-text" required>
-                                        <label class="form-label">Barangay</label>
-                                    </div>
-                                    <div class="form-floating mb-2">
-                                        <input type="text" class="form-control form-control-md" maxlength="4" name="zipcode" id="zipcode" required>
-                                        <label class="form-label">Zip Code</label>
-                                    </div>
-                                </div>
-                                <!-- Submit Button-->
-                                <div class="d-grid"><button class="btn btn-success btn-lg" id="submitButton" type="submit">SUBMIT</button></div>
-                            </form>
+                                    <!-- Submit Button-->
+                                    <div class="d-grid"><button class="btn btn-success btn-lg" id="submitButton" type="submit">SUBMIT</button></div>
+                                </form>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <!-- Contact cards-->
                 <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
@@ -292,6 +411,15 @@
             this.value = this.value.replace(/[0-9]/g, '');
         });
         document.querySelector('[name="lastname"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[0-9]/g, '');
+        });
+        document.querySelector('[name="fathers-lastname"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[0-9]/g, '');
+        });
+        document.querySelector('[name="fathers-firstname"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[0-9]/g, '');
+        });
+        document.querySelector('[name="fathers-middlename"]').addEventListener('input', function(e) {
             this.value = this.value.replace(/[0-9]/g, '');
         });
         document.querySelector('[name="reference"]').addEventListener('input', function(e) {
