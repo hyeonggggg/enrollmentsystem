@@ -10,6 +10,7 @@
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
     <!-- Bootstrap icons-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
@@ -25,6 +26,7 @@
             box-shadow: 0 0 0 0.3rem rgba(40, 167, 69, 0.25);
         }
     </style>
+
 </head>
 
 <body class="d-flex flex-column">
@@ -72,6 +74,14 @@
                                     <label for="floatingSelect">School Year</label>
                                 </div>
                                 <div class="form-floating mb-3">
+                                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                        <option selected disabled>Select from options</option>
+                                        <option value="Grade 11">Grade 11</option>
+                                        <option value="Grade 12">Grade 12</option>
+                                    </select>
+                                    <label for="floatingSelect">Grade Level to Enroll</label>
+                                </div>
+                                <div class="form-floating mb-3">
                                     <select class="form-select" id="lrn" name="lrn">
                                         <option selected disabled>Select from options</option>
                                         <option value="Yes">Yes</option>
@@ -80,10 +90,22 @@
                                     <label for="floatingSelect">With LRN</label>
                                 </div>
                                 <div class="form-floating mb-3" style="display: none;" id="referenceNumber">
-                                    <input class="form-control" name="reference" type="text" placeholder="LRN (Learner Reference Number)" maxlength="12"/>
+                                    <input class="form-control" name="reference" type="text" placeholder="LRN (Learner Reference Number)" maxlength="12" />
                                     <label id="referenceLabel"></label>
                                 </div>
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                        <option selected disabled>Select from options</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <label for="floatingSelect">Returning (Balik-Aral)</label>
+                                </div>
                                 <!-- Name input-->
+                                <div class="form-floating mb-3" id="birthnumber">
+                                    <input class="form-control" name="birthnumber" type="text" placeholder="PSA Birth Certificate No. (if available upon registration)" maxlength="12" />
+                                    <label id="birthnumber">PSA Birth Certificate No. (if available upon registration)</label>
+                                </div>
                                 <div class="row g-2">
                                     <div class="col-md">
                                         <div class="form-floating mb-3">
@@ -131,6 +153,61 @@
                                             <input class="form-control" id="age" name="age" type="text" placeholder="Age" readonly />
                                             <label for="age">Age</label>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="form-floating mb-3" id="referenceNumber">
+                                    <input class="form-control" name="placeofbirth" type="text" placeholder="Place of Birth" />
+                                    <label id="placeofbirth">Place of Birth (Municipality/City)</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" id="ip" name="ip">
+                                        <option selected disabled>Select from options</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <label for="floatingSelect">Belonging to any Indigenous People (IP)</label>
+                                </div>
+                                <div class="form-floating mb-3" style="display: none;" id="indigenousPeople">
+                                    <input class="form-control" name="indigenous" type="text" placeholder="If Yes, please specify" />
+                                    <label id="indigenousLabel"></label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" id="pantawid" name="pantawid">
+                                        <option selected disabled>Select from options</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <label for="floatingSelect">Is your family a beneficiary of 4Ps?</label>
+                                </div>
+                                <div class="form-floating mb-3" style="display: none;" id="pantawidProgram">
+                                    <input class="form-control" name="pantawidProgram" maxlength="20" placeholder="If Yes, type the 4Ps Household ID Number below" />
+                                    <label id="pantawidLabel"></label>
+                                </div>
+                                <h5 class="text-success"><strong>Current Address</strong></h5>
+                                <div class="row g-2">
+                                    <div class="form-floating mb-2">
+                                        <select name="region" class="form-control form-control-md" id="region"></select>
+                                        <input type="hidden" class="form-control form-control-md" name="region_text" id="region-text" required>
+                                        <label class="form-label">Region</label>
+                                    </div>
+                                    <div class="form-floating mb-2">
+                                        <select name="province" class="form-control form-control-md" id="province"></select>
+                                        <input type="hidden" class="form-control form-control-md" name="province_text" id="province-text" required>
+                                        <label class="form-label">Province</label>
+                                    </div>
+                                    <div class="form-floating mb-2">
+                                        <select name="city" class="form-control form-control-md" id="city"></select>
+                                        <input type="hidden" class="form-control form-control-md" name="city_text" id="city-text" required>
+                                        <label class="form-label">City / Municipality</label>
+                                    </div>
+                                    <div class="form-floating mb-2">
+                                        <select name="barangay" class="form-control form-control-md" id="barangay"></select>
+                                        <input type="hidden" class="form-control form-control-md" name="barangay_text" id="barangay-text" required>
+                                        <label class="form-label">Barangay</label>
+                                    </div>
+                                    <div class="form-floating mb-2">
+                                        <input type="text" class="form-control form-control-md" maxlength="4" name="zipcode" id="zipcode" required>
+                                        <label class="form-label">Zip Code</label>
                                     </div>
                                 </div>
                                 <!-- Submit Button-->
@@ -217,6 +294,12 @@
         document.querySelector('[name="lastname"]').addEventListener('input', function(e) {
             this.value = this.value.replace(/[0-9]/g, '');
         });
+        document.querySelector('[name="reference"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+        document.querySelector('[name="zipcode"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
     </script>
     <script>
         document.getElementById('lrn').addEventListener('change', function() {
@@ -227,7 +310,27 @@
                 document.getElementById('referenceNumber').style.display = 'none';
             }
         });
+
+        document.getElementById('ip').addEventListener('change', function() {
+            if (this.value === 'Yes') {
+                document.getElementById('indigenousPeople').style.display = 'block';
+                document.getElementById('indigenousLabel').textContent = 'If Yes, please specify:';
+            } else {
+                document.getElementById('indigenousPeople').style.display = 'none';
+            }
+        });
+
+        document.getElementById('pantawid').addEventListener('change', function() {
+            if (this.value === 'Yes') {
+                document.getElementById('pantawidProgram').style.display = 'block';
+                document.getElementById('pantawidLabel').textContent = 'If Yes, type the 4Ps Household ID Number below';
+            } else {
+                document.getElementById('pantawidProgram').style.display = 'none';
+            }
+        });
     </script>
+    <script src="js/ph-address-selector.js"></script>
+    <script src="js/ph-address-selector-two.js"></script>
 </body>
 
 </html>
