@@ -14,6 +14,15 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+    <style>
+        i {
+            font-size: 25px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -21,21 +30,21 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-success">
             <div class="container px-5">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index">
                     <img src="assets/favicon.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-middle">
                     <b></b>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Enrollment</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
-                            <li><a class="dropdown-item" href="enroll.php">Enroll Now</a></li>
-                                <li><a class="dropdown-item" href="enrollment-status.php">Check Enrollment Status</a></li>
+                                <li><a class="dropdown-item" href="enroll">Enroll Now</a></li>
+                                <li><a class="dropdown-item" href="enrollment-status">Check Enrollment Status</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -43,16 +52,16 @@
             </div>
         </nav>
         <!-- Header-->
-        <header class="bg-light py-5">
+        <header class="bg-light py-5" style="background-image: url(faculty.jpg); background-size: cover;">
             <div class="container px-5">
                 <div class="row gx-5 align-items-center justify-content-center">
                     <div class="col-lg-8 col-xl-7 col-xxl-6">
                         <div class="my-5 text-center text-xl-start">
-                            <h1 class="display-2 fw-bolder text-success mb-2" style="text-align:justify">WELCOME TO PLARIDEL INTEGRATED NATIONAL HIGH SCHOOL</h1>
-                            <p class="lead fw-normal text-success-50 mb-4 fs-4" style="text-align:justify">Your gateway to a journey of growth and academic excellence. Get ready to embark on an adventure tailored just for you!</p>
+                            <h1 class="display-2 fw-bolder text-light mb-2" style="text-align:justify">WELCOME TO PLARIDEL INTEGRATED NATIONAL HIGH SCHOOL</h1>
+                            <p class="lead fw-normal text-light mb-4 fs-4" style="text-align:justify">Your gateway to a journey of growth and academic excellence. Get ready to embark on an adventure tailored just for you!</p>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                <a class="btn btn-success btn-lg px-4 me-sm-3" href="enroll.php">ENROLL NOW</a>
-                                <a class="btn btn-outline-success btn-lg px-4" href="">ABOUT US</a>
+                                <a class="btn btn-success btn-lg px-4 me-sm-3" href="enroll">ENROLL NOW</a>
+                                <a class="btn btn-outline-light btn-lg px-4" href="">ABOUT US</a>
                             </div>
                         </div>
                     </div>
@@ -133,11 +142,11 @@
                 </div>
                 <div class="col-auto">
                     <b>
-                        <a class="link-light small" href="#!">Privacy</a>
+                        <a class="link-light small" href="https://www.facebook.com/depedtayoplaridelinhs301258/"><i class="bi bi-facebook"></i> Facebook</a>
                         <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Terms</a>
+                        <a class="link-light small" href="#!"><i class="bi bi-messenger"></i> Messenger</a>
                         <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!">Contact</a>
+                        <a class="link-light small" href="mailto:301258@deped.gov.ph"><i class="bi bi-envelope"></i> Email</a>
                     </b>
                 </div>
             </div>

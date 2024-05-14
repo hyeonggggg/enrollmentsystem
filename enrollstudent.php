@@ -17,6 +17,7 @@ if (empty($_POST['schoolyear']) || empty($_POST['gradelevel']) || empty($_POST['
   $extension = $_POST['extension'];
   $birthday = $_POST['birthday'];
   $age = $_POST['age'];
+  $sex = $_POST['sex'];
   $placeofbirth = $_POST['placeofbirth'];
   $ip = $_POST['ip'];
   $indigenous = $_POST['indigenous'];
@@ -46,9 +47,8 @@ if (empty($_POST['schoolyear']) || empty($_POST['gradelevel']) || empty($_POST['
   $guardians_phonenumber = $_POST['guardians_phonenumber'];
 
   include 'conn.php';
-  mysqli_query($conn, "INSERT INTO enrollment(schoolyear, gradelevel, lrn, reference, balikaral, birthnumber, lastname, firstname, middlename, extension, birthday, age, placeofbirth, ip, indigenous, pantawid, pantawidProgram, region_text, province_text, city_text, barangay_text, zipcode, permanent_region_text, permanent_province_text, permanent_city_text, permanent_barangay_text, permanent_zipcode, fathers_lastname, fathers_firstname, fathers_middlename, fathers_phonenumber, mothers_lastname, mothers_firstname, mothers_middlename, mothers_phonenumber, guardians_lastname, guardians_firstname, guardians_middlename, guardians_phonenumber)VALUES('$schoolyear', '$gradelevel', '$lrn', '$reference', '$balikaral', '$birthnumber', '$lastname', '$firstname', '$middlename', '$extension', '$birthday', '$age', '$placeofbirth', '$ip', '$indigenous', '$pantawid', '$pantawidProgram', '$region_text', '$province_text', '$city_text', '$barangay_text', '$zipcode', '$permanent_region_text', '$permanent_province_text', '$permanent_city_text', '$permanent_barangay_text', '$permanent_zipcode', '$fathers_lastname', '$fathers_firstname', '$fathers_middlename', '$fathers_phonenumber', '$mothers_lastname', '$mothers_firstname', '$mothers_middlename', '$mothers_phonenumber', '$guardians_lastname', '$guardians_firstname', '$guardians_middlename', '$guardians_phonenumber')") or die('Query Error');
+  mysqli_query($conn, "INSERT INTO enrollment(schoolyear, gradelevel, lrn, reference, balikaral, birthnumber, lastname, firstname, middlename, extension, birthday, age, sex, placeofbirth, ip, indigenous, pantawid, pantawidProgram, region_text, province_text, city_text, barangay_text, zipcode, permanent_region_text, permanent_province_text, permanent_city_text, permanent_barangay_text, permanent_zipcode, fathers_lastname, fathers_firstname, fathers_middlename, fathers_phonenumber, mothers_lastname, mothers_firstname, mothers_middlename, mothers_phonenumber, guardians_lastname, guardians_firstname, guardians_middlename, guardians_phonenumber)VALUES('$schoolyear', '$gradelevel', '$lrn', '$reference', '$balikaral', '$birthnumber', '$lastname', '$firstname', '$middlename', '$extension', '$birthday', '$age', '$sex', '$placeofbirth', '$ip', '$indigenous', '$pantawid', '$pantawidProgram', '$region_text', '$province_text', '$city_text', '$barangay_text', '$zipcode', '$permanent_region_text', '$permanent_province_text', '$permanent_city_text', '$permanent_barangay_text', '$permanent_zipcode', '$fathers_lastname', '$fathers_firstname', '$fathers_middlename', '$fathers_phonenumber', '$mothers_lastname', '$mothers_firstname', '$mothers_middlename', '$mothers_phonenumber', '$guardians_lastname', '$guardians_firstname', '$guardians_middlename', '$guardians_phonenumber')") or die('Query Error');
 
-  $_SESSION['savedschedule'] = "Schedule Saved Successfully";
-  header('Location: index.php');
+  header('Location: success.php');
 }
 ?>
