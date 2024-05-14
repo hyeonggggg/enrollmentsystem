@@ -242,6 +242,7 @@ if (isset($_SESSION['user'])) {
                                             <th>Name</th>
                                             <th>Birthday</th>
                                             <th>Age</th>
+                                            <th>Sex</th>
                                             <th>Place of Birth</th>
                                         </tr>
                                     </thead>
@@ -252,6 +253,7 @@ if (isset($_SESSION['user'])) {
                                             <th>Name</th>
                                             <th>Birthday</th>
                                             <th>Age</th>
+                                            <th>Sex</th>
                                             <th>Place of Birth</th>
                                         </tr>
                                         </tr>
@@ -279,6 +281,9 @@ if (isset($_SESSION['user'])) {
                                                     </td>
                                                     <td>
                                                         <?= $items['age']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $items['sex']; ?>
                                                     </td>
                                                     <td>
                                                         <?= $items['placeofbirth']; ?>
