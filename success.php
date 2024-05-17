@@ -45,6 +45,7 @@
             <div class="container px-5">
                 <a class="navbar-brand" href="index">
                     <img src="assets/favicon.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-middle">
+                    <img src="logo.png" width="130">
                     <b></b>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>

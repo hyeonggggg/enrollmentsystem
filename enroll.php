@@ -45,6 +45,7 @@
             <div class="container px-5">
                 <a class="navbar-brand" href="index">
                     <img src="assets/favicon.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-middle">
+                    <img src="logo.png" width="130">
                     <b></b>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -69,7 +70,7 @@
             <div class="container px-5">
                 <!-- Contact form-->
 
-                <div class="bg-light rounded-4 py-5 px-4 px-md-05 mb-5">
+                <div class="bg-light rounded-4 py-5 px-4 px-md-05 mb-2">
                     <div class="text-center mb-3">
                         <h1 class="display-4 fw-bolder text-success">ENROLL NOW</h1>
                     </div>
@@ -111,7 +112,7 @@
                                         <label id="referenceLabel"></label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <select class="form-select" id="floatingSelect" name="balikaral" required aria-label="Floating label select example">
+                                        <select class="form-select" id="balikaral" name="balikaral">
                                             <option selected disabled>Select from options</option>
                                             <option value="Yes">Yes</option>
                                             <option value="No">No</option>
@@ -153,7 +154,7 @@
                                         </div>
                                         <!-- Email address input-->
                                         <div class="col-md">
-                                            <div class="form-floating">
+                                            <div class="form-floating mb-3">
                                                 <select class="form-select" id="floatingSelect" name="extension" required aria-label="Floating label select example">
                                                     <option selected disabled>Select from options</option>
                                                     <option value="Jr.">Sr.</option>
@@ -166,13 +167,13 @@
                                         </div>
                                     </div>
                                     <div class="row g-2">
-                                        <div class="col-md">
+                                        <div class="col-9">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="birthday" name="birthday" required type="date" max="9999-12-31" />
                                                 <label for="birthday">Birthday</label>
                                             </div>
                                         </div>
-                                        <div class="col-2">
+                                        <div class="col-3">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="age" name="age" type="text" required placeholder="Age" readonly />
                                                 <label for="age">Age</label>
@@ -303,7 +304,6 @@
                                                     <label for="lastname">Last Name</label>
                                                 </div>
                                             </div>
-                                            <!-- Email address input-->
                                             <div class="col-md">
                                                 <div class="form-floating mb-0">
                                                     <input class="form-control" type="text" name="fathers_firstname" id="fathers_firstname" placeholder="First Name" required />
@@ -335,7 +335,6 @@
                                                     <label for="mothers_lastname">Last Name</label>
                                                 </div>
                                             </div>
-                                            <!-- Email address input-->
                                             <div class="col-md">
                                                 <div class="form-floating mb-0">
                                                     <input class="form-control" type="text" id="mothers_firstname" name="mothers_firstname" placeholder="First Name" required />
@@ -367,7 +366,6 @@
                                                     <label for="guardians_lastname">Last Name</label>
                                                 </div>
                                             </div>
-                                            <!-- Email address input-->
                                             <div class="col-md">
                                                 <div class="form-floating mb-0">
                                                     <input class="form-control" id="guardians_firstname" name="guardians_firstname" type="text" placeholder="First Name" required />
@@ -390,35 +388,94 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div style="display: none;" id="balik-aral">
+                                        <div class="row g-2">
+                                            <h5 class="text-success"><strong>For Returning Learner (Balik-Aral) and Those Who Will Transfer/Move In</strong></h5>
+                                            <div class="col-md">
+                                                <div class="form-floating mb-2">
+                                                    <select class="form-select" name="lastgradelevel" placeholder="Last Grade Level Completed">
+                                                        <option selected disabled>Select from options</option>
+                                                        <option value="Grade 11">Grade 11</option>
+                                                        <option value="Grade 12">Grade 12</option>
+                                                    </select>
+                                                    <label id="lastgradelevelLabel"></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md">
+                                                <div class="form-floating mb-2">
+                                                    <select class="form-select" name="lastschoolyear" placeholder="Last School Year Completed">
+                                                        <option selected disabled>Select from options</option>
+                                                        <option value="2016-2017">2016-2017</option>
+                                                        <option value="2017-2018">2017-2018</option>
+                                                        <option value="2018-2019">2018-2019</option>
+                                                        <option value="2019-2020">2019-2020</option>
+                                                        <option value="2020-2021">2020-2021</option>
+                                                        <option value="2021-2022">2021-2022</option>
+                                                        <option value="2022-2023">2022-2023</option>
+                                                    </select>
+                                                    <label id="lastschoolyearLabel"></label>
+                                                </div>
+                                            </div>
+                                            <div class="form-floating mb-2">
+                                                <input class="form-control" id="lastSchoolAttended" name="lastschoolattended" type="text" placeholder="Last School Attended" />
+                                                <label for="lastSchoolAttended">Last School Attended</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="schoolID" name="schoolid" type="text" placeholder="School ID" maxlength="6" />
+                                                <label for="schoolID">School ID</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5 class="text-success"><strong>For Learner's in Senior High School</strong></h5>
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="semester" name="semester" placeholder="Semester">
+                                            <option selected disabled>Select from options</option>
+                                            <option value="1st Semester">1st Semester</option>
+                                            <option value="2nd Semester">2nd Semester</option>
+                                        </select>
+                                        <label id="semester">Semester</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="track" name="track" placeholder="Track">
+                                            <option selected disabled>Select from options</option>
+                                            <option value="Accountancy and Business Management (ABM)">Accountancy and Business Management (ABM)</option>
+                                            <option value="Technical Vocational Livelihood (TVL)">Technical Vocational Livelihood (TVL)</option>
+                                            <option value="Humanities and Social Sciences (HUMSS)">Humanities and Social Sciences (HUMSS)</option>
+                                            <option value="Science, Technology, Engineering and Mathematics (STEM)">Science, Technology, Engineering and Mathematics (STEM)</option>
+                                        </select>
+                                        <label id="track">Track</label>
+                                    </div>
+                                    <div class="form-floating mb-3" id="strand" style="display: none;">
+                                        <select class="form-select" name="strand" placeholder="Strand">
+                                            <option selected disabled>Select from options</option>
+                                            <option value="Agri-Fishery Arts">Agri-Fishery Arts</option>
+                                            <option value="Information and Communication Technology (ICT)">Information and Communication Technology (ICT)</option>
+                                            <option value="Home Economics (HE)">Home Economics (HE)</option>
+                                        </select>
+                                        <label id="strandLabel"></label>
+                                    </div>
+                                    <!--
+                                    <h6 class="text-success"><strong>If school will implement other distance learning modalities aside from face-to-face instruction, what would you prefer for your child?</strong></h6>
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="track" name="modality" placeholder="Learning Modality">
+                                            <option selected disabled>Select from options</option>
+                                            <option value="Modular (Print)">Modular (Print)</option>
+                                            <option value="Modular (Digital)">Modular (Digital)</option>
+                                            <option value="Online">Online</option>
+                                            <option value="Educational Television">Educational Television</option>
+                                            <option value="Radio-Based Instruction">Radio-Based Instruction</option>
+                                            <option value="Homeschooling)">Homeschooling</option>
+                                            <option value="Blended">Blended</option>
+                                        </select>
+                                        <label id="modality">Learning Modality</label>
+                                    </div>
+    -->
                                     <!-- Submit Button-->
                                     <div class="d-grid"><button class="btn btn-success btn-lg" id="submitButton" type="submit">SUBMIT</button></div>
                                 </form>
                             </div>
                         </div>
                     </form>
-                </div>
-                <!-- Contact cards-->
-                <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
-                    <div class="col">
-                        <div class="feature bg-success bg-gradient text-white rounded-3 mb-3"><i class="bi bi-chat-dots"></i></div>
-                        <div class="h5 mb-2">Chat with us</div>
-                        <p class="text-muted mb-0">Chat live with one of our support specialists.</p>
-                    </div>
-                    <div class="col">
-                        <div class="feature bg-success bg-gradient text-white rounded-3 mb-3"><i class="bi bi-people"></i></div>
-                        <div class="h5">Ask the community</div>
-                        <p class="text-muted mb-0">Explore our community forums and communicate with other users.</p>
-                    </div>
-                    <div class="col">
-                        <div class="feature bg-success bg-gradient text-white rounded-3 mb-3"><i class="bi bi-question-circle"></i></div>
-                        <div class="h5">Support center</div>
-                        <p class="text-muted mb-0">Browse FAQ's and support articles to find solutions.</p>
-                    </div>
-                    <div class="col">
-                        <div class="feature bg-success bg-gradient text-white rounded-3 mb-3"><i class="bi bi-telephone"></i></div>
-                        <div class="h5">Call us</div>
-                        <p class="text-muted mb-0">Call us during normal business hours at (555) 892-9403.</p>
-                    </div>
                 </div>
             </div>
         </section>
@@ -432,9 +489,9 @@
                 </div>
                 <div class="col-auto">
                     <b>
-                        <a class="link-light small" href="https://www.facebook.com/depedtayoplaridelinhs301258/"><i class="bi bi-facebook"></i> Facebook</a>
+                        <a class="link-light small" href="https://www.facebook.com/depedtayoplaridelinhs301258/" target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
                         <span class="text-white mx-1">&middot;</span>
-                        <a class="link-light small" href="#!"><i class="bi bi-messenger"></i> Messenger</a>
+                        <a class="link-light small" href="https://www.facebook.com/messages/t/100188291792759" target="_blank"><i class="bi bi-messenger"></i> Messenger</a>
                         <span class="text-white mx-1">&middot;</span>
                         <a class="link-light small" href="mailto:301258@deped.gov.ph"><i class="bi bi-envelope"></i> Email</a>
                     </b>
@@ -476,19 +533,40 @@
         document.querySelector('[name="lastname"]').addEventListener('input', function(e) {
             this.value = this.value.replace(/[0-9]/g, '');
         });
-        document.querySelector('[name="fathers-lastname"]').addEventListener('input', function(e) {
+        document.querySelector('[name="fathers_lastname"]').addEventListener('input', function(e) {
             this.value = this.value.replace(/[0-9]/g, '');
         });
-        document.querySelector('[name="fathers-firstname"]').addEventListener('input', function(e) {
+        document.querySelector('[name="fathers_firstname"]').addEventListener('input', function(e) {
             this.value = this.value.replace(/[0-9]/g, '');
         });
-        document.querySelector('[name="fathers-middlename"]').addEventListener('input', function(e) {
+        document.querySelector('[name="fathers_middlename"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[0-9]/g, '');
+        });
+        document.querySelector('[name="mothers_lastname"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[0-9]/g, '');
+        });
+        document.querySelector('[name="mothers_firstname"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[0-9]/g, '');
+        });
+        document.querySelector('[name="mothers_middlename"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[0-9]/g, '');
+        });
+        document.querySelector('[name="guardians_lastname"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[0-9]/g, '');
+        });
+        document.querySelector('[name="guardians_firstname"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[0-9]/g, '');
+        });
+        document.querySelector('[name="guardians_middlename"]').addEventListener('input', function(e) {
             this.value = this.value.replace(/[0-9]/g, '');
         });
         document.querySelector('[name="reference"]').addEventListener('input', function(e) {
             this.value = this.value.replace(/[^0-9]/g, '');
         });
         document.querySelector('[name="zipcode"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+        document.querySelector('[name="schoolid"]').addEventListener('input', function(e) {
             this.value = this.value.replace(/[^0-9]/g, '');
         });
     </script>
@@ -526,6 +604,25 @@
                 document.getElementById('disabilityLabel').textContent = 'If Yes, specify the type of disability';
             } else {
                 document.getElementById('learnerdisability').style.display = 'none';
+            }
+        });
+
+        document.getElementById('balikaral').addEventListener('change', function() {
+            if (this.value === 'Yes') {
+                document.getElementById('balik-aral').style.display = 'block';
+                document.getElementById('lastschoolyearLabel').textContent = 'Last School Year Completed';
+                document.getElementById('lastgradelevelLabel').textContent = 'Last Grade Level Completed';
+            } else {
+                document.getElementById('balik-aral').style.display = 'none';
+            }
+        });
+
+        document.getElementById('track').addEventListener('change', function() {
+            if (this.value === 'Technical Vocational Livelihood (TVL)') {
+                document.getElementById('strand').style.display = 'block';
+                document.getElementById('strandLabel').textContent = 'Strand';
+            } else {
+                document.getElementById('strand').style.display = 'none';
             }
         });
     </script>

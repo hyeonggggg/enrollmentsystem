@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
     <meta name="author" content="">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
 
-    <title>Grade 12 Enrollees | Plaridel Integrated National High School</title>
+    <title>TVL - Home Economics (HE) Enrollees | Plaridel Integrated National High School</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -136,27 +136,27 @@ if (isset($_SESSION['user'])) {
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-user-graduate"></i>
                     <span>Grade Levels</span>
                 </a>
-                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Grade Levels</h6>
                         <a class="collapse-item" href="grade-eleven">Grade 11</a>
-                        <a class="collapse-item active text-success" href="grade-twelve">Grade 12</a>
+                        <a class="collapse-item" href="grade-twelve">Grade 12</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-book-open"></i>
                     <span>Tracks</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                <div id="collapseUtilities" class="collapse show" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header ">Tracks</h6>
                         <a class="collapse-item" href="abm">Accountancy and<br>Business Management<br>(ABM)</a>
@@ -166,7 +166,7 @@ if (isset($_SESSION['user'])) {
                         <h6 class="collapse-header">Technical Vocational<br>Livelihood (TVL) Strands</h6>
                         <a class="collapse-item" href="agrifishery">Agri-Fishery Arts</a>
                         <a class="collapse-item" href="ict">Information and<br>Communication<br>Technology (ICT)</a>
-                        <a class="collapse-item" href="homeeconomics">Home Economics (HE)</a>
+                        <a class="collapse-item active text-success" href="homeeconomics">Home Economics (HE)</a>
                     </div>
                 </div>
             </li>
@@ -241,7 +241,7 @@ if (isset($_SESSION['user'])) {
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h1 mb-0 text-success"><b>GRADE 12 ENROLLEES</b></h1>
+                        <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>TVL - Home Economics (HE)</b></h1>
                     </div>
                     <div class="card shadow mb-4">
                         <div class="card-body">
@@ -279,7 +279,7 @@ if (isset($_SESSION['user'])) {
                                     <tbody>
                                         <?php
                                         include 'conn.php';
-                                        $query = "SELECT * FROM enrollment WHERE gradelevel = 'Grade 12'";
+                                        $query = "SELECT * FROM enrollment WHERE strand = 'Home Economics (HE)'";
                                         $query_run = mysqli_query($conn, $query);
                                         if (mysqli_num_rows($query_run) > 0) {
                                             foreach ($query_run as $items) {

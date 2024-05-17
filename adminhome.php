@@ -4,6 +4,13 @@ session_start();
 include 'conn.php';
 
 if (isset($_SESSION['user'])) {
+    if (time() - $_SESSION['login_time_stamp'] > 600) {
+        session_unset();
+        session_destroy();
+        header("Location: admin-login.php");
+    } else {
+        $_SESSION['login_time_stamp'] = time();
+    }
 } else {
     header('Location: admin-login.php');
 }
@@ -28,7 +35,6 @@ if (isset($_SESSION['user'])) {
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
 </head>
 
 <body id="page-top">
@@ -37,7 +43,7 @@ if (isset($_SESSION['user'])) {
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="adminhome">
@@ -52,7 +58,7 @@ if (isset($_SESSION['user'])) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="adminhome.php">
+                <a class="nav-link" href="adminhome">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -89,18 +95,22 @@ if (isset($_SESSION['user'])) {
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header ">Tracks</h6>
-                        <a class="collapse-item" href="utilities-color.html">Accountancy and<br>Business Management<br>(ABM)</a>
-                        <a class="collapse-item" href="utilities-border.html">Humanities and<br>Social Sciences (HUMSS)</a>
-                        <a class="collapse-item" href="utilities-animation.html">Science, Technology,<br>Engineering and<br>Mathematics (STEM)</a>
+                        <a class="collapse-item" href="abm">Accountancy and<br>Business Management<br>(ABM)</a>
+                        <a class="collapse-item" href="humss">Humanities and<br>Social Sciences (HUMSS)</a>
+                        <a class="collapse-item" href="stem">Science, Technology,<br>Engineering and<br>Mathematics (STEM)</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Technical Vocational<br>Livelihood (TVL) Strands</h6>
-                        <a class="collapse-item" href="404.html">Agri-Fishery Arts</a>
-                        <a class="collapse-item" href="blank.html">Information and<br>Communication<br>Technology (ICT)</a>
-                        <a class="collapse-item" href="404.html">Home Economics (HE)</a>
+                        <a class="collapse-item" href="agrifishery">Agri-Fishery Arts</a>
+                        <a class="collapse-item" href="ict">Information and<br>Communication<br>Technology (ICT)</a>
+                        <a class="collapse-item" href="homeeconomics">Home Economics (HE)</a>
                     </div>
                 </div>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="balik-aral">
+                    <i class="fas fa-fw fa-undo-alt"></i>
+                    <span>Balik-Aral</span></a>
+            </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -133,7 +143,7 @@ if (isset($_SESSION['user'])) {
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="text-transform:uppercase;">Logged in as, <strong><?php echo $_SESSION['user']; ?></strong></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="text-transform:uppercase;">Logged in as, <span class="text-success"><strong><?php echo $_SESSION['user']; ?></strong></span></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -164,7 +174,7 @@ if (isset($_SESSION['user'])) {
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800"><b>DASHBOARD</b></h1>
+                        <h1 class="h1 mb-0 text-success"><b>DASHBOARD</b></h1>
                     </div>
 
                     <!-- Content Row -->
@@ -175,7 +185,7 @@ if (isset($_SESSION['user'])) {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-sm font-weight-bold text-primary text-uppercase mb-1" style="font-size: 20px;">
                                                 Total Enrollees</div>
                                             <?php
                                             include 'conn.php';
@@ -200,76 +210,82 @@ if (isset($_SESSION['user'])) {
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-sm font-weight-bold text-success text-uppercase mb-1">
+                                            <div class="text-sm font-weight-bold text-success text-uppercase mb-1" style="font-size: 20px;">
                                                 Male Enrollees</div>
-                                                <?php
-											include 'conn.php';
-											$sex = 'Male';
-											$query = "SELECT id FROM enrollment WHERE sex = ?";
-											$stmt = $conn->prepare($query);
-											$stmt->bind_param("s", $sex);
-											$stmt->execute();
-											$result = $stmt->get_result();
-											$row = $result->num_rows;
-											echo '<div class="h4 mb-0 font-weight-bold text-gray-800">' . $row . '</div>';
-											?>
+                                            <?php
+                                            include 'conn.php';
+                                            $sex = 'Male';
+                                            $query = "SELECT id FROM enrollment WHERE sex = ?";
+                                            $stmt = $conn->prepare($query);
+                                            $stmt->bind_param("s", $sex);
+                                            $stmt->execute();
+                                            $result = $stmt->get_result();
+                                            $row = $result->num_rows;
+                                            echo '<div class="h4 mb-0 font-weight-bold text-gray-800">' . $row . '</div>';
+                                            ?>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-mars fa-3x text-gray-300"></i>
+                                            <i class="fas fa-mars fa-4x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-danger shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1">Female Enrollees
+                                            <div class="text-sm font-weight-bold text-danger text-uppercase mb-1" style="font-size: 20px;">Female Enrollees
                                             </div>
                                             <?php
-											include 'conn.php';
-											$sex = 'Female';
-											$query = "SELECT id FROM enrollment WHERE sex = ?";
-											$stmt = $conn->prepare($query);
-											$stmt->bind_param("s", $sex);
-											$stmt->execute();
-											$result = $stmt->get_result();
-											$row = $result->num_rows;
-											echo '<div class="h4 mb-0 font-weight-bold text-gray-800">' . $row . '</div>';
-											?>
+                                            include 'conn.php';
+                                            $sex = 'Female';
+                                            $query = "SELECT id FROM enrollment WHERE sex = ?";
+                                            $stmt = $conn->prepare($query);
+                                            $stmt->bind_param("s", $sex);
+                                            $stmt->execute();
+                                            $result = $stmt->get_result();
+                                            $row = $result->num_rows;
+                                            echo '<div class="h4 mb-0 font-weight-bold text-gray-800">' . $row . '</div>';
+                                            ?>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-venus fa-3x text-gray-300"></i>
+                                            <i class="fas fa-venus fa-4x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-sm font-weight-bold text-warning text-uppercase mb-1">
+                                            <div class="text-sm font-weight-bold text-warning text-uppercase mb-1" style="font-size: 20px;">
                                                 RETURNEE (BALIK-ARAL)</div>
-                                            <div class="h4 mb-0 font-weight-bold text-gray-800">18</div>
+                                            <?php
+                                            include 'conn.php';
+                                            $balikaral = 'Yes';
+                                            $query = "SELECT id FROM enrollment WHERE balikaral = ?";
+                                            $stmt = $conn->prepare($query);
+                                            $stmt->bind_param("s", $balikaral);
+                                            $stmt->execute();
+                                            $result = $stmt->get_result();
+                                            $row = $result->num_rows;
+                                            echo '<div class="h4 mb-0 font-weight-bold text-gray-800">' . $row . '</div>';
+                                            ?>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-undo fa-2x text-gray-300"></i>
+                                            <i class="fas fa-undo fa-3x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Content Row -->
 
                     <div class="row">
 
@@ -278,12 +294,60 @@ if (isset($_SESSION['user'])) {
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Enrollees per Month</h6>
+                                    <h5 class="m-0 font-weight-bold text-primary" style="text-transform: uppercase; ">LATEST ENROLLEE</h5>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered mt-2 mb-4" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Learner Reference Number (LRN)</th>
+                                                    <th>Name</th>
+                                                    <th>Grade Level</th>
+                                                    <th>Track</th>
+                                                    <th>Strand</th>
+                                                    <th>Date</th>
+                                                    <th>Time</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                include 'conn.php';
+                                                $query = "SELECT * FROM enrollment ORDER BY id DESC LIMIT 3";
+                                                $query_run = mysqli_query($conn, $query);
+                                                if (mysqli_num_rows($query_run) > 0) {
+                                                    foreach ($query_run as $items) {
+                                                ?>
+                                                        <tr>
+                                                            <td>
+                                                                <?= $items['reference']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $items['firstname'] . " " . $items['middlename'] . " " . $items['lastname'] ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $items['gradelevel']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $items['track']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $items['strand']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $items['date']; ?>
+                                                            </td>
+                                                            <td>
+                                                                <?= $items['time']; ?>
+                                                            </td>
+                                                        </tr>
+                                                <?php
+                                                    }
+                                                }
+                                                ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -294,23 +358,12 @@ if (isset($_SESSION['user'])) {
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Number of Enrollees per Track</h6>
+                                    <h5 class="m-0 font-weight-bold text-primary" style="text-transform: uppercase; ">Enrollees per Track</h5>
                                 </div>
                                 <!-- Card Body -->
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
-                                        <canvas id="myPieChart"></canvas>
-                                    </div>
-                                    <div class="mt-4 text-center small">
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
-                                        </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
-                                        </span>
+                                <div class="card-body mb-4 mt-4">
+                                    <div class="chart-pie">
+                                        <canvas id="myPieChart" class="mt-1"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -318,85 +371,98 @@ if (isset($_SESSION['user'])) {
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Content Column -->
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Project Card Example -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="small font-weight-bold">Server Migration <span class="float-right">20%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Sales Tracking <span class="float-right">40%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Customer Database <span class="float-right">60%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Payout Details <span class="float-right">80%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold">Account Setup <span class="float-right">Complete!</span></h4>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <!-- /.container-fluid -->
-
                 </div>
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span><b>Copyright &copy; Plaridel Integrated National High School | 2024</b></span>
-                        </div>
-                    </div>
-                </footer>
-                <!-- End of Footer -->
+                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span><b>Copyright &copy; Plaridel Integrated National High School | 2024</b></span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Page Wrapper -->
+        <!-- End of Content Wrapper -->
 
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
+    </div>
+    <!-- End of Page Wrapper -->
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <?php
+    include 'conn.php';
+    $query = "SELECT track, COUNT(*) as students FROM enrollment GROUP BY track";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $labels = array();
+    $data = array();
+    while ($row = $result->fetch_assoc()) {
+        $labels[] = $row['track'];
+        $data[] = $row['students'];
+    }
+    ?>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="vendor/chart.js/Chart.min.js"></script>
-
-        <!-- Page level custom scripts -->
-        <script src="js/demo/chart-area-demo.js"></script>
-        <script src="js/demo/chart-pie-demo.js"></script>
-
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <!-- Page level custom scripts -->
+    <script>
+        var ctx = document.getElementById("myPieChart");
+        var myPieChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: <?php echo json_encode($labels); ?>,
+                datasets: [{
+                    data: <?php echo json_encode($data); ?>,
+                    backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#e74a3b'],
+                    hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#cf4235'],
+                    hoverBorderColor: "rgba(234, 236, 244, 1)",
+                }],
+            },
+            options: {
+                maintainAspectRatio: false,
+                tooltips: {
+                    backgroundColor: "rgb(255,255,255)",
+                    bodyFontColor: "#858796",
+                    borderColor: '#dddfeb',
+                    borderWidth: 1,
+                    xPadding: 15,
+                    yPadding: 15,
+                    displayColors: false,
+                    caretPadding: 10,
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                            size: 16, // Set the font size
+                            family: 'Arial', // Set the font family
+                            weight: 'bold' // Set the font weight
+                        }
+                    }
+                },
+                cutoutPercentage: 50,
+            },
+        });
+    </script>
 </body>
 
 </html>

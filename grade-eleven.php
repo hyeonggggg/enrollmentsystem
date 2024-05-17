@@ -4,6 +4,13 @@ session_start();
 include 'conn.php';
 
 if (isset($_SESSION['user'])) {
+    if (time() - $_SESSION['login_time_stamp'] > 600) {
+        session_unset();
+        session_destroy();
+        header("Location: admin-login.php");
+    } else {
+        $_SESSION['login_time_stamp'] = time();
+    }
 } else {
     header('Location: admin-login.php');
 }
@@ -30,6 +37,7 @@ if (isset($_SESSION['user'])) {
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
     <style>
         button.dt-button,
         div.dt-button,
@@ -99,7 +107,7 @@ if (isset($_SESSION['user'])) {
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="adminhome">
@@ -151,18 +159,22 @@ if (isset($_SESSION['user'])) {
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header ">Tracks</h6>
-                        <a class="collapse-item" href="utilities-color.html">Accountancy and<br>Business Management<br>(ABM)</a>
-                        <a class="collapse-item" href="utilities-border.html">Humanities and<br>Social Sciences (HUMSS)</a>
-                        <a class="collapse-item" href="utilities-animation.html">Science, Technology,<br>Engineering and<br>Mathematics (STEM)</a>
+                        <a class="collapse-item" href="abm">Accountancy and<br>Business Management<br>(ABM)</a>
+                        <a class="collapse-item" href="humss">Humanities and<br>Social Sciences (HUMSS)</a>
+                        <a class="collapse-item" href="stem">Science, Technology,<br>Engineering and<br>Mathematics (STEM)</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Technical Vocational<br>Livelihood (TVL) Strands</h6>
-                        <a class="collapse-item" href="404.html">Agri-Fishery Arts</a>
-                        <a class="collapse-item" href="blank.html">Information and<br>Communication<br>Technology (ICT)</a>
-                        <a class="collapse-item" href="404.html">Home Economics (HE)</a>
+                        <a class="collapse-item" href="agrifishery">Agri-Fishery Arts</a>
+                        <a class="collapse-item" href="ict">Information and<br>Communication<br>Technology (ICT)</a>
+                        <a class="collapse-item" href="homeeconomics">Home Economics (HE)</a>
                     </div>
                 </div>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link " href="balik-aral">
+                    <i class="fas fa-fw fa-undo-alt"></i>
+                    <span>Balik-Aral</span></a>
+            </li>
             <!-- Heading -->
 
 
@@ -198,7 +210,7 @@ if (isset($_SESSION['user'])) {
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="text-transform:uppercase;">Logged in as, <strong><?php echo $_SESSION['user']; ?></strong></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="text-transform:uppercase;">Logged in as, <span class="text-success"><strong><?php echo $_SESSION['user']; ?></strong></span></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -229,7 +241,7 @@ if (isset($_SESSION['user'])) {
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800"><b>GRADE 11 ENROLLEES</b></h1>
+                        <h1 class="h1 mb-0 text-success"><b>GRADE 11 ENROLLEES</b></h1>
                     </div>
                     <div class="card shadow mb-4">
                         <div class="card-body">
@@ -244,6 +256,9 @@ if (isset($_SESSION['user'])) {
                                             <th>Age</th>
                                             <th>Sex</th>
                                             <th>Place of Birth</th>
+                                            <th>Track</th>
+                                            <th>Strand</th>
+                                            <th>Date</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -255,6 +270,9 @@ if (isset($_SESSION['user'])) {
                                             <th>Age</th>
                                             <th>Sex</th>
                                             <th>Place of Birth</th>
+                                            <th>Track</th>
+                                            <th>Strand</th>
+                                            <th>Date</th>
                                         </tr>
                                         </tr>
                                     </tfoot>
@@ -287,6 +305,15 @@ if (isset($_SESSION['user'])) {
                                                     </td>
                                                     <td>
                                                         <?= $items['placeofbirth']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $items['track']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $items['strand']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?= $items['date']; ?>
                                                     </td>
                                                 </tr>
                                         <?php
