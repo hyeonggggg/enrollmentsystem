@@ -119,6 +119,16 @@
                                         </select>
                                         <label for="floatingSelect">Returning (Balik-Aral)</label>
                                     </div>
+                                    <div style="display: none;" id="transferee">
+                                        <div class="form-floating mb-3">
+                                            <select class="form-select" id="transferred" name="transfer">
+                                                <option selected disabled>Select from options</option>
+                                                <option value="Yes">Yes</option>
+                                                <option value="No">No</option>
+                                            </select>
+                                            <label for="transferredSelect">Transferee</label>
+                                        </div>
+                                    </div>
                                     <!-- Name input-->
                                     <div class="form-floating mb-3" id="birthnumber">
                                         <input class="form-control" name="birthnumber" type="text" placeholder="PSA Birth Certificate No. (if available upon registration)" maxlength="12" />
@@ -189,6 +199,31 @@
                                         <label for="floatingSelect">Sex</label>
                                     </div>
                                     <div class="form-floating mb-3">
+                                        <select class="form-select" id="mother_tongue" name="mother_tongue" required>
+                                            <option selected disabled>Select from options</option>
+                                            <option value="Tagalog">Tagalog</option>
+                                            <option value="Kapampangan">Kapampangan</option>
+                                            <option value="Pangasinan">Pangasinan</option>
+                                            <option value="Iloko">Iloko</option>
+                                            <option value="Bikol">Bikol</option>
+                                            <option value="Ybanag">Ybanag</option>
+                                            <option value="Sinugbuanong Binisaya">Sinugbuanong Binisaya</option>
+                                            <option value="Hiligaynon">Hiligaynon</option>
+                                            <option value="Waray">Waray</option>
+                                            <option value="Bahasa Sug">Bahasa Sug</option>
+                                            <option value="Maguindanaoan">Maguindanaoan</option>
+                                            <option value="Maranao">Maranao</option>
+                                            <option value="Chavacano">Chavacano</option>
+                                            <option value="Ivatan">Ivatan</option>
+                                            <option value="Sambal">Sambal</option>
+                                            <option value="Akianon">Akianon</option>
+                                            <option value="Kinaray-a">Kinaray-a</option>
+                                            <option value="Yakan">Yakan</option>
+                                            <option value="Sinurigaonon">Sinurigaonon</option>
+                                        </select>
+                                        <label for="floatingSelect">Mother Tongue</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
                                         <input class="form-control" name="placeofbirth" type="text" required placeholder="Place of Birth" />
                                         <label id="placeofbirth">Place of Birth (Municipality/City)</label>
                                     </div>
@@ -251,20 +286,28 @@
                                     <h5 class="text-success"><strong>Current Address</strong></h5>
                                     <div class="row g-2">
                                         <div class="form-floating mb-2">
-                                            <input type="text" class="form-control form-control-md" name="region_text" id="region-text" placeholder="Region" required>
-                                            <label class="form-label">Region</label>
+                                            <input type="text" class="form-control form-control-md" name="housenumber_text" id="housenumber-text" placeholder="House No." required>
+                                            <label class="form-label">House No.</label>
+                                        </div>
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="streetname_text" id="streetname-text" placeholder="Sitio / Street Name" required>
+                                            <label class="form-label">Sitio / Street Name</label>
+                                        </div>
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="barangay_text" id="barangay-text" placeholder="Barangay" required>
+                                            <label class="form-label">Barangay</label>
+                                        </div>
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="city_text" id="city-text" placeholder="City / Municipality" required>
+                                            <label class="form-label">Municipality / City</label>
                                         </div>
                                         <div class="form-floating mb-2">
                                             <input type="text" class="form-control form-control-md" name="province_text" id="province-text" placeholder="Province" required>
                                             <label class="form-label">Province</label>
                                         </div>
                                         <div class="form-floating mb-2">
-                                            <input type="text" class="form-control form-control-md" name="city_text" id="city-text" placeholder="City / Municipality" required>
-                                            <label class="form-label">City / Municipality</label>
-                                        </div>
-                                        <div class="form-floating mb-2">
-                                            <input type="text" class="form-control form-control-md" name="barangay_text" id="barangay-text" placeholder="Barangay" required>
-                                            <label class="form-label">Barangay</label>
+                                            <input type="text" class="form-control form-control-md" name="country_text" id="country-text" placeholder="Country" required>
+                                            <label class="form-label">Country</label>
                                         </div>
                                         <div class="form-floating mb-3">
                                             <input type="text" class="form-control form-control-md" maxlength="4" name="zipcode" id="zipcode" placeholder="Zip Code" required>
@@ -274,23 +317,31 @@
                                     <h5 class="text-success"><strong>Permanent Address</strong></h5>
                                     <div class="row g-2">
                                         <div class="form-floating mb-2">
-                                            <input type="text" class="form-control form-control-md" name="permanent_region_text" id="permanent_region-text" placeholder="Region" required>
-                                            <label class="form-label">Region</label>
+                                            <input type="text" class="form-control form-control-md" name="permanent_housenumber_text" id="permanent-housenumber-text" placeholder="House No." required>
+                                            <label class="form-label">House No.</label>
                                         </div>
                                         <div class="form-floating mb-2">
-                                            <input type="text" class="form-control form-control-md" name="permanent_province_text" id="permanent_province-text" placeholder="Province" required>
+                                            <input type="text" class="form-control form-control-md" name="permanent_streetname_text" id="permanent-streetname-text" placeholder="Sitio / Street Name" required>
+                                            <label class="form-label">Sitio / Street Name</label>
+                                        </div>
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="permanent_barangay_text" id="permanent-barangay-text" placeholder="Barangay" required>
+                                            <label class="form-label">Barangay</label>
+                                        </div>
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="permanent_city_text" id="permanent-city-text" placeholder="City / Municipality" required>
+                                            <label class="form-label">Municipality / City</label>
+                                        </div>
+                                        <div class="form-floating mb-2">
+                                            <input type="text" class="form-control form-control-md" name="permanent_province_text" id="permanent-province-text" placeholder="Province" required>
                                             <label class="form-label">Province</label>
                                         </div>
                                         <div class="form-floating mb-2">
-                                            <input type="text" class="form-control form-control-md" name="permanent_city_text" id="permanent_city-text" placeholder="City / Municipality" required>
-                                            <label class="form-label">City / Municipality</label>
-                                        </div>
-                                        <div class="form-floating mb-2">
-                                            <input type="text" class="form-control form-control-md" name="permanent_barangay_text" id="permanent_barangay-text" placeholder="Barangay" required>
-                                            <label class="form-label">Barangay</label>
+                                            <input type="text" class="form-control form-control-md" name="permanent_country_text" id="permanent-country-text" placeholder="Country" required>
+                                            <label class="form-label">Country</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input type="text" class="form-control form-control-md" maxlength="4" name="permanent_zipcode" id="permanent_zipcode" placeholder="Zip Code" required>
+                                            <input type="text" class="form-control form-control-md" maxlength="4" name="permanent_zipcode" id="permanent-zipcode" placeholder="Zip Code" required>
                                             <label class="form-label">Zip Code</label>
                                         </div>
                                     </div>
@@ -610,10 +661,12 @@
         document.getElementById('balikaral').addEventListener('change', function() {
             if (this.value === 'Yes') {
                 document.getElementById('balik-aral').style.display = 'block';
+                document.getElementById('transferee').style.display = 'block';
                 document.getElementById('lastschoolyearLabel').textContent = 'Last School Year Completed';
                 document.getElementById('lastgradelevelLabel').textContent = 'Last Grade Level Completed';
             } else {
                 document.getElementById('balik-aral').style.display = 'none';
+                document.getElementById('transferee').style.display = 'none';
             }
         });
 

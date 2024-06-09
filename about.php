@@ -97,8 +97,8 @@
         <section class="py-5 py-5 bg-light" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
             <div class="container px-5 my-5">
                 <div class="text-center" data-aos="fade-up">
-                    <h1 class="fw-bolder display-5 text-success">ORGANIZATIONAL CHART</h1>
-                    <p class="lead fw-normal text-muted mb-5">Dedicated to quality and your success</p>
+                    <h1 class="fw-bolder display-5 text-success">SCHOOL ORGANIZATIONAL CHART</h1>
+                    <p class="lead fw-normal text-muted mb-5 fst-italic">SENIOR HIGH SCHOOL DEPARTMENT</p>
                 </div>
                 <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
                     <div class="col mb-5 mb-5 mb-xl-0">
@@ -109,33 +109,236 @@
                         </div>
                     </div>
                 </div>
+                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
+                    <div class="col mb-5 mb-5 mb-xl-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" width="200" src="assets/ELIAZAR-ESTEBESA.jpg" alt="..." />
+                            <h5 class="fw-bolder text-success">ELIAZAR O. ESTEBESA</h5>
+                            <div class="fst-italic text-muted">Senior High School Coordinator</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center" data-aos="fade-up">
+                    <h1 class="fw-bolder display-7 text-success mb-5">Science, Technology, Engineering and Mathematics (STEM)</h1>
+                </div>
+                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
+                    <div class="col mb-5 mb-5 mb-xl-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" width="200" src="assets/ELIAZAR-ESTEBESA.jpg" alt="..." />
+                            <h5 class="fw-bolder text-success">ELIAZAR O. ESTEBESA</h5>
+                            <div class="fst-italic text-muted">Subject Group Head - STEM<br>Master Teacher I</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center" data-aos="fade-up">
                     <div class="col mb-5 mb-5 mb-xl-0">
                         <div class="text-center">
                             <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder">Ibbie Eckart</h5>
-                            <div class="fst-italic text-muted">Founder &amp; CEO</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5 mb-5 mb-xl-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder">Arden Vasek</h5>
-                            <div class="fst-italic text-muted">CFO</div>
+                            <h5 class="fw-bolder text-success">NIEVA O. BUENSOCESO</h5>
+                            <div class="fst-italic text-muted">Teacher III</div>
                         </div>
                     </div>
                     <div class="col mb-5 mb-5 mb-sm-0">
                         <div class="text-center">
                             <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder">Toribio Nerthus</h5>
-                            <div class="fst-italic text-muted">Operations Manager</div>
+                            <h5 class="fw-bolder text-success">SHIELA C. NARTE</h5>
+                            <div class="fst-italic text-muted">Teacher II</div>
                         </div>
                     </div>
                     <div class="col mb-5">
                         <div class="text-center">
                             <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder">Malvina Cilla</h5>
-                            <div class="fst-italic text-muted">CTO</div>
+                            <h5 class="fw-bolder text-success">JOSEPH C. PANGAYAO</h5>
+                            <div class="fst-italic text-muted">Special Science Teacher I</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">MIKO REY P. PEREZ</h5>
+                            <div class="fst-italic text-muted">Special Science Teacher I</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">THOMAS JOSEPH DA. VIRTUCIO</h5>
+                            <div class="fst-italic text-muted">Special Science Teacher I</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">ARIENE MAY R. URRETE</h5>
+                            <div class="fst-italic text-muted">Special Science Teacher I</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">REGINA B. ARANZA</h5>
+                            <div class="fst-italic text-muted">Teacher I</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center" data-aos="fade-up">
+                    <h1 class="fw-bolder display-7 text-success mb-5">Humanities and Social Sciences<br>(HUMSS)</h1>
+                </div>
+                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
+                    <div class="col mb-5 mb-5 mb-xl-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">DR. DANCEL M. SAPIGAO</h5>
+                            <div class="fst-italic text-muted">Subject Group Head - HUMSS<br>Master Teacher II</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center" data-aos="fade-up">
+                    <div class="col mb-5 mb-5 mb-xl-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">BERNADETTE R. AQUINO</h5>
+                            <div class="fst-italic text-muted">Teacher III</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5 mb-5 mb-sm-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">DR. LIZA V. TUICO</h5>
+                            <div class="fst-italic text-muted">Teacher III</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">DR. ELOISA D. RUBIATO</h5>
+                            <div class="fst-italic text-muted">Teacher II</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">NHEDELEE S. ALIUD</h5>
+                            <div class="fst-italic text-muted">Teacher II</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">BERNADETTE VANESSA MAE B. SAJONIA</h5>
+                            <div class="fst-italic text-muted">Teacher I</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">ELDRYNE B. RAMIREZ</h5>
+                            <div class="fst-italic text-muted">Teacher I</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">NORMIN O. AREJOLA</h5>
+                            <div class="fst-italic text-muted">Teacher I</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center" data-aos="fade-up">
+                    <h1 class="fw-bolder display-7 text-success mb-5">Accountancy and Business Management (ABM)<br>Information and Communication Technology (ICT)</h1>
+                </div>
+                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
+                    <div class="col mb-5 mb-5 mb-xl-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">MARIAN O. QUITOLLA</h5>
+                            <div class="fst-italic text-muted">Subject Group Head - ABM / ICT<br>Master Teacher II</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center" data-aos="fade-up">
+                    <div class="col mb-5 mb-5 mb-xl-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">RICHARD V. BUETA</h5>
+                            <div class="fst-italic text-muted">Teacher III</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5 mb-5 mb-sm-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">ARMIN A. BUENSALIDA</h5>
+                            <div class="fst-italic text-muted">Teacher III</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">HAZELYN J. VIREY</h5>
+                            <div class="fst-italic text-muted">Teacher II</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">IMELDA B. MERJILLA</h5>
+                            <div class="fst-italic text-muted">Teacher II</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">BENEDICT M. BUENA</h5>
+                            <div class="fst-italic text-muted">Special Science Teacher I</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center" data-aos="fade-up">
+                    <h1 class="fw-bolder display-7 text-success mb-5">Technical Vocational Livelihood (TVL)<br>Home Economics (HE)<br>Agri-Fishery Arts</h1>
+                </div>
+                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
+                    <div class="col mb-5 mb-5 mb-xl-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">JENNETH J. BARBA</h5>
+                            <div class="fst-italic text-muted">Subject Group Head - HE / AFA<br>Master Teacher II</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center" data-aos="fade-up">
+                    <div class="col mb-5 mb-5 mb-xl-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">MARIA KRISTINE R. MONTSERRAT</h5>
+                            <div class="fst-italic text-muted">Teacher II</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5 mb-5 mb-sm-0">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">ANTONIA S. GURRIBA</h5>
+                            <div class="fst-italic text-muted">Teacher II</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">FLORDELIZA B. NAGUIT</h5>
+                            <div class="fst-italic text-muted">Teacher II</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">REA ROSE E. AGAPAU</h5>
+                            <div class="fst-italic text-muted">Teacher II</div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
+                            <h5 class="fw-bolder text-success">LERNIE C. CLAVE</h5>
+                            <div class="fst-italic text-muted">Teacher II</div>
                         </div>
                     </div>
                 </div>

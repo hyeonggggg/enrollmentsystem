@@ -37,17 +37,74 @@ if (isset($_SESSION['user'])) {
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.bootstrap4.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#dataTable').DataTable({
+                dom: 'lBfrtip',
+                buttons: ['copy',
+                    {
+                        extend: 'csv',
+                        title: '',
+                        messageTop: 'LIST OF ENROLLEES - PLARIDEL INTEGRATED NATIONAL HIGH SCHOOL',
+                        exportOptions: {
+                            columns: [1, 2, 3, 4, 5, 6, 7, 8]
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        title: '',
+                        messageTop: 'LIST OF ENROLLEES - PLARIDEL INTEGRATED NATIONAL HIGH SCHOOL',
+                        exportOptions: {
+                            columns: [1, 2, 3, 4, 5, 6, 7, 8]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        title: '',
+                        messageTop: function() {
+                            return '<h2 style="text-align:center;color:black; margin-top:80px;">LIST OF ENROLLEES (TVL - HOME ECONOMICS)</h2>';
+                        },
+                        customize: function(win) {
+                            $(win.document.body)
+                                .css('font-size', '12pt')
+                                .prepend(
+                                    '<br><br><br>',
+                                    '<p style="position:absolute; margin-left: auto; margin-right: auto; margin-top: -60px; left: 0; right: 0; text-align: center; color:black; font-size: 10pt;">Republic of the Philippines<br><span style="font-weight: bold; font-size: 12pt;">Department of Education</span><br>REGION IVA- CALABARZON<br>SCHOOLS DIVISION OF LAGUNA<br>PLARIDEL INTEGRATED NATIONAL HIGH SCHOOL<br>NAGCARLAN, LAGUNA</p>',
+                                    '<img src="assets/favicon.png" style="position:absolute; top:10; left:350px; width:70px;" />',
+                                );
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', '14pt');
+                        },
+                        exportOptions: {
+                            columns: [1, 2, 3, 4, 5, 6, 7, 8]
+                        }
+                    }
+                ],
+                columnDefs: [{
+                    targets: [0, 1, 2, 3, 4, 5, 6]
+                }]
+            });
+        });
+    </script>
 
     <style>
-        button.dt-button,
-        div.dt-button,
-        a.dt-button,
-        input.dt-button {
-            border-radius: 5px;
-            color: black;
-            background-color: #1CC88A;
-            border: 1px solid #1CC88A;
-            transition: 0.2s;
+        .btn-secondary {
+            background-color: #1cc88a;
+            border-color: #1CC88A;
+            margin-bottom: 10px;
+        }
+
+        .btn-secondary:hover {
+            background-color: WHITE;
+            color: #1CC88A;
+            border-color: green;
         }
 
         div.dataTables_wrapper div.dataTables_filter input {
@@ -59,15 +116,6 @@ if (isset($_SESSION['user'])) {
             border-radius: 5px;
             border: 1px solid #1CC88A;
             box-shadow: none;
-        }
-
-        button.dt-button:hover:not(.disabled),
-        div.dt-button:hover:not(.disabled),
-        a.dt-button:hover:not(.disabled),
-        input.dt-button:hover:not(.disabled) {
-            border: 1px solid #1CC88A;
-            background-color: black;
-            color: white;
         }
 
         div.dataTables_wrapper div.dataTables_length label {
@@ -96,6 +144,12 @@ if (isset($_SESSION['user'])) {
             margin-bottom: 10px;
             color: #1CC88A;
             box-shadow: none;
+        }
+
+        @media print {
+            @page {
+                size: landscape;
+            }
         }
     </style>
 
@@ -175,6 +229,11 @@ if (isset($_SESSION['user'])) {
                     <i class="fas fa-fw fa-undo-alt"></i>
                     <span>Balik-Aral</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="transferee">
+                <i class="fas fa-exchange-alt"></i>
+                    <span>Transferee</span></a>
+            </li>
             <!-- Heading -->
 
 
@@ -224,7 +283,7 @@ if (isset($_SESSION['user'])) {
                                     Settings
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="adminlogout.php">
+                                <a class="dropdown-item" href="admin-logout.php">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -365,6 +424,13 @@ if (isset($_SESSION['user'])) {
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.bootstrap4.min.js"></script>
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 

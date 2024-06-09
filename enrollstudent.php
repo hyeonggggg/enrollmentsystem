@@ -12,6 +12,7 @@ if (empty($_POST['schoolyear']) || empty($_POST['gradelevel']) || empty($_POST['
   $lrn = $_POST['lrn'];
   $reference = $_POST['reference'];
   $balikaral = $_POST['balikaral'];
+  $transfer = $_POST['transfer'];
   $birthnumber = $_POST['birthnumber'];
   $lastname = $_POST['lastname'];
   $firstname = $_POST['firstname'];
@@ -19,21 +20,28 @@ if (empty($_POST['schoolyear']) || empty($_POST['gradelevel']) || empty($_POST['
   $extension = $_POST['extension'];
   $birthday = $_POST['birthday'];
   $age = $_POST['age'];
+  $mother_tongue = $_POST['mother_tongue'];
   $sex = $_POST['sex'];
   $placeofbirth = $_POST['placeofbirth'];
   $ip = $_POST['ip'];
   $indigenous = $_POST['indigenous'];
   $pantawid = $_POST['pantawid'];
   $pantawidProgram = $_POST['pantawidProgram'];
-  $region_text = $_POST['region_text'];
-  $province_text = $_POST['province_text'];
-  $city_text = $_POST['city_text'];
+  $disability = $_POST['disability'];
+  $learnerdisability = $_POST['learnerdisability'];
+  $housenumber_text = $_POST['housenumber_text'];
+  $streetname_text = $_POST['streetname_text'];
   $barangay_text = $_POST['barangay_text'];
+  $city_text = $_POST['city_text'];
+  $province_text = $_POST['province_text'];
+  $country_text = $_POST['country_text'];
   $zipcode = $_POST['zipcode'];
-  $permanent_region_text = $_POST['permanent_region_text'];
-  $permanent_province_text = $_POST['permanent_province_text'];
-  $permanent_city_text = $_POST['permanent_city_text'];
+  $permanent_housenumber_text = $_POST['permanent_housenumber_text'];
+  $permanent_streetname_text = $_POST['permanent_streetname_text'];
   $permanent_barangay_text = $_POST['permanent_barangay_text'];
+  $permanent_city_text = $_POST['permanent_city_text'];
+  $permanent_province_text = $_POST['permanent_province_text'];
+  $permanent_country_text = $_POST['permanent_country_text'];
   $permanent_zipcode = $_POST['permanent_zipcode'];
   $fathers_lastname = $_POST['fathers_lastname'];
   $fathers_firstname = $_POST['fathers_firstname'];
@@ -60,7 +68,7 @@ if (empty($_POST['schoolyear']) || empty($_POST['gradelevel']) || empty($_POST['
   
 
   include 'conn.php';
-  mysqli_query($conn, "INSERT INTO enrollment(schoolyear, gradelevel, lrn, reference, balikaral, birthnumber, lastname, firstname, middlename, extension, birthday, age, sex, placeofbirth, ip, indigenous, pantawid, pantawidProgram, region_text, province_text, city_text, barangay_text, zipcode, permanent_region_text, permanent_province_text, permanent_city_text, permanent_barangay_text, permanent_zipcode, fathers_lastname, fathers_firstname, fathers_middlename, fathers_phonenumber, mothers_lastname, mothers_firstname, mothers_middlename, mothers_phonenumber, guardians_lastname, guardians_firstname, guardians_middlename, guardians_phonenumber, lastschoolyear, lastschoolattended, schoolid, semester, track, strand, modality, date, time)VALUES('$schoolyear', '$gradelevel', '$lrn', '$reference', '$balikaral', '$birthnumber', '$lastname', '$firstname', '$middlename', '$extension', '$birthday', '$age', '$sex', '$placeofbirth', '$ip', '$indigenous', '$pantawid', '$pantawidProgram', '$region_text', '$province_text', '$city_text', '$barangay_text', '$zipcode', '$permanent_region_text', '$permanent_province_text', '$permanent_city_text', '$permanent_barangay_text', '$permanent_zipcode', '$fathers_lastname', '$fathers_firstname', '$fathers_middlename', '$fathers_phonenumber', '$mothers_lastname', '$mothers_firstname', '$mothers_middlename', '$mothers_phonenumber', '$guardians_lastname', '$guardians_firstname', '$guardians_middlename', '$guardians_phonenumber', '$lastschoolyear', '$lastschoolattended', '$schoolid', '$semester', '$track', '$strand', '$modality', '$date', '$time')") or die('Query Error');
+  mysqli_query($conn, "INSERT INTO enrollment(schoolyear, gradelevel, lrn, reference, balikaral, transfer, birthnumber, lastname, firstname, middlename, extension, birthday, age, mother_tongue, sex, placeofbirth, ip, indigenous, pantawid, pantawidProgram, disability, learnerdisability, housenumber_text, streetname_text, barangay_text, city_text, province_text, country_text, zipcode, permanent_housenumber_text, permanent_streetname_text, permanent_barangay_text, permanent_city_text, permanent_province_text, permanent_country_text, permanent_zipcode, fathers_lastname, fathers_firstname, fathers_middlename, fathers_phonenumber, mothers_lastname, mothers_firstname, mothers_middlename, mothers_phonenumber, guardians_lastname, guardians_firstname, guardians_middlename, guardians_phonenumber, lastgradelevel, lastschoolyear, lastschoolattended, schoolid, semester, track, strand, modality, date, time)VALUES('$schoolyear', '$gradelevel', '$lrn', '$reference', '$balikaral', '$transfer', '$birthnumber', '$lastname', '$firstname', '$middlename', '$extension', '$birthday', '$age', '$mother_tongue', '$sex', '$placeofbirth', '$ip', '$indigenous', '$pantawid', '$pantawidProgram', '$disability', '$learnerdisability', '$housenumber_text', '$streetname_text', '$barangay_text', '$city_text', '$province_text', '$country_text', '$zipcode', '$permanent_housenumber_text', '$permanent_streetname_text', '$permanent_barangay_text', '$permanent_city_text', '$permanent_province_text', '$permanent_country_text', '$permanent_zipcode', '$fathers_lastname', '$fathers_firstname', '$fathers_middlename', '$fathers_phonenumber', '$mothers_lastname', '$mothers_firstname', '$mothers_middlename', '$mothers_phonenumber', '$guardians_lastname', '$guardians_firstname', '$guardians_middlename', '$guardians_phonenumber', '$lastgradelevel', '$lastschoolyear', '$lastschoolattended', '$schoolid', '$semester', '$track', '$strand', '$modality', '$date', '$time')") or die('Query Error');
 
   header('Location: success.php');
 }

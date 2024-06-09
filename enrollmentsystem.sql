@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2024 at 09:40 PM
+-- Generation Time: May 21, 2024 at 03:36 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -30,15 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'admin', 'admin123');
+INSERT INTO `admin` (`id`, `username`, `password`, `name`) VALUES
+(1, 'admin', 'admin123', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -117,7 +118,29 @@ INSERT INTO `enrollment` (`id`, `schoolyear`, `gradelevel`, `lrn`, `reference`, 
 (19, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'No', '', 'Reyes', 'Andrew', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Nagcarlan', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'REYES', 'ANDRES', 'POLICARPIO', '+639562511012', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '17/05/2024', '08:40:11pm'),
 (20, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'No', '', 'Reyes', 'Andrew', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Nagcarlan', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'REYES', 'ANDRES', 'POLICARPIO', '+639562511012', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '18/05/2024', '02:46:09am'),
 (21, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'No', '', 'Reyes', 'Andrew', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Nagcarlan', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'REYES', 'ANDRES', 'POLICARPIO', '+639562511012', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '18/05/2024', '02:48:00am'),
-(22, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'No', '', 'Reyes', 'Gina', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Nagcarlan', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'REYES', 'ANDRES', 'POLICARPIO', '+639562511012', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '18/05/2024', '02:54:01am');
+(22, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'No', '', 'Reyes', 'Gina', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Nagcarlan', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'REYES', 'ANDRES', 'POLICARPIO', '+639562511012', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '18/05/2024', '02:54:01am'),
+(23, '2024 - 2025', 'Grade 11', 'No', '', 'No', '', 'mari', 'aye', '', '', 'Female', '2002-11-15', '21', 'Tiaong', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'Tiaong', 'Paiisa', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'Tiaong', 'Paiisa', '4002', 'maca', 'linao', 'M', '+636454227855', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Information and Communication Technology (ICT)', '', '18/05/2024', '11:03:15am'),
+(24, '2024 - 2025', 'Grade 12', 'No', '', 'Yes', '', 'Kendrix', 'Brosas', 'Britiller', '', 'Female', '2023-06-15', '0', 'Tiaong', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'LILIW', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'LILIW', 'KANLURANG BUKAL', '4002', 'asdasd', 'ANDRES', 'POLICARPIO', '+639562511012', 'SEVILLA', 'ANGELITA', 'adas', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '2017-2018', 'Plaridel', '301258', '', '', '', '', '18/05/2024', '11:05:35am');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `superadmin`
+--
+
+CREATE TABLE `superadmin` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `superadmin`
+--
+
+INSERT INTO `superadmin` (`id`, `name`, `username`, `password`) VALUES
+(1, 'super', 'super', 'super123');
 
 --
 -- Indexes for dumped tables
@@ -136,6 +159,12 @@ ALTER TABLE `enrollment`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `superadmin`
+--
+ALTER TABLE `superadmin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -149,7 +178,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `enrollment`
 --
 ALTER TABLE `enrollment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `superadmin`
+--
+ALTER TABLE `superadmin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
