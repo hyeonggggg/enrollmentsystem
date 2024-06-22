@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2024 at 03:36 PM
+-- Generation Time: Jun 22, 2024 at 03:29 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -54,6 +54,7 @@ CREATE TABLE `enrollment` (
   `lrn` varchar(100) NOT NULL,
   `reference` varchar(100) NOT NULL,
   `balikaral` varchar(100) NOT NULL,
+  `transfer` varchar(100) NOT NULL,
   `birthnumber` varchar(100) NOT NULL,
   `lastname` varchar(100) NOT NULL,
   `firstname` varchar(100) NOT NULL,
@@ -62,6 +63,7 @@ CREATE TABLE `enrollment` (
   `sex` varchar(100) NOT NULL,
   `birthday` varchar(100) NOT NULL,
   `age` varchar(100) NOT NULL,
+  `mother_tongue` varchar(100) NOT NULL,
   `placeofbirth` varchar(100) NOT NULL,
   `ip` varchar(100) NOT NULL,
   `indigenous` varchar(100) NOT NULL,
@@ -69,15 +71,19 @@ CREATE TABLE `enrollment` (
   `pantawidProgram` varchar(100) NOT NULL,
   `disability` varchar(100) NOT NULL,
   `learnerdisability` varchar(100) NOT NULL,
-  `region_text` varchar(100) NOT NULL,
-  `province_text` varchar(100) NOT NULL,
-  `city_text` varchar(100) NOT NULL,
+  `housenumber_text` varchar(100) NOT NULL,
+  `streetname_text` varchar(100) NOT NULL,
   `barangay_text` varchar(100) NOT NULL,
+  `city_text` varchar(100) NOT NULL,
+  `province_text` varchar(100) NOT NULL,
+  `country_text` varchar(100) NOT NULL,
   `zipcode` varchar(100) NOT NULL,
-  `permanent_region_text` varchar(100) NOT NULL,
-  `permanent_province_text` varchar(100) NOT NULL,
-  `permanent_city_text` varchar(100) NOT NULL,
+  `permanent_housenumber_text` varchar(100) NOT NULL,
+  `permanent_streetname_text` tinytext NOT NULL,
   `permanent_barangay_text` varchar(100) NOT NULL,
+  `permanent_city_text` varchar(100) NOT NULL,
+  `permanent_province_text` varchar(100) NOT NULL,
+  `permanent_country_text` varchar(100) NOT NULL,
   `permanent_zipcode` varchar(100) NOT NULL,
   `fathers_lastname` varchar(100) NOT NULL,
   `fathers_firstname` varchar(100) NOT NULL,
@@ -107,20 +113,45 @@ CREATE TABLE `enrollment` (
 -- Dumping data for table `enrollment`
 --
 
-INSERT INTO `enrollment` (`id`, `schoolyear`, `gradelevel`, `lrn`, `reference`, `balikaral`, `birthnumber`, `lastname`, `firstname`, `middlename`, `extension`, `sex`, `birthday`, `age`, `placeofbirth`, `ip`, `indigenous`, `pantawid`, `pantawidProgram`, `disability`, `learnerdisability`, `region_text`, `province_text`, `city_text`, `barangay_text`, `zipcode`, `permanent_region_text`, `permanent_province_text`, `permanent_city_text`, `permanent_barangay_text`, `permanent_zipcode`, `fathers_lastname`, `fathers_firstname`, `fathers_middlename`, `fathers_phonenumber`, `mothers_lastname`, `mothers_firstname`, `mothers_middlename`, `mothers_phonenumber`, `guardians_lastname`, `guardians_firstname`, `guardians_middlename`, `guardians_phonenumber`, `lastgradelevel`, `lastschoolyear`, `lastschoolattended`, `schoolid`, `semester`, `track`, `strand`, `modality`, `date`, `time`) VALUES
-(11, '2024 - 2025', 'Grade 12', 'Yes', '108297060075', 'No', '', 'Brosas', 'Kendrix', 'Britiller', 'Jr.', 'Male', '2000-06-14', '23', 'Liliw', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'LILIW', 'KANLURANG BUKAL', '4004', 'Region IV-A CALABARZON', 'LAGUNA', 'LILIW', 'KANLURANG BUKAL', '4002', 'asdasd', 'asdasd', 'asdasda', '+639562511012', 'asdasda', 'adasd', 'adas', '+639562511012', 'asdasd', 'adsasd', 'asdasdas', '+639562511012', '', '', '', '', '', 'Accountancy and Business Management (ABM)', '', '', '0000-00-00', '00:00:00'),
-(13, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'No', '', 'Reyes', 'Andrew', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Nagcarlan', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'REYES', 'ANDRES', 'POLICARPIO', '+636454227855', 'SEVILLA', 'ANGELITA', 'SANTOS', '+636364542278', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '0000-00-00', '00:00:00'),
-(14, '2024 - 2025', 'Grade 11', 'No', '', 'No', '', 'Brosas', 'Kendrix', 'Britiller', 'N/A', 'Male', '2001-05-05', '23', 'Liliw', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'LILIW', 'Kanlurang Bukal', '4004', 'Region IV-A CALABARZON', 'LAGUNA', 'LILIW', 'Kanlurang Bukal', '4004', 'Brosas', 'Alvin', 'Borlaza', '+639664179718', 'Britiller', 'Joselyn', 'Silva', '+639213023468', 'Britiller', 'Evelyn', 'Silva', '+639664147884', '', '', '', '', '1st Semester', 'Humanities and Social Sciences (HUMSS)', '', '', '0000-00-00', '00:00:00'),
-(15, '2024 - 2025', 'Grade 11', 'No', '', 'No', '', 'Brosas', 'Kendrix', 'Britiller', 'N/A', 'Male', '2001-05-05', '23', 'Liliw', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'LILIW', 'Kanlurang Bukal', '4004', 'Region IV-A CALABARZON', 'LAGUNA', 'LILIW', 'Kanlurang Bukal', '4004', 'Brosas', 'Alvin', 'Borlaza', '+639664179718', 'Britiller', 'Joselyn', 'Silva', '+639213023468', 'Britiller', 'Evelyn', 'Silva', '+639664147884', '', '', '', '', '1st Semester', 'Science, Technology, Engineering and Mathematics (STEM)', '', '', '0000-00-00', '00:00:00'),
-(16, '2024 - 2025', 'Grade 11', 'No', '', 'No', '', 'Brosas', 'Kendrix', 'Britiller', 'N/A', 'Male', '2001-05-05', '23', 'Liliw', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'LILIW', 'Kanlurang Bukal', '4004', 'Region IV-A CALABARZON', 'LAGUNA', 'LILIW', 'Kanlurang Bukal', '4004', 'Brosas', 'Alvin', 'Borlaza', '+639664179718', 'Britiller', 'Joselyn', 'Silva', '+639213023468', 'Britiller', 'Evelyn', 'Silva', '+639664147884', '', '', '', '', '1st Semester', 'Science, Technology, Engineering and Mathematics (STEM)', '', '', '0000-00-00', '00:00:00'),
-(17, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'No', '', 'Reyes', 'Andrew', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Nagcarlan', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'REYES', 'ANDRES', 'POLICARPIO', '+639562511012', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '0000-00-00', '08:36:47'),
-(18, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'No', '', 'Reyes', 'Andrew', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Nagcarlan', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'REYES', 'ANDRES', 'POLICARPIO', '+639562511012', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '17/05/2024', '08:37:42pm'),
-(19, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'No', '', 'Reyes', 'Andrew', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Nagcarlan', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'REYES', 'ANDRES', 'POLICARPIO', '+639562511012', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '17/05/2024', '08:40:11pm'),
-(20, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'No', '', 'Reyes', 'Andrew', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Nagcarlan', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'REYES', 'ANDRES', 'POLICARPIO', '+639562511012', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '18/05/2024', '02:46:09am'),
-(21, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'No', '', 'Reyes', 'Andrew', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Nagcarlan', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'REYES', 'ANDRES', 'POLICARPIO', '+639562511012', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '18/05/2024', '02:48:00am'),
-(22, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'No', '', 'Reyes', 'Gina', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Nagcarlan', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'NAGCARLAN', 'BANAGO', '4002', 'REYES', 'ANDRES', 'POLICARPIO', '+639562511012', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '18/05/2024', '02:54:01am'),
-(23, '2024 - 2025', 'Grade 11', 'No', '', 'No', '', 'mari', 'aye', '', '', 'Female', '2002-11-15', '21', 'Tiaong', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'Tiaong', 'Paiisa', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'Tiaong', 'Paiisa', '4002', 'maca', 'linao', 'M', '+636454227855', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '', '', '', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Information and Communication Technology (ICT)', '', '18/05/2024', '11:03:15am'),
-(24, '2024 - 2025', 'Grade 12', 'No', '', 'Yes', '', 'Kendrix', 'Brosas', 'Britiller', '', 'Female', '2023-06-15', '0', 'Tiaong', 'No', '', 'No', '', '', '', 'Region IV-A CALABARZON', 'LAGUNA', 'LILIW', 'BANAGO', '4002', 'Region IV-A CALABARZON', 'LAGUNA', 'LILIW', 'KANLURANG BUKAL', '4002', 'asdasd', 'ANDRES', 'POLICARPIO', '+639562511012', 'SEVILLA', 'ANGELITA', 'adas', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+636364542278', '', '2017-2018', 'Plaridel', '301258', '', '', '', '', '18/05/2024', '11:05:35am');
+INSERT INTO `enrollment` (`id`, `schoolyear`, `gradelevel`, `lrn`, `reference`, `balikaral`, `transfer`, `birthnumber`, `lastname`, `firstname`, `middlename`, `extension`, `sex`, `birthday`, `age`, `mother_tongue`, `placeofbirth`, `ip`, `indigenous`, `pantawid`, `pantawidProgram`, `disability`, `learnerdisability`, `housenumber_text`, `streetname_text`, `barangay_text`, `city_text`, `province_text`, `country_text`, `zipcode`, `permanent_housenumber_text`, `permanent_streetname_text`, `permanent_barangay_text`, `permanent_city_text`, `permanent_province_text`, `permanent_country_text`, `permanent_zipcode`, `fathers_lastname`, `fathers_firstname`, `fathers_middlename`, `fathers_phonenumber`, `mothers_lastname`, `mothers_firstname`, `mothers_middlename`, `mothers_phonenumber`, `guardians_lastname`, `guardians_firstname`, `guardians_middlename`, `guardians_phonenumber`, `lastgradelevel`, `lastschoolyear`, `lastschoolattended`, `schoolid`, `semester`, `track`, `strand`, `modality`, `date`, `time`) VALUES
+(1, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'Yes', '', '', 'Brosas', 'Kendrix', '', 'N/A', 'Male', '2001-05-05', '23', 'Sinurigaonon', 'San Pablo City, Laguna', 'Yes', 'Kalinga', 'Yes', '56934227668043586151', 'Yes', 'Low Vision', '050', 'Purok 1', 'KANLURANG BUKAL', 'Liliw', 'Laguna', 'Philippines', '4004', '050', 'Purok 1', 'KANLURANG BUKAL', 'LILIW', 'LAGUNA', 'Philippines', '4004', 'REYES', 'ANDRES', 'POLICARPIO', '+636454227855', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+639562511012', 'Grade 11', '2022-2023', 'Liliw Senior High School', '108297', '2nd Semester', 'Science, Technology, Engineering and Mathematics (STEM)', '', '', '09/06/2024', '04:57:40pm'),
+(3, '2024 - 2025', 'Grade 12', 'Yes', '108297060075', 'Yes', 'Yes', '', 'Brosas', 'Andrew', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Tagalog', 'Nagcarlan', 'Yes', 'Ifugao', 'Yes', '56934227668043586151', 'Yes', 'Low Vision', '050', 'Sitio Upper Malamig', 'San Diego', 'San Pablo City', 'Laguna', 'Philippines', '4000', '050', 'Sitio Upper Malamig', 'San Diego', 'San Pablo City', 'Laguna', 'Philippines', '4000', 'REYES', 'ANDRES', 'POLICARPIO', '+636454227855', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+639562511012', 'Grade 11', '2019-2020', 'Liliw Senior High School', '108297', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Information and Communication Technology (ICT)', '', '09/06/2024', '08:50:35pm');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faculty`
+--
+
+CREATE TABLE `faculty` (
+  `id` int(11) NOT NULL,
+  `firstName` varchar(255) NOT NULL,
+  `middleName` varchar(255) DEFAULT NULL,
+  `lastName` varchar(255) NOT NULL,
+  `position` varchar(255) NOT NULL,
+  `rank` varchar(100) NOT NULL,
+  `track` varchar(100) NOT NULL,
+  `type` enum('Principal','Teacher','Subject Group Head','Senior High School Coordinator') NOT NULL,
+  `picture` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `faculty`
+--
+
+INSERT INTO `faculty` (`id`, `firstName`, `middleName`, `lastName`, `position`, `rank`, `track`, `type`, `picture`) VALUES
+(1, 'Romeo', 'M', 'Suliguin', 'Principal II', '', '', 'Principal', ''),
+(2, 'Eliazar', 'O', 'Estebesa', 'Senior High School Coordinator', '', '', 'Senior High School Coordinator', ''),
+(4, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', 'STEM', 'Subject Group Head', ''),
+(5, 'NIEVA', 'O', 'BUENSOCESO', 'Teacher III', '', 'STEM', 'Teacher', ''),
+(6, 'SHIELA', 'C', 'NARTE', 'Teacher II', '', 'STEM', 'Teacher', ''),
+(7, 'JOSEPH', 'C', 'PANGAYAO', 'Special Science Teacher I', '', 'STEM', 'Teacher', ''),
+(8, 'MIKO REY', 'P', 'PEREZ', 'Special Science Teacher I', '', 'STEM', 'Teacher', ''),
+(9, 'THOMAS JOSEPH', 'DA', 'VIRTUCIO', 'Special Science Teacher I', '', 'STEM', 'Teacher', ''),
+(10, 'ARIENE MAY', 'R', 'URRETE', 'Special Science Teacher I', '', 'STEM', 'Teacher', ''),
+(11, 'REGINA', 'B', 'ARANZA', 'Teacher I', '', 'STEM', 'Teacher', ''),
+(12, 'DANCEL ', 'M', 'SAPIGAO', 'Master Teacher II', '', 'HUMSS', 'Subject Group Head', ''),
+(13, 'BERNADETTE', 'R', 'AQUINO', 'Teacher III', '', 'HUMSS', 'Teacher', '');
 
 -- --------------------------------------------------------
 
@@ -159,6 +190,12 @@ ALTER TABLE `enrollment`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `faculty`
+--
+ALTER TABLE `faculty`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `superadmin`
 --
 ALTER TABLE `superadmin`
@@ -178,7 +215,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `enrollment`
 --
 ALTER TABLE `enrollment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `faculty`
+--
+ALTER TABLE `faculty`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `superadmin`
