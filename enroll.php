@@ -131,7 +131,7 @@
                                     </div>
                                     <!-- Name input-->
                                     <div class="form-floating mb-3" id="birthnumber">
-                                        <input class="form-control" name="birthnumber" type="text" placeholder="PSA Birth Certificate No. (if available upon registration)" maxlength="12" />
+                                        <input class="form-control" id="birthnum" name="birthnumber" type="text" placeholder="PSA Birth Certificate No. (if available upon registration)" maxlength="14" />
                                         <label id="birthnumber">PSA Birth Certificate No. (if available upon registration)</label>
                                     </div>
                                     <div class="row g-2">
@@ -620,6 +620,15 @@
         document.querySelector('[name="schoolid"]').addEventListener('input', function(e) {
             this.value = this.value.replace(/[^0-9]/g, '');
         });
+        document.querySelector('[name="housenumber_text"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '');
+        });
+        document.querySelector('[name="city_text"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^a-zA-Z]/g, '');
+        });
+        document.querySelector('[name="country_text"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^a-zA-Z]/g, '');
+        });
     </script>
     <script>
         document.getElementById('lrn').addEventListener('change', function() {
@@ -700,6 +709,21 @@
                 }, false)
             })
         })()
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#birthnum').keyup(function() {
+                var val = this.value.replace(/[^a-zA-Z0-9]/g, '');
+                var newVal = '';
+                for (var i = 0; i < val.length; i++) {
+                    if (i == 5 || i == 12) {
+                        newVal += '-';
+                    }
+                    newVal += val[i];
+                }
+                this.value = newVal.toUpperCase();
+            });
+        });
     </script>
 </body>
 

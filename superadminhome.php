@@ -46,7 +46,7 @@ if (isset($_SESSION['user'])) {
         <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="adminhome">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="superadminhome">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img width="50" src="assets/favicon.png" alt="">
                 </div>
@@ -153,11 +153,7 @@ if (isset($_SESSION['user'])) {
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="settings">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>

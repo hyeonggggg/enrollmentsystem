@@ -103,18 +103,66 @@
                 <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
                     <div class="col mb-5 mb-5 mb-xl-0">
                         <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">ROMEO M. SULIGUIN, Ed.D</h5>
-                            <div class="fst-italic text-muted">Principal II</div>
+                            <?php
+                            include 'conn.php';
+                            $query = "SELECT * FROM faculty WHERE type='Principal'";
+                            $query_run = mysqli_query($conn, $query);
+                            while ($items = mysqli_fetch_array($query_run)) {
+                                if ($items['picture']) {
+                                    // Display the profile picture
+                                    $picture = $items['picture'];
+                                } else {
+                                    // Use a default profile picture
+                                    $picture = 'default-profile-pic.jpg';
+                                }
+                                echo '<div class="col-auto">';
+
+                                echo '<div class="col text-center">';
+                                if (!empty($picture)) {
+                                    echo '<img class="img-fluid rounded-circle mb-4 px-4" src="' . $picture . '" alt="Profile Picture" width="200">';
+                                } else {
+                                    echo '<img class="rounded-circle border border-warning mb-2" src="default-profile-pic.jpg" alt="Profile Picture" width="150">';
+                                }
+                                $id = $items['id'];
+                                echo '</div>';
+                                echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                                echo '<div class="fst-italic text-muted">' . $items['position'] . '</div>';
+                                echo '</div>';
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
                 <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
                     <div class="col mb-5 mb-5 mb-xl-0">
                         <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" width="200" src="assets/ELIAZAR-ESTEBESA.jpg" alt="..." />
-                            <h5 class="fw-bolder text-success">ELIAZAR O. ESTEBESA</h5>
-                            <div class="fst-italic text-muted">Senior High School Coordinator</div>
+                            <?php
+                            include 'conn.php';
+                            $query = "SELECT * FROM faculty WHERE type='Senior High School Coordinator'";
+                            $query_run = mysqli_query($conn, $query);
+                            while ($items = mysqli_fetch_array($query_run)) {
+                                if ($items['picture']) {
+                                    // Display the profile picture
+                                    $picture = $items['picture'];
+                                } else {
+                                    // Use a default profile picture
+                                    $picture = 'default-profile-pic.jpg';
+                                }
+                                echo '<div class="col-auto">';
+
+                                echo '<div class="col text-center">';
+                                if (!empty($picture)) {
+                                    echo '<img class="img-fluid rounded-circle mb-4 px-4" src="' . $picture . '" alt="Profile Picture" width="200">';
+                                } else {
+                                    echo '<img class="rounded-circle border border-warning mb-2" src="default-profile-pic.jpg" alt="Profile Picture" width="150">';
+                                }
+                                $id = $items['id'];
+                                echo '</div>';
+                                echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                                echo '<div class="fst-italic text-muted">' . $items['position'] . '</div>';
+                                echo '</div>';
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -124,62 +172,63 @@
                 <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
                     <div class="col mb-5 mb-5 mb-xl-0">
                         <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" width="200" src="assets/ELIAZAR-ESTEBESA.jpg" alt="..." />
-                            <h5 class="fw-bolder text-success">ELIAZAR O. ESTEBESA</h5>
-                            <div class="fst-italic text-muted">Subject Group Head - STEM<br>Master Teacher I</div>
+                            <?php
+                            include 'conn.php';
+                            $query = "SELECT * FROM faculty WHERE type='Subject Group Head' AND track='STEM'";
+                            $query_run = mysqli_query($conn, $query);
+                            while ($items = mysqli_fetch_array($query_run)) {
+                                if ($items['picture']) {
+                                    // Display the profile picture
+                                    $picture = $items['picture'];
+                                } else {
+                                    // Use a default profile picture
+                                    $picture = 'default-profile-pic.jpg';
+                                }
+                                echo '<div class="col-auto">';
+
+                                echo '<div class="col text-center">';
+                                if (!empty($picture)) {
+                                    echo '<img class="img-fluid rounded-circle mb-4 px-4" src="' . $picture . '" alt="Profile Picture" width="200">';
+                                } else {
+                                    echo '<img class="rounded-circle border border-warning mb-2" src="default-profile-pic.jpg" alt="Profile Picture" width="150">';
+                                }
+                                $id = $items['id'];
+                                echo '</div>';
+                                echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                                echo '<div class="fst-italic text-muted">' . $items['type'] . ' - ' . $items['track'] . '</div>';
+                                echo '<div class="fst-italic text-muted">' . $items['position'] . '</div>';
+                                echo '</div>';
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
-                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center" data-aos="fade-up">
-                    <div class="col mb-5 mb-5 mb-xl-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">NIEVA O. BUENSOCESO</h5>
-                            <div class="fst-italic text-muted">Teacher III</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5 mb-5 mb-sm-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">SHIELA C. NARTE</h5>
-                            <div class="fst-italic text-muted">Teacher II</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">JOSEPH C. PANGAYAO</h5>
-                            <div class="fst-italic text-muted">Special Science Teacher I</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">MIKO REY P. PEREZ</h5>
-                            <div class="fst-italic text-muted">Special Science Teacher I</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">THOMAS JOSEPH DA. VIRTUCIO</h5>
-                            <div class="fst-italic text-muted">Special Science Teacher I</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">ARIENE MAY R. URRETE</h5>
-                            <div class="fst-italic text-muted">Special Science Teacher I</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">REGINA B. ARANZA</h5>
-                            <div class="fst-italic text-muted">Teacher I</div>
-                        </div>
-                    </div>
+                <div class="d-flex flex-wrap mb-5 row g-5 justify-content-center" data-aos="fade-up">
+                    <?php
+                    include 'conn.php';
+                    $query = "SELECT * FROM faculty WHERE type='Teacher' AND track='STEM'";
+                    $query_run = mysqli_query($conn, $query);
+                    while ($items = mysqli_fetch_array($query_run)) {
+                        if ($items['picture']) {
+                            // Display the profile picture
+                            $picture = $items['picture'];
+                        } else {
+                            // Use a default profile picture
+                            $picture = 'default-profile-pic.jpg';
+                        }
+                        echo '<div class="col-auto text-center">';
+
+                        if (!empty($picture)) {
+                            echo '<img class="img-fluid rounded-circle mb-4 px-4" src="' . $picture . '" alt="Profile Picture" width="200">';
+                        } else {
+                            echo '<img class="rounded-circle border border-warning mb-2" src="default-profile-pic.jpg" alt="Profile Picture" width="150">';
+                        }
+                        $id = $items['id'];
+                        echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                        echo '<div class="fst-italic text-muted">' . $items['position'] . '</div>';
+                        echo '</div>';
+                    }
+                    ?>
                 </div>
                 <div class="text-center" data-aos="fade-up">
                     <h1 class="fw-bolder display-7 text-success mb-5">Humanities and Social Sciences<br>(HUMSS)</h1>
@@ -187,160 +236,63 @@
                 <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
                     <div class="col mb-5 mb-5 mb-xl-0">
                         <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">DR. DANCEL M. SAPIGAO</h5>
-                            <div class="fst-italic text-muted">Subject Group Head - HUMSS<br>Master Teacher II</div>
+                            <?php
+                            include 'conn.php';
+                            $query = "SELECT * FROM faculty WHERE type='Subject Group Head' AND track='HUMSS'";
+                            $query_run = mysqli_query($conn, $query);
+                            while ($items = mysqli_fetch_array($query_run)) {
+                                if ($items['picture']) {
+                                    // Display the profile picture
+                                    $picture = $items['picture'];
+                                } else {
+                                    // Use a default profile picture
+                                    $picture = 'default-profile-pic.jpg';
+                                }
+                                echo '<div class="col-auto">';
+
+                                echo '<div class="col text-center">';
+                                if (!empty($picture)) {
+                                    echo '<img class="img-fluid rounded-circle mb-4 px-4" src="' . $picture . '" alt="Profile Picture" width="200">';
+                                } else {
+                                    echo '<img class="rounded-circle border border-warning mb-2" src="default-profile-pic.jpg" alt="Profile Picture" width="150">';
+                                }
+                                $id = $items['id'];
+                                echo '</div>';
+                                echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                                echo '<div class="fst-italic text-muted">' . $items['type'] . ' - ' . $items['track'] . '</div>';
+                                echo '<div class="fst-italic text-muted">' . $items['position'] . '</div>';
+                                echo '</div>';
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
-                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center" data-aos="fade-up">
-                    <div class="col mb-5 mb-5 mb-xl-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">BERNADETTE R. AQUINO</h5>
-                            <div class="fst-italic text-muted">Teacher III</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5 mb-5 mb-sm-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">DR. LIZA V. TUICO</h5>
-                            <div class="fst-italic text-muted">Teacher III</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">DR. ELOISA D. RUBIATO</h5>
-                            <div class="fst-italic text-muted">Teacher II</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">NHEDELEE S. ALIUD</h5>
-                            <div class="fst-italic text-muted">Teacher II</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">BERNADETTE VANESSA MAE B. SAJONIA</h5>
-                            <div class="fst-italic text-muted">Teacher I</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">ELDRYNE B. RAMIREZ</h5>
-                            <div class="fst-italic text-muted">Teacher I</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">NORMIN O. AREJOLA</h5>
-                            <div class="fst-italic text-muted">Teacher I</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center" data-aos="fade-up">
-                    <h1 class="fw-bolder display-7 text-success mb-5">Accountancy and Business Management (ABM)<br>Information and Communication Technology (ICT)</h1>
-                </div>
-                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
-                    <div class="col mb-5 mb-5 mb-xl-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">MARIAN O. QUITOLLA</h5>
-                            <div class="fst-italic text-muted">Subject Group Head - ABM / ICT<br>Master Teacher II</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center" data-aos="fade-up">
-                    <div class="col mb-5 mb-5 mb-xl-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">RICHARD V. BUETA</h5>
-                            <div class="fst-italic text-muted">Teacher III</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5 mb-5 mb-sm-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">ARMIN A. BUENSALIDA</h5>
-                            <div class="fst-italic text-muted">Teacher III</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">HAZELYN J. VIREY</h5>
-                            <div class="fst-italic text-muted">Teacher II</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">IMELDA B. MERJILLA</h5>
-                            <div class="fst-italic text-muted">Teacher II</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">BENEDICT M. BUENA</h5>
-                            <div class="fst-italic text-muted">Special Science Teacher I</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center" data-aos="fade-up">
-                    <h1 class="fw-bolder display-7 text-success mb-5">Technical Vocational Livelihood (TVL)<br>Home Economics (HE)<br>Agri-Fishery Arts</h1>
-                </div>
-                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
-                    <div class="col mb-5 mb-5 mb-xl-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">JENNETH J. BARBA</h5>
-                            <div class="fst-italic text-muted">Subject Group Head - HE / AFA<br>Master Teacher II</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center" data-aos="fade-up">
-                    <div class="col mb-5 mb-5 mb-xl-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">MARIA KRISTINE R. MONTSERRAT</h5>
-                            <div class="fst-italic text-muted">Teacher II</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5 mb-5 mb-sm-0">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">ANTONIA S. GURRIBA</h5>
-                            <div class="fst-italic text-muted">Teacher II</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">FLORDELIZA B. NAGUIT</h5>
-                            <div class="fst-italic text-muted">Teacher II</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">REA ROSE E. AGAPAU</h5>
-                            <div class="fst-italic text-muted">Teacher II</div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="text-center">
-                            <img class="img-fluid rounded-circle mb-4 px-4" src="https://dummyimage.com/150x150/ced4da/6c757d" alt="..." />
-                            <h5 class="fw-bolder text-success">LERNIE C. CLAVE</h5>
-                            <div class="fst-italic text-muted">Teacher II</div>
-                        </div>
-                    </div>
+                <div class="d-flex flex-wrap mb-5 row g-5 justify-content-center" data-aos="fade-up">
+                    <?php
+                    include 'conn.php';
+                    $query = "SELECT * FROM faculty WHERE type='Teacher' AND track='HUMSS'";
+                    $query_run = mysqli_query($conn, $query);
+                    while ($items = mysqli_fetch_array($query_run)) {
+                        if ($items['picture']) {
+                            // Display the profile picture
+                            $picture = $items['picture'];
+                        } else {
+                            // Use a default profile picture
+                            $picture = 'default-profile-pic.jpg';
+                        }
+                        echo '<div class="col-auto text-center">';
+
+                        if (!empty($picture)) {
+                            echo '<img class="img-fluid rounded-circle mb-4 px-4" src="' . $picture . '" alt="Profile Picture" width="200">';
+                        } else {
+                            echo '<img class="rounded-circle border border-warning mb-2" src="default-profile-pic.jpg" alt="Profile Picture" width="150">';
+                        }
+                        $id = $items['id'];
+                        echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                        echo '<div class="fst-italic text-muted">' . $items['position'] . '</div>';
+                        echo '</div>';
+                    }
+                    ?>
                 </div>
             </div>
         </section>
@@ -354,7 +306,7 @@
                 </div>
                 <div class="col-auto">
                     <b>
-                    <a class="link-light small" href="https://www.facebook.com/depedtayoplaridelinhs301258/" target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
+                        <a class="link-light small" href="https://www.facebook.com/depedtayoplaridelinhs301258/" target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
                         <span class="text-white mx-1">&middot;</span>
                         <a class="link-light small" href="https://www.facebook.com/messages/t/100188291792759" target="_blank"><i class="bi bi-messenger"></i> Messenger</a>
                         <span class="text-white mx-1">&middot;</span>

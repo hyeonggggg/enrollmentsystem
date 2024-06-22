@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
     <meta name="author" content="">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
 
-    <title>Transferee | Plaridel Integrated National High School</title>
+    <title>Settings | Plaridel Integrated National High School</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -43,56 +43,7 @@ if (isset($_SESSION['user'])) {
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#dataTable').DataTable({
-                dom: 'lBfrtip',
-                buttons: ['copy',
-                    {
-                        extend: 'csv',
-                        title: '',
-                        messageTop: 'LIST OF ENROLLEES - PLARIDEL INTEGRATED NATIONAL HIGH SCHOOL',
-                        exportOptions: {
-                            columns: [1, 2, 3, 4, 5, 6, 7, 8]
-                        }
-                    },
-                    {
-                        extend: 'excel',
-                        title: '',
-                        messageTop: 'LIST OF ENROLLEES - PLARIDEL INTEGRATED NATIONAL HIGH SCHOOL',
-                        exportOptions: {
-                            columns: [1, 2, 3, 4, 5, 6, 7, 8]
-                        }
-                    },
-                    {
-                        extend: 'print',
-                        title: '',
-                        messageTop: function() {
-                            return '<h2 style="text-align:center;color:black; margin-top:80px;">LIST OF ENROLLEES (TRANSFEREE)</h2>';
-                        },
-                        customize: function(win) {
-                            $(win.document.body)
-                                .css('font-size', '12pt')
-                                .prepend(
-                                    '<br><br><br>',
-                                    '<p style="position:absolute; margin-left: auto; margin-right: auto; margin-top: -60px; left: 0; right: 0; text-align: center; color:black; font-size: 10pt;">Republic of the Philippines<br><span style="font-weight: bold; font-size: 12pt;">Department of Education</span><br>REGION IVA- CALABARZON<br>SCHOOLS DIVISION OF LAGUNA<br>PLARIDEL INTEGRATED NATIONAL HIGH SCHOOL<br>NAGCARLAN, LAGUNA</p>',
-                                    '<img src="assets/favicon.png" style="position:absolute; top:10; left:350px; width:70px;" />',
-                                );
-                            $(win.document.body).find('table')
-                                .addClass('compact')
-                                .css('font-size', '14pt');
-                        },
-                        exportOptions: {
-                            columns: [1, 2, 3, 4, 5, 6, 7, 8]
-                        }
-                    }
-                ],
-                columnDefs: [{
-                    targets: [0, 1, 2, 3, 4, 5, 6]
-                }]
-            });
-        });
-    </script>
+
 
     <style>
         .btn-secondary {
@@ -164,77 +115,24 @@ if (isset($_SESSION['user'])) {
         <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="adminhome">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="superadminhome">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img width="50" src="assets/favicon.png" alt="">
                 </div>
-                <div class="sidebar-brand-text mx-3">ENROLLMENT SYSTEM</div>
+                <div class="sidebar-brand-text mx-3">SETTINGS</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="adminhome">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                List of Enrollees
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-user-graduate"></i>
-                    <span>Grade Levels</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Grade Levels</h6>
-                        <a class="collapse-item" href="grade-eleven">Grade 11</a>
-                        <a class="collapse-item" href="grade-twelve">Grade 12</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-book-open"></i>
-                    <span>Tracks</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header ">Tracks</h6>
-                        <a class="collapse-item" href="abm">Accountancy and<br>Business Management<br>(ABM)</a>
-                        <a class="collapse-item" href="humss">Humanities and<br>Social Sciences (HUMSS)</a>
-                        <a class="collapse-item" href="stem">Science, Technology,<br>Engineering and<br>Mathematics (STEM)</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Technical Vocational<br>Livelihood (TVL) Strands</h6>
-                        <a class="collapse-item" href="agrifishery">Agri-Fishery Arts</a>
-                        <a class="collapse-item" href="ict">Information and<br>Communication<br>Technology (ICT)</a>
-                        <a class="collapse-item" href="homeeconomics">Home Economics (HE)</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="balik-aral">
-                    <i class="fas fa-fw fa-undo-alt"></i>
-                    <span>Balik-Aral</span></a>
-            </li>
             <li class="nav-item active">
-                <a class="nav-link" href="transferee">
-                <i class="fas fa-exchange-alt"></i>
-                    <span>Transferee</span></a>
+                <a class="nav-link" href="">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>Faculty</span></a>
             </li>
-            <!-- Heading -->
+
+
 
 
             <!-- Divider -->
@@ -274,8 +172,12 @@ if (isset($_SESSION['user'])) {
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="admin-logout.php">
+                                <a class="dropdown-item" href="superadmin-logout.php">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -289,11 +191,31 @@ if (isset($_SESSION['user'])) {
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>Transferee</b></h1>
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3">
+                        <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>Faculty</b></h1>
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                            <div class="btn-group me-1">
+                                <a type="button" href="addfaculty" class="btn btn-md btn-success">
+                                    <i class="fa fa-plus-circle"></i> Add New Faculty
+                                </a>
+                            </div>
+                        </div>
                     </div>
+                    <?php
+                    if (isset($_SESSION['successaddfaculty'])) {
+                    ?>
+                        <div class="alert alert-success alert-dismissible fade show text-start" role="alert">
+                            <i class="fas fa-check-circle" width="24" height="24"></i>
+                            <?= $_SESSION['successaddfaculty']; ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php
+                        unset($_SESSION['successaddfaculty']);
+                    }
+                    ?>
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
@@ -301,34 +223,30 @@ if (isset($_SESSION['user'])) {
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Learner Reference Number (LRN)</th>
-                                            <th>Name</th>
-                                            <th>Birthday</th>
-                                            <th>Age</th>
-                                            <th>Sex</th>
-                                            <th>Place of Birth</th>
+                                            <th>First Name</th>
+                                            <th>Middle Initial</th>
+                                            <th>Last Name</th>
+                                            <th>Position</th>
                                             <th>Track</th>
-                                            <th>Date</th>
+                                            <th>Type</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Learner Reference Number (LRN)</th>
-                                            <th>Name</th>
-                                            <th>Birthday</th>
-                                            <th>Age</th>
-                                            <th>Sex</th>
-                                            <th>Place of Birth</th>
+                                            <th>First Name</th>
+                                            <th>Middle Initial</th>
+                                            <th>Last Name</th>
+                                            <th>Position</th>
                                             <th>Track</th>
-                                            <th>Date</th>
+                                            <th>Type</th>
                                         </tr>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php
                                         include 'conn.php';
-                                        $query = "SELECT * FROM enrollment WHERE transfer = 'Yes'";
+                                        $query = "SELECT * FROM faculty";
                                         $query_run = mysqli_query($conn, $query);
                                         if (mysqli_num_rows($query_run) > 0) {
                                             foreach ($query_run as $items) {
@@ -338,28 +256,22 @@ if (isset($_SESSION['user'])) {
                                                         <?= $items['id']; ?>
                                                     </td>
                                                     <td>
-                                                        <?= $items['reference']; ?>
+                                                        <?= $items['firstName']; ?>
                                                     </td>
                                                     <td>
-                                                        <?= $items['firstname'] . " " . $items['middlename'] . " " . $items['lastname'] ?>
+                                                        <?= $items['middleName']; ?>
                                                     </td>
                                                     <td>
-                                                        <?= $items['birthday']; ?>
+                                                        <?= $items['lastName']; ?>
                                                     </td>
                                                     <td>
-                                                        <?= $items['age']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $items['sex']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $items['placeofbirth']; ?>
+                                                        <?= $items['position']; ?>
                                                     </td>
                                                     <td>
                                                         <?= $items['track']; ?>
                                                     </td>
                                                     <td>
-                                                        <?= $items['date']; ?>
+                                                        <?= $items['type']; ?>
                                                     </td>
                                                 </tr>
                                         <?php

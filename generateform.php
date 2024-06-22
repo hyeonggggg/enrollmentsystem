@@ -181,10 +181,10 @@ if ($stmt->execute()) {
             $this->SetFont('Arial', 'B', 12);
             $this->SetXY(35, 37.8);
             $this->MultiCell(0, 30, strtoupper($data["semester"]), 0, 'L');
-            $this->SetFont('Arial', 'B', 10);
+            $this->SetFont('Arial', 'B', 8);
             $this->SetXY(83.8, 37.2);
             $this->MultiCell(0, 30, strtoupper($data["track"]), 0, 'L');
-            $this->SetFont('Arial', 'B', 10);
+            $this->SetFont('Arial', 'B', 8);
             $this->SetXY(84, 41.8);
             $this->MultiCell(0, 30, strtoupper($data["strand"]), 0, 'L');
             $this->SetFont('Arial', 'B', 14);
