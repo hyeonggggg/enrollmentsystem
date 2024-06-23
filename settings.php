@@ -43,6 +43,7 @@ if (isset($_SESSION['user'])) {
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
     <style>
@@ -131,6 +132,12 @@ if (isset($_SESSION['user'])) {
                     <i class="fas fa-chalkboard-teacher"></i>
                     <span>Faculty</span></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Account</span>
+                </a>
+            </li>
 
 
 
@@ -168,11 +175,11 @@ if (isset($_SESSION['user'])) {
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="text-transform:uppercase;">Logged in as, <span class="text-success"><strong><?php echo $_SESSION['user']; ?></strong></span></span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="default-profile-pic.jpg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="settings">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
@@ -216,6 +223,62 @@ if (isset($_SESSION['user'])) {
                         unset($_SESSION['successaddfaculty']);
                     }
                     ?>
+                    <?php
+                    if (isset($_SESSION['updateerror'])) {
+                    ?>
+                        <div class="alert alert-warning alert-dismissible fade show text-start" role="alert">
+                            <i class="fas fa-exclamation-triangle" width="24" height="24"></i>
+                            <?= $_SESSION['updateerror']; ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php
+                        unset($_SESSION['updateerror']);
+                    }
+                    ?>
+                    <?php
+                    if (isset($_SESSION['updatesuccess'])) {
+                    ?>
+                        <div class="alert alert-success alert-dismissible fade show text-start" role="alert">
+                            <i class="fas fa-check-circle" width="24" height="24"></i>
+                            <?= $_SESSION['updatesuccess']; ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php
+                        unset($_SESSION['updatesuccess']);
+                    }
+                    ?>
+                    <?php
+                    if (isset($_SESSION['deletesuccess'])) {
+                    ?>
+                        <div class="alert alert-success alert-dismissible fade show text-start" role="alert">
+                            <i class="fas fa-check-circle" width="24" height="24"></i>
+                            <?= $_SESSION['deletesuccess']; ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php
+                        unset($_SESSION['deletesuccess']);
+                    }
+                    ?>
+                    <?php
+                    if (isset($_SESSION['deleteerror'])) {
+                    ?>
+                        <div class="alert alert-warning alert-dismissible fade show text-start" role="alert">
+                            <i class="fas fa-exclamation-triangle" width="24" height="24"></i>
+                            <?= $_SESSION['deleteerror']; ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php
+                        unset($_SESSION['deleteerror']);
+                    }
+                    ?>
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
@@ -223,23 +286,27 @@ if (isset($_SESSION['user'])) {
                                     <thead>
                                         <tr>
                                             <th>ID</th>
+                                            <th>Picture</th>
                                             <th>First Name</th>
                                             <th>Middle Initial</th>
                                             <th>Last Name</th>
                                             <th>Position</th>
                                             <th>Track</th>
                                             <th>Type</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
+                                            <th>Picture</th>
                                             <th>First Name</th>
                                             <th>Middle Initial</th>
                                             <th>Last Name</th>
                                             <th>Position</th>
                                             <th>Track</th>
                                             <th>Type</th>
+                                            <th>Action</th>
                                         </tr>
                                         </tr>
                                     </tfoot>
@@ -254,6 +321,9 @@ if (isset($_SESSION['user'])) {
                                                 <tr>
                                                     <td>
                                                         <?= $items['id']; ?>
+                                                    </td>
+                                                    <td>
+                                                        <img class="img-profile rounded-circle" src="default-profile-pic.jpg" width="100" height="100" alt="">
                                                     </td>
                                                     <td>
                                                         <?= $items['firstName']; ?>
@@ -273,6 +343,12 @@ if (isset($_SESSION['user'])) {
                                                     <td>
                                                         <?= $items['type']; ?>
                                                     </td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group" role="group">
+                                                            <a href="editfaculty.php?id=<?= $items['id']; ?>" class="btn btn-md btn-success"><i class="fas fa-user-edit"></i></a>
+                                                            <button type="button" class="btn btn-md btn-danger deletebtn"><i class="fas fa-user-times"></i></a>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                         <?php
                                             }
@@ -280,6 +356,30 @@ if (isset($_SESSION['user'])) {
                                         ?>
                                     </tbody>
                                 </table>
+                                <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title text-dark" id="modalLabel">
+                                                    <i class="fas fa-exclamation-triangle"></i> <strong>Warning</strong>
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form action="deletefaculty.php" method="post">
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="delete_id" id="delete_id">
+                                                    <h5 class="text-dark">Are you sure you want to delete?</h5>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fas fa-ban"></i> Cancel</button>
+                                                    <button type="submit" name="deletedata" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -308,6 +408,20 @@ if (isset($_SESSION['user'])) {
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+    <script>
+        $(document).ready(function() {
+            $('.deletebtn').on('click', function() {
+                $('#deletemodal').modal('show');
+                $tr = $(this).closest('tr');
+                var data = $tr.children("td").map(function() {
+                    return $(this).text();
+                }).get();
+                console.log(data);
+                $('#delete_id').val(data[0]);
+            });
+        });
+    </script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>

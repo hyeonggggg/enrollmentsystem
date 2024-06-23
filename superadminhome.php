@@ -113,7 +113,7 @@ if (isset($_SESSION['user'])) {
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="supertransferee">
-                <i class="fas fa-exchange-alt"></i>
+                    <i class="fas fa-exchange-alt"></i>
                     <span>Transferee</span></a>
             </li>
             <!-- Divider -->
@@ -149,7 +149,7 @@ if (isset($_SESSION['user'])) {
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="text-transform:uppercase;">Logged in as, <span class="text-success"><strong><?php echo $_SESSION['user']; ?></strong></span></span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="default-profile-pic.jpg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -181,7 +181,7 @@ if (isset($_SESSION['user'])) {
                     <!-- Content Row -->
                     <div class="row">
 
-                    <div class="col-xl-2 col-md-6 mb-4">
+                        <div class="col-xl-2 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -261,57 +261,62 @@ if (isset($_SESSION['user'])) {
                         </div>
 
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-sm font-weight-bold text-warning text-uppercase mb-1" style="font-size: 20px;">
-                                                RETURNEE (BALIK-ARAL)</div>
-                                            <?php
-                                            include 'conn.php';
-                                            $balikaral = 'Yes';
-                                            $query = "SELECT id FROM enrollment WHERE balikaral = ?";
-                                            $stmt = $conn->prepare($query);
-                                            $stmt->bind_param("s", $balikaral);
-                                            $stmt->execute();
-                                            $result = $stmt->get_result();
-                                            $row = $result->num_rows;
-                                            echo '<div class="h4 mb-0 font-weight-bold text-gray-800">' . $row . '</div>';
-                                            ?>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-undo fa-3x text-gray-300"></i>
+                            <a style="text-decoration: none;" href="superbalik-aral">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-sm font-weight-bold text-warning text-uppercase mb-1" style="font-size: 20px;">
+                                                    RETURNEE (BALIK-ARAL)</div>
+                                                <?php
+                                                include 'conn.php';
+                                                $balikaral = 'Yes';
+                                                $query = "SELECT id FROM enrollment WHERE balikaral = ?";
+                                                $stmt = $conn->prepare($query);
+                                                $stmt->bind_param("s", $balikaral);
+                                                $stmt->execute();
+                                                $result = $stmt->get_result();
+                                                $row = $result->num_rows;
+                                                echo '<div class="h4 mb-0 font-weight-bold text-gray-800">' . $row . '</div>';
+                                                ?>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-undo fa-3x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-sm font-weight-bold text-info text-uppercase mb-1" style="font-size: 20px;">
-                                                TRANSFEREE</div>
-                                            <?php
-                                            include 'conn.php';
-                                            $transfer = 'Yes';
-                                            $query = "SELECT id FROM enrollment WHERE transfer = ?";
-                                            $stmt = $conn->prepare($query);
-                                            $stmt->bind_param("s", $transfer);
-                                            $stmt->execute();
-                                            $result = $stmt->get_result();
-                                            $row = $result->num_rows;
-                                            echo '<div class="h4 mb-0 font-weight-bold text-gray-800">' . $row . '</div>';
-                                            ?>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-undo fa-3x text-gray-300"></i>
+                            <a style="text-decoration: none;" href="supertransferee">
+                                <div class="card border-left-info shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-sm font-weight-bold text-info text-uppercase mb-1" style="font-size: 20px;">
+                                                    TRANSFEREE</div>
+                                                <?php
+                                                include 'conn.php';
+                                                $transfer = 'Yes';
+                                                $query = "SELECT id FROM enrollment WHERE transfer = ?";
+                                                $stmt = $conn->prepare($query);
+                                                $stmt->bind_param("s", $transfer);
+                                                $stmt->execute();
+                                                $result = $stmt->get_result();
+                                                $row = $result->num_rows;
+                                                echo '<div class="h4 mb-0 font-weight-bold text-gray-800">' . $row . '</div>';
+                                                ?>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-undo fa-3x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
+                        </a>
                     </div>
 
                     <div class="row">

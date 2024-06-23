@@ -113,7 +113,7 @@ if (isset($_SESSION['user'])) {
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="transferee">
-                <i class="fas fa-exchange-alt"></i>
+                    <i class="fas fa-exchange-alt"></i>
                     <span>Transferee</span></a>
             </li>
             <!-- Divider -->
@@ -255,56 +255,60 @@ if (isset($_SESSION['user'])) {
                         </div>
 
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-sm font-weight-bold text-warning text-uppercase mb-1" style="font-size: 20px;">
-                                                RETURNEE (BALIK-ARAL)</div>
-                                            <?php
-                                            include 'conn.php';
-                                            $balikaral = 'Yes';
-                                            $query = "SELECT id FROM enrollment WHERE balikaral = ?";
-                                            $stmt = $conn->prepare($query);
-                                            $stmt->bind_param("s", $balikaral);
-                                            $stmt->execute();
-                                            $result = $stmt->get_result();
-                                            $row = $result->num_rows;
-                                            echo '<div class="h4 mb-0 font-weight-bold text-gray-800">' . $row . '</div>';
-                                            ?>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-undo fa-3x text-gray-300"></i>
+                            <a style="text-decoration: none;" href="balik-aral">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-sm font-weight-bold text-warning text-uppercase mb-1" style="font-size: 20px;">
+                                                    RETURNEE (BALIK-ARAL)</div>
+                                                <?php
+                                                include 'conn.php';
+                                                $balikaral = 'Yes';
+                                                $query = "SELECT id FROM enrollment WHERE balikaral = ?";
+                                                $stmt = $conn->prepare($query);
+                                                $stmt->bind_param("s", $balikaral);
+                                                $stmt->execute();
+                                                $result = $stmt->get_result();
+                                                $row = $result->num_rows;
+                                                echo '<div class="h4 mb-0 font-weight-bold text-gray-800">' . $row . '</div>';
+                                                ?>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-undo fa-3x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-sm font-weight-bold text-info text-uppercase mb-1" style="font-size: 20px;">
-                                                TRANSFEREE</div>
-                                            <?php
-                                            include 'conn.php';
-                                            $transfer = 'Yes';
-                                            $query = "SELECT id FROM enrollment WHERE transfer = ?";
-                                            $stmt = $conn->prepare($query);
-                                            $stmt->bind_param("s", $transfer);
-                                            $stmt->execute();
-                                            $result = $stmt->get_result();
-                                            $row = $result->num_rows;
-                                            echo '<div class="h4 mb-0 font-weight-bold text-gray-800">' . $row . '</div>';
-                                            ?>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-undo fa-3x text-gray-300"></i>
+                            <a style="text-decoration: none;" href="transferee">
+                                <div class="card border-left-info shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-sm font-weight-bold text-info text-uppercase mb-1" style="font-size: 20px;">
+                                                    TRANSFEREE</div>
+                                                <?php
+                                                include 'conn.php';
+                                                $transfer = 'Yes';
+                                                $query = "SELECT id FROM enrollment WHERE transfer = ?";
+                                                $stmt = $conn->prepare($query);
+                                                $stmt->bind_param("s", $transfer);
+                                                $stmt->execute();
+                                                $result = $stmt->get_result();
+                                                $row = $result->num_rows;
+                                                echo '<div class="h4 mb-0 font-weight-bold text-gray-800">' . $row . '</div>';
+                                                ?>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-undo fa-3x text-gray-300"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
 

@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
     <meta name="author" content="">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
 
-    <title>Settings | Plaridel Integrated National High School</title>
+    <title>Add Faculty | Plaridel Integrated National High School</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -84,9 +84,16 @@ if (isset($_SESSION['user'])) {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="settings">
                     <i class="fas fa-chalkboard-teacher"></i>
-                    <span>Faculty</span></a>
+                    <span>Faculty</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Account</span>
+                </a>
             </li>
 
 
@@ -151,6 +158,13 @@ if (isset($_SESSION['user'])) {
                     <!-- Page Heading -->
                     <form class="needs-validation" action="addnewfaculty.php" method="POST" novalidate>
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3">
+                            <div class="btn-toolbar mb-2 mb-md-0">
+                                <div class="btn-group me-1">
+                                    <button type="button" class="btn btn-md btn-success" onclick="window.history.back();">
+                                        <i class="fa fa-chevron-left"></i>
+                                    </button>
+                                </div>
+                            </div>
                             <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>Add Faculty</b></h1>
                             <div class="btn-toolbar mb-2 mb-md-0">
                                 <div class="btn-group me-1">
@@ -165,7 +179,7 @@ if (isset($_SESSION['user'])) {
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="firstName" class="text-success font-weight-bold">First Name</label>
-                                        <input type="text" class="form-control form-control-lg" id="firstName" name="firstName" placeholder="First Name" required >
+                                        <input type="text" class="form-control form-control-lg" id="firstName" name="firstName" placeholder="First Name" required>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="middleName" class="text-success font-weight-bold">Middle Initial</label>
@@ -212,6 +226,7 @@ if (isset($_SESSION['user'])) {
                                         <label for="inputCity" class="text-success font-weight-bold">Track</label>
                                         <select class="form-control form-control-lg" id="track" name="track">
                                             <option selected disabled>Choose from options</option>
+                                            <option value=" ">Not Applicable</option>
                                             <option value="STEM">STEM</option>
                                             <option value="HUMSS">HUMSS</option>
                                             <option value="ABM / ICT">ABM / ICT</option>
@@ -226,6 +241,7 @@ if (isset($_SESSION['user'])) {
                                             <option value="Principal">Principal</option>
                                             <option value="Teacher">Teacher</option>
                                             <option value="Subject Group Head">Subject Group Head</option>
+                                            <option value="Subject Group Head">Senior High School Coordinator</option>
                                         </select>
                                     </div>
                                 </div>
@@ -302,16 +318,16 @@ if (isset($_SESSION['user'])) {
         })();
     </script>
     <script>
-    document.querySelector('[name="firstName"]').addEventListener('input', function(e) {
-        this.value = this.value.replace(/[^a-zA-Z ]/g, '').toUpperCase();
-    });
-    document.querySelector('[name="middleName"]').addEventListener('input', function(e) {
-        this.value = this.value.replace(/[^a-zA-Z ]/g, '').toUpperCase();
-    });
-    document.querySelector('[name="lastName"]').addEventListener('input', function(e) {
-        this.value = this.value.replace(/[^a-zA-Z ]/g, '').toUpperCase();
-    });
-</script>
+        document.querySelector('[name="firstName"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^a-zA-Z ]/g, '').toUpperCase();
+        });
+        document.querySelector('[name="middleName"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^a-zA-Z ]/g, '').toUpperCase();
+        });
+        document.querySelector('[name="lastName"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^a-zA-Z ]/g, '').toUpperCase();
+        });
+    </script>
 
 </body>
 

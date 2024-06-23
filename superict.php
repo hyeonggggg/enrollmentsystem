@@ -271,7 +271,7 @@ if (isset($_SESSION['user'])) {
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="text-transform:uppercase;">Logged in as, <span class="text-success"><strong><?php echo $_SESSION['user']; ?></strong></span></span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="default-profile-pic.jpg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -315,6 +315,7 @@ if (isset($_SESSION['user'])) {
                                             <th>Track</th>
                                             <th>Strand</th>
                                             <th>Date</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -329,6 +330,7 @@ if (isset($_SESSION['user'])) {
                                             <th>Track</th>
                                             <th>Strand</th>
                                             <th>Date</th>
+                                            <th>Actions</th>
                                         </tr>
                                         </tr>
                                     </tfoot>
@@ -370,6 +372,12 @@ if (isset($_SESSION['user'])) {
                                                     </td>
                                                     <td>
                                                         <?= $items['date']; ?>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="btn-group me-2">
+                                                            <a href="generateform.php?id=<?php echo $items['id']; ?>" target="_blank" class="btn btn-primary" style="width: 40px;">
+                                                            <i class="fas fa-print"></i></a>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                         <?php

@@ -165,7 +165,7 @@ if (isset($_SESSION['user'])) {
         <ul class="navbar-nav bg-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="adminhome">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="superadminhome">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img width="50" src="assets/favicon.png" alt="">
                 </div>
