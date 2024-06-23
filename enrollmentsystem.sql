@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2024 at 03:29 PM
+-- Generation Time: Jun 23, 2024 at 04:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -140,8 +140,8 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`id`, `firstName`, `middleName`, `lastName`, `position`, `rank`, `track`, `type`, `picture`) VALUES
-(1, 'Romeo', 'M', 'Suliguin', 'Principal II', '', '', 'Principal', ''),
-(2, 'Eliazar', 'O', 'Estebesa', 'Senior High School Coordinator', '', '', 'Senior High School Coordinator', ''),
+(1, 'ROMEO', 'M', 'SULIGUIN', 'Principal II', '', ' ', 'Principal', ''),
+(2, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', '', 'Subject Group Head', ''),
 (4, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', 'STEM', 'Subject Group Head', ''),
 (5, 'NIEVA', 'O', 'BUENSOCESO', 'Teacher III', '', 'STEM', 'Teacher', ''),
 (6, 'SHIELA', 'C', 'NARTE', 'Teacher II', '', 'STEM', 'Teacher', ''),
@@ -149,9 +149,7 @@ INSERT INTO `faculty` (`id`, `firstName`, `middleName`, `lastName`, `position`, 
 (8, 'MIKO REY', 'P', 'PEREZ', 'Special Science Teacher I', '', 'STEM', 'Teacher', ''),
 (9, 'THOMAS JOSEPH', 'DA', 'VIRTUCIO', 'Special Science Teacher I', '', 'STEM', 'Teacher', ''),
 (10, 'ARIENE MAY', 'R', 'URRETE', 'Special Science Teacher I', '', 'STEM', 'Teacher', ''),
-(11, 'REGINA', 'B', 'ARANZA', 'Teacher I', '', 'STEM', 'Teacher', ''),
-(12, 'DANCEL ', 'M', 'SAPIGAO', 'Master Teacher II', '', 'HUMSS', 'Subject Group Head', ''),
-(13, 'BERNADETTE', 'R', 'AQUINO', 'Teacher III', '', 'HUMSS', 'Teacher', '');
+(11, 'REGINA', 'B', 'ARANZA', 'Teacher I', '', 'STEM', 'Teacher', '');
 
 -- --------------------------------------------------------
 
