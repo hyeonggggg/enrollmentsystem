@@ -309,7 +309,7 @@ if (isset($_SESSION['user'])) {
                                                 ?>
                                             </div>
                                             <div class="col-auto">
-                                                <i class="fas fa-undo fa-3x text-gray-300"></i>
+                                                <i class="fas fa-exchange-alt fa-3x text-gray-300"></i>
                                             </div>
                                         </div>
                                     </div>
