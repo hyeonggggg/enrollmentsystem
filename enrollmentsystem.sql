@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2024 at 04:42 PM
+-- Generation Time: Jun 30, 2024 at 04:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `name`) VALUES
-(1, 'admin', 'admin123', 'Admin');
+(1, 'admin', 'admin12345', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -140,8 +140,8 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`id`, `firstName`, `middleName`, `lastName`, `position`, `rank`, `track`, `type`, `picture`) VALUES
-(1, 'ROMEO', 'M', 'SULIGUIN', 'Principal II', '', ' ', 'Principal', ''),
-(2, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', '', 'Subject Group Head', ''),
+(1, 'ROMEO', 'M', 'SULIGUIN', 'Principal II', '', 'Not Applicable', 'Principal', ''),
+(2, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', 'Not Applicable', 'Senior High School Coordinator', ''),
 (4, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', 'STEM', 'Subject Group Head', ''),
 (5, 'NIEVA', 'O', 'BUENSOCESO', 'Teacher III', '', 'STEM', 'Teacher', ''),
 (6, 'SHIELA', 'C', 'NARTE', 'Teacher II', '', 'STEM', 'Teacher', ''),
@@ -207,7 +207,7 @@ ALTER TABLE `superadmin`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `enrollment`
