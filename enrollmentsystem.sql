@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2024 at 04:03 PM
+-- Generation Time: Jun 30, 2024 at 04:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -109,14 +109,6 @@ CREATE TABLE `enrollment` (
   `time` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `enrollment`
---
-
-INSERT INTO `enrollment` (`id`, `schoolyear`, `gradelevel`, `lrn`, `reference`, `balikaral`, `transfer`, `birthnumber`, `lastname`, `firstname`, `middlename`, `extension`, `sex`, `birthday`, `age`, `mother_tongue`, `placeofbirth`, `ip`, `indigenous`, `pantawid`, `pantawidProgram`, `disability`, `learnerdisability`, `housenumber_text`, `streetname_text`, `barangay_text`, `city_text`, `province_text`, `country_text`, `zipcode`, `permanent_housenumber_text`, `permanent_streetname_text`, `permanent_barangay_text`, `permanent_city_text`, `permanent_province_text`, `permanent_country_text`, `permanent_zipcode`, `fathers_lastname`, `fathers_firstname`, `fathers_middlename`, `fathers_phonenumber`, `mothers_lastname`, `mothers_firstname`, `mothers_middlename`, `mothers_phonenumber`, `guardians_lastname`, `guardians_firstname`, `guardians_middlename`, `guardians_phonenumber`, `lastgradelevel`, `lastschoolyear`, `lastschoolattended`, `schoolid`, `semester`, `track`, `strand`, `modality`, `date`, `time`) VALUES
-(1, '2024 - 2025', 'Grade 11', 'Yes', '108297060075', 'Yes', '', '', 'Brosas', 'Kendrix', '', 'N/A', 'Male', '2001-05-05', '23', 'Sinurigaonon', 'San Pablo City, Laguna', 'Yes', 'Kalinga', 'Yes', '56934227668043586151', 'Yes', 'Low Vision', '050', 'Purok 1', 'KANLURANG BUKAL', 'Liliw', 'Laguna', 'Philippines', '4004', '050', 'Purok 1', 'KANLURANG BUKAL', 'LILIW', 'LAGUNA', 'Philippines', '4004', 'REYES', 'ANDRES', 'POLICARPIO', '+636454227855', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+639562511012', 'Grade 11', '2022-2023', 'Liliw Senior High School', '108297', '2nd Semester', 'Science, Technology, Engineering and Mathematics (STEM)', '', '', '09/06/2024', '04:57:40pm'),
-(3, '2024 - 2025', 'Grade 12', 'Yes', '108297060075', 'Yes', 'Yes', '', 'Brosas', 'Andrew', 'Sevilla', 'N/A', 'Male', '2001-05-05', '23', 'Tagalog', 'Nagcarlan', 'Yes', 'Ifugao', 'Yes', '56934227668043586151', 'Yes', 'Low Vision', '050', 'Sitio Upper Malamig', 'San Diego', 'San Pablo City', 'Laguna', 'Philippines', '4000', '050', 'Sitio Upper Malamig', 'San Diego', 'San Pablo City', 'Laguna', 'Philippines', '4000', 'REYES', 'ANDRES', 'POLICARPIO', '+636454227855', 'SEVILLA', 'ANGELITA', 'SANTOS', '+639562511012', 'REYES', 'LISA', 'ANTONIO', '+639562511012', 'Grade 11', '2019-2020', 'Liliw Senior High School', '108297', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Information and Communication Technology (ICT)', '', '09/06/2024', '08:50:35pm');
-
 -- --------------------------------------------------------
 
 --
@@ -213,7 +205,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `enrollment`
 --
 ALTER TABLE `enrollment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `faculty`
