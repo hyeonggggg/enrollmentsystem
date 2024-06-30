@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
     <meta name="author" content="">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
 
-    <title>Settings | Plaridel Integrated National High School</title>
+    <title>Manage Account | Plaridel Integrated National High School</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -48,9 +48,9 @@ if (isset($_SESSION['user'])) {
         $(document).ready(function() {
             $('#dataTable').DataTable({
                 columnDefs: [{
-                    targets: [0, 1, 2, 3, 4, 5, 6, 7, 8],
+                    targets: [0, 1, 2, 3, 4],
                 }],
-                columns: [{ searchable: false }, null, null, null, null, null, null, null, { orderable: false }],
+                columns: [{searchable: false}, null, null, null, {orderable: false}],
             });
         });
     </script>
@@ -136,13 +136,13 @@ if (isset($_SESSION['user'])) {
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="">
+            <li class="nav-item">
+                <a class="nav-link" href="settings">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <span>Faculty</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="manageaccount">
+            <li class="nav-item active">
+                <a class="nav-link" href="">
                     <i class="fas fa-users-cog"></i>
                     <span>Manage Account</span>
                 </a>
@@ -209,27 +209,27 @@ if (isset($_SESSION['user'])) {
                 <div class="container-fluid">
                     <!-- Page Heading -->
                     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3">
-                        <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>Faculty</b></h1>
+                        <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>Manage Account</b></h1>
                         <div class="btn-toolbar mb-2 mb-md-0">
                             <div class="btn-group me-1">
-                                <a type="button" href="addfaculty" class="btn btn-md btn-success">
-                                    <i class="fa fa-plus-circle"></i> Add New Faculty
+                                <a type="button" href="adduser" class="btn btn-md btn-success">
+                                    <i class="fa fa-plus-circle"></i> Add New User
                                 </a>
                             </div>
                         </div>
                     </div>
                     <?php
-                    if (isset($_SESSION['successaddfaculty'])) {
+                    if (isset($_SESSION['successadduser'])) {
                     ?>
                         <div class="alert alert-success alert-dismissible fade show text-start" role="alert">
                             <i class="fas fa-check-circle" width="24" height="24"></i>
-                            <?= $_SESSION['successaddfaculty']; ?>
+                            <?= $_SESSION['successadduser']; ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                     <?php
-                        unset($_SESSION['successaddfaculty']);
+                        unset($_SESSION['successadduser']);
                     }
                     ?>
                     <?php
@@ -295,34 +295,25 @@ if (isset($_SESSION['user'])) {
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Picture</th>
-                                            <th>First Name</th>
-                                            <th>Middle Initial</th>
-                                            <th>Last Name</th>
-                                            <th>Position</th>
-                                            <th>Track</th>
-                                            <th>Type</th>
-                                            <th>Action</th>
+                                            <th>Name</th>
+                                            <th>Username</th>
+                                            <th>Password</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Picture</th>
-                                            <th>First Name</th>
-                                            <th>Middle Initial</th>
-                                            <th>Last Name</th>
-                                            <th>Position</th>
-                                            <th>Track</th>
-                                            <th>Type</th>
-                                            <th>Action</th>
-                                        </tr>
+                                            <th>Name</th>
+                                            <th>Username</th>
+                                            <th>Password</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <?php
                                         include 'conn.php';
-                                        $query = "SELECT * FROM faculty";
+                                        $query = "SELECT * FROM admin";
                                         $query_run = mysqli_query($conn, $query);
                                         if (mysqli_num_rows($query_run) > 0) {
                                             foreach ($query_run as $items) {
@@ -332,29 +323,17 @@ if (isset($_SESSION['user'])) {
                                                         <?= $items['id']; ?>
                                                     </td>
                                                     <td>
-                                                        <img class="img-profile rounded-circle" src="default-profile-pic.jpg" width="100" height="100" alt="">
+                                                        <?= $items['name']; ?>
                                                     </td>
                                                     <td>
-                                                        <?= $items['firstName']; ?>
+                                                        <?= $items['username']; ?>
                                                     </td>
                                                     <td>
-                                                        <?= $items['middleName']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $items['lastName']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $items['position']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $items['track']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $items['type']; ?>
+                                                        <?= $items['password']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <div class="btn-group" role="group">
-                                                            <a href="editfaculty.php?id=<?= $items['id']; ?>" class="btn btn-md btn-success"><i class="fas fa-user-edit"></i></a>
+                                                            <a href="edituser.php?id=<?= $items['id']; ?>" class="btn btn-md btn-success"><i class="fas fa-user-edit"></i></a>
                                                             <button type="button" class="btn btn-md btn-danger deletebtn"><i class="fas fa-user-times"></i></a>
                                                         </div>
                                                     </td>
@@ -376,7 +355,7 @@ if (isset($_SESSION['user'])) {
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
-                                            <form action="deletefaculty.php" method="post">
+                                            <form action="deleteuser.php" method="post">
                                                 <div class="modal-body">
                                                     <input type="hidden" name="delete_id" id="delete_id">
                                                     <h5 class="text-dark">Are you sure you want to delete?</h5>

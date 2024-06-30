@@ -159,7 +159,7 @@
                                 $id = $items['id'];
                                 echo '</div>';
                                 echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
-                                echo '<div class="fst-italic text-muted">' . $items['position'] . '</div>';
+                                echo '<div class="fst-italic text-muted">' . $items['type'] . '</div>';
                                 echo '</div>';
                             }
                             ?>

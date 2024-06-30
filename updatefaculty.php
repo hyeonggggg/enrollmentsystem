@@ -3,7 +3,7 @@ session_start();
 
 include 'conn.php';
 if (isset($_POST['updatefaculty'])) {
-    $id = $_POST['update_id'];
+    $id = $_POST['id'];
     $firstName = $_POST['firstName'];
     $middleName = $_POST['middleName'];
     $lastName = $_POST['lastName'];

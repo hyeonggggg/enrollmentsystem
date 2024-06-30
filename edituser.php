@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
     <meta name="author" content="">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
 
-    <title>Add Faculty | Plaridel Integrated National High School</title>
+    <title>Edit User | Plaridel Integrated National High School</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -83,21 +83,18 @@ if (isset($_SESSION['user'])) {
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="settings">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <span>Faculty</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="manageaccount">
+            <li class="nav-item active">
+                <a class="nav-link" href="">
                     <i class="fas fa-users-cog"></i>
                     <span>Manage Account</span>
                 </a>
             </li>
-
-
-
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -156,7 +153,13 @@ if (isset($_SESSION['user'])) {
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <form class="needs-validation" action="addnewfaculty.php" method="POST" novalidate>
+                    <form class="needs-validation" action="updateuser.php" method="POST" novalidate>
+                    <?php
+                        include 'conn.php';
+                        $id = $_GET['id'];
+                        $query = mysqli_query($conn, "SELECT * FROM admin where id='$id'") or die(mysqli_error());
+                        $row = mysqli_fetch_array($query);
+                        ?>
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3">
                             <div class="btn-toolbar mb-2 mb-md-0">
                                 <div class="btn-group me-1">
@@ -165,10 +168,10 @@ if (isset($_SESSION['user'])) {
                                     </button>
                                 </div>
                             </div>
-                            <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>Add Faculty</b></h1>
+                            <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>Edit User</b></h1>
                             <div class="btn-toolbar mb-2 mb-md-0">
                                 <div class="btn-group me-1">
-                                    <button type="submit" class="btn btn-md btn-success">
+                                    <button type="submit" name="updateuser" class="btn btn-md btn-success">
                                         <i class="fa fa-save"></i> Save
                                     </button>
                                 </div>
@@ -177,75 +180,28 @@ if (isset($_SESSION['user'])) {
                         <div class="card shadow mb-4 p-4">
                             <div class="card-body">
                                 <div class="form-row">
+                                    <input type="hidden" name="update_id" value="<?php echo $row['id'] ?>">
                                     <div class="form-group col-md-4">
-                                        <label for="firstName" class="text-success font-weight-bold">First Name</label>
-                                        <input type="text" class="form-control form-control-lg" id="firstName" name="firstName" placeholder="First Name" required>
+                                        <label for="name" class="text-success font-weight-bold">Name</label>
+                                        <input type="text" class="form-control form-control-lg" id="name" name="name" value="<?php echo $row['name'] ?>" placeholder="Name" required>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="middleName" class="text-success font-weight-bold">Middle Initial</label>
-                                        <input type="text" maxlength="2" class="form-control form-control-lg" id="middleName" name="middleName" placeholder="Middle Name" required>
+                                        <label for="username" class="text-success font-weight-bold">Username</label>
+                                        <input type="text" class="form-control form-control-lg" id="username" name="username" value="<?php echo $row['username'] ?>" placeholder="Username" required>
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <label for="lastName" class="text-success font-weight-bold">Last Name</label>
-                                        <input type="text" class="form-control form-control-lg" id="lastName" name="lastName" placeholder="Last Name" required>
+                                        <label for="password" class="text-success font-weight-bold">Password</label>
+                                        <input type="password" class="form-control form-control-lg" id="floatingPassword" name="password" value="<?php echo $row['password'] ?>" placeholder="Password" required>
+                                        <div class="mt-0 mb-3 text-start">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" onclick="myFunction()" id="flexCheckDefault">
+                                                <label class="form-check-label text-dark" for="flexCheckDefault">
+                                                    Show Password
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-5">
-                                        <label for="rank" class="text-success font-weight-bold">Position</label>
-                                        <select class="form-control form-control-lg" id="position" name="position" required>
-                                            <option selected disabled>Choose from options</option>
-                                            <option value="Teacher I">Teacher I</option>
-                                            <option value="Teacher II">Teacher II</option>
-                                            <option value="Teacher III">Teacher III</option>
-                                            <option value="Special Science Teacher I">Special Science Teacher I</option>
-                                            <option value="Special Science Teacher II">Special Science Teacher II</option>
-                                            <option value="Special Science Teacher III">Special Science Teacher III</option>
-                                            <option value="Special Science Teacher IV">Special Science Teacher IV</option>
-                                            <option value="Special Science Teacher V">Special Science Teacher V</option>
-                                            <option value="Master Teacher I">Master Teacher I</option>
-                                            <option value="Master Teacher II">Master Teacher II</option>
-                                            <option value="Master Teacher III">Master Teacher III</option>
-                                            <option value="Master Teacher IV">Master Teacher IV</option>
-                                            <option value="Head Teacher I">Head Teacher I</option>
-                                            <option value="Head Teacher II">Head Teacher II</option>
-                                            <option value="Head Teacher III">Head Teacher III</option>
-                                            <option value="Head Teacher IV">Head Teacher IV</option>
-                                            <option value="Head Teacher V">Head Teacher V</option>
-                                            <option value="Head Teacher VI">Head Teacher VI</option>
-                                            <option value="Assistant Principal I">Assistant Principal I</option>
-                                            <option value="Assistant Principal II">Assistant Principal II</option>
-                                            <option value="Principal I">Principal I</option>
-                                            <option value="Principal II">Principal II</option>
-                                            <option value="Principal III">Principal III</option>
-                                            <option value="Principal IV">Principal IV</option>
-                                        </select>
-
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputCity" class="text-success font-weight-bold">Track</label>
-                                        <select class="form-control form-control-lg" id="track" name="track">
-                                            <option selected disabled>Choose from options</option>
-                                            <option value="Not Applicable">Not Applicable</option>
-                                            <option value="STEM">STEM</option>
-                                            <option value="HUMSS">HUMSS</option>
-                                            <option value="ABM / ICT">ABM / ICT</option>
-                                            <option value="HE / AFA">HE / AFA</option>
-                                        </select>
-
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputCity" class="text-success font-weight-bold">Type</label>
-                                        <select class="form-control form-control-lg" id="type" name="type" required>
-                                            <option selected disabled>Choose from options</option>
-                                            <option value="Principal">Principal</option>
-                                            <option value="Teacher">Teacher</option>
-                                            <option value="Subject Group Head">Subject Group Head</option>
-                                            <option value="Senior High School Coordinator">Senior High School Coordinator</option>
-                                        </select>
-                                    </div>
-                                </div>
-
                             </div>
                         </div>
                     </form>
@@ -318,17 +274,20 @@ if (isset($_SESSION['user'])) {
         })();
     </script>
     <script>
-        document.querySelector('[name="firstName"]').addEventListener('input', function(e) {
-            this.value = this.value.replace(/[^a-zA-Z ]/g, '').toUpperCase();
-        });
-        document.querySelector('[name="middleName"]').addEventListener('input', function(e) {
-            this.value = this.value.replace(/[^a-zA-Z ]/g, '').toUpperCase();
-        });
-        document.querySelector('[name="lastName"]').addEventListener('input', function(e) {
-            this.value = this.value.replace(/[^a-zA-Z ]/g, '').toUpperCase();
+        document.querySelector('[name="name"]').addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^a-zA-Z ]/g, '');
         });
     </script>
-
+    <script>
+        function myFunction() {
+            var x = document.getElementById("floatingPassword");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -90,9 +90,9 @@ if (isset($_SESSION['user'])) {
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="manageaccount">
                     <i class="fas fa-users-cog"></i>
-                    <span>Account</span>
+                    <span>Manage Account</span>
                 </a>
             </li>
 
@@ -190,7 +190,7 @@ if (isset($_SESSION['user'])) {
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="middleName" class="text-success font-weight-bold">Middle Initial</label>
-                                        <input type="text" class="form-control form-control-lg" id="middleName" name="middleName" value="<?php echo $row['middleName'] ?>" placeholder="Middle Name" required>
+                                        <input type="text" maxlength="2" class="form-control form-control-lg" id="middleName" name="middleName" value="<?php echo $row['middleName'] ?>" placeholder="Middle Name" required>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="lastName" class="text-success font-weight-bold">Last Name</label>
@@ -329,8 +329,8 @@ if (isset($_SESSION['user'])) {
                                         <label for="inputCity" class="text-success font-weight-bold">Track</label>
                                         <select class="form-control form-control-lg" id="track" name="track">
                                             <option selected disabled>Choose from options</option>
-                                            <option value=" " <?php
-                                                                if ($row['track'] == '') {
+                                            <option value="Not Applicable" <?php
+                                                                if ($row['track'] == 'Not Applicable') {
                                                                     echo "selected";
                                                                 }
                                                                 ?>>Not Applicable</option>
@@ -376,7 +376,7 @@ if (isset($_SESSION['user'])) {
                                                                                     echo "selected";
                                                                                 }
                                                                                 ?>>Subject Group Head</option>
-                                            <option value="Subject Group Head" <?php
+                                            <option value="Senior High School Coordinator" <?php
                                                                                 if ($row['type'] == 'Senior High School Coordinator') {
                                                                                     echo "selected";
                                                                                 }
