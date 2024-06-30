@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['formSubmitted'] = true;
 
 date_default_timezone_set('Asia/Manila');
 

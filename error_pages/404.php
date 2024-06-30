@@ -1,14 +1,6 @@
 <?php
-session_start();
-// Check if the session variable is set
-if (!isset($_SESSION['formSubmitted'])) {
-    // If not set, redirect to the home page or form page
-    header('Location: index.php');
-    exit();
-} else {
-    // Unset the session variable to prevent direct access in the future
-    unset($_SESSION['formSubmitted']);
-}
+http_response_code(404);
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +11,7 @@ if (!isset($_SESSION['formSubmitted'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content />
     <meta name="author" content />
-    <title>Enrolled Successfully | Plaridel Integrated National High Schoole</title>
+    <title>404 Not Found | Plaridel Integrated National High Schoole</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
     <!-- Bootstrap icons-->
@@ -63,10 +55,6 @@ if (!isset($_SESSION['formSubmitted'])) {
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index">Back to Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Check Enrollment Status</a></li>
-                    </ul>
                 </div>
             </div>
         </nav>
@@ -77,11 +65,11 @@ if (!isset($_SESSION['formSubmitted'])) {
 
                 <div class="bg-white rounded-4 py-5 px-4 px-md-05">
                     <div class="text-center">
-                        <img width="300" src="success.png" alt="">
-                        <h1 class="display-4 mt-4 fw-bolder text-success">ENROLLED SUCCESSFULLY</h1>
-                        <p class="fs-4">Your enrollment has been successfully processed.<br>Please wait for the confirmation message from the school.</p>
+                        <img width="300" src="404-error-in-desktop-free-png.webp" alt="">
+                        <h1 class="fw-bolder text-success mt-5">404 Not Found</h1>
+                        <p class="fs-4">The page you are looking for might have been removed, had its name changed or is temporarily unavailable.</p>
                         <a class="btn btn-success fs-4 mt-4" href="index">Back to Home</a>
-                    </div>
+                   </div>
 
                 </div>
             </div>
