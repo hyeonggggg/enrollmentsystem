@@ -58,7 +58,6 @@
                             <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Enrollment</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
                                 <li><a class="dropdown-item" href="enroll">Enroll Now</a></li>
-                                <li><a class="dropdown-item" href="enrollment-status">Check Enrollment Status</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -134,6 +133,7 @@
                                         <input class="form-control" id="birthnum" name="birthnumber" type="text" placeholder="PSA Birth Certificate No. (if available upon registration)" maxlength="14" />
                                         <label id="birthnumber">PSA Birth Certificate No. (if available upon registration)</label>
                                     </div>
+                                    <h5 class="text-success"><strong>Personal Information</strong></h5>
                                     <div class="row g-2">
                                         <div class="col-md">
                                             <div class="form-floating mb-3">

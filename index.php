@@ -48,7 +48,6 @@
                             <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Enrollment</a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
                                 <li><a class="dropdown-item" href="enroll">Enroll Now</a></li>
-                                <li><a class="dropdown-item" href="enrollment-status">Check Enrollment Status</a></li>
                             </ul>
                         </li>
                     </ul>
