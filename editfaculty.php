@@ -95,7 +95,12 @@ if (isset($_SESSION['user'])) {
                     <span>Manage Account</span>
                 </a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="changecredentials">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Change Credentials</span>
+                </a>
+            </li>
 
 
 
@@ -162,6 +167,13 @@ if (isset($_SESSION['user'])) {
                         $id = $_GET['id'];
                         $query = mysqli_query($conn, "SELECT * FROM faculty where id='$id'") or die(mysqli_error());
                         $row = mysqli_fetch_array($query);
+                        if ($row['picture']) {
+							// Display the profile picture
+							$profile_picture = $row['picture'];
+						} else {
+							// Use a default profile picture
+							$profile_picture = 'default-profile-pic.jpg';
+						}
                         ?>
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3">
                             <div class="btn-toolbar mb-2 mb-md-0">
@@ -183,6 +195,13 @@ if (isset($_SESSION['user'])) {
                         <div class="card shadow mb-4 p-4">
                             <div class="card-body">
                                 <input type="hidden" name="update_id" value="<?php echo $row['id'] ?>">
+                                <div class="text-center mb-3">
+                                    <img class="rounded-circle" src="<?php echo !empty($profile_picture) ? $profile_picture : 'default-profile-pic.jpg' ?>" width="250">
+                                    <div class="form-floating mt-3 mb-1 col-12 col-md-7 col-lg-5 mx-auto" style="margin-left:auto; margin-right: auto">
+                                        <input type="file" class="form-control border-success rounded" style="height: 45px;" id="picture" name="picture" accept="image/*" />
+                                        <input type="hidden" value="<?php echo $row['picture'] ?>" id="old_pp" name="old_pp" />
+                                    </div>
+                                </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="firstName" class="text-success font-weight-bold">First Name</label>
@@ -330,10 +349,10 @@ if (isset($_SESSION['user'])) {
                                         <select class="form-control form-control-lg" id="track" name="track">
                                             <option selected disabled>Choose from options</option>
                                             <option value="Not Applicable" <?php
-                                                                if ($row['track'] == 'Not Applicable') {
-                                                                    echo "selected";
-                                                                }
-                                                                ?>>Not Applicable</option>
+                                                                            if ($row['track'] == 'Not Applicable') {
+                                                                                echo "selected";
+                                                                            }
+                                                                            ?>>Not Applicable</option>
                                             <option value="STEM" <?php
                                                                     if ($row['track'] == 'STEM') {
                                                                         echo "selected";
@@ -377,10 +396,10 @@ if (isset($_SESSION['user'])) {
                                                                                 }
                                                                                 ?>>Subject Group Head</option>
                                             <option value="Senior High School Coordinator" <?php
-                                                                                if ($row['type'] == 'Senior High School Coordinator') {
-                                                                                    echo "selected";
-                                                                                }
-                                                                                ?>>Senior High School Coordinator</option>
+                                                                                            if ($row['type'] == 'Senior High School Coordinator') {
+                                                                                                echo "selected";
+                                                                                            }
+                                                                                            ?>>Senior High School Coordinator</option>
                                         </select>
                                     </div>
                                 </div>

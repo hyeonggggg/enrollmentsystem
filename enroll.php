@@ -118,7 +118,7 @@
                                         </select>
                                         <label for="floatingSelect">Returning (Balik-Aral)</label>
                                     </div>
-                                    <div style="display: none;" id="transferee">
+                                    <div id="transferee">
                                         <div class="form-floating mb-3">
                                             <select class="form-select" id="transferred" name="transfer">
                                                 <option selected disabled>Select from options</option>
@@ -290,8 +290,8 @@
                                             <label class="form-label">House No.</label>
                                         </div>
                                         <div class="form-floating mb-2">
-                                            <input type="text" class="form-control form-control-md" name="streetname_text" id="streetname-text" placeholder="Sitio / Street Name" required>
-                                            <label class="form-label">Sitio / Street Name</label>
+                                            <input type="text" class="form-control form-control-md" name="streetname_text" id="streetname-text" placeholder="Sitio / Purok / Street Name" required>
+                                            <label class="form-label">Sitio / Purok / Street Name</label>
                                         </div>
                                         <div class="form-floating mb-2">
                                             <input type="text" class="form-control form-control-md" name="barangay_text" id="barangay-text" placeholder="Barangay" required>
@@ -321,8 +321,8 @@
                                             <label class="form-label">House No.</label>
                                         </div>
                                         <div class="form-floating mb-2">
-                                            <input type="text" class="form-control form-control-md" name="permanent_streetname_text" id="permanent-streetname-text" placeholder="Sitio / Street Name" required>
-                                            <label class="form-label">Sitio / Street Name</label>
+                                            <input type="text" class="form-control form-control-md" name="permanent_streetname_text" id="permanent-streetname-text" placeholder="Sitio / Purok / Street Name" required>
+                                            <label class="form-label">Sitio / Purok / Street Name</label>
                                         </div>
                                         <div class="form-floating mb-2">
                                             <input type="text" class="form-control form-control-md" name="permanent_barangay_text" id="permanent-barangay-text" placeholder="Barangay" required>
@@ -351,13 +351,13 @@
                                             <h6 class="text-success mb-0"><strong>Father's Name</strong></h6>
                                             <div class="col-md">
                                                 <div class="form-floating mb-0">
-                                                    <input type="text" class="form-control" name="fathers_lastname" id="fathers_lastname" placeholder="Last Name" required />
+                                                    <input type="text" class="form-control" name="fathers_lastname" id="fathers_lastname" placeholder="Last Name"  />
                                                     <label for="lastname">Last Name</label>
                                                 </div>
                                             </div>
                                             <div class="col-md">
                                                 <div class="form-floating mb-0">
-                                                    <input class="form-control" type="text" name="fathers_firstname" id="fathers_firstname" placeholder="First Name" required />
+                                                    <input class="form-control" type="text" name="fathers_firstname" id="fathers_firstname" placeholder="First Name"  />
                                                     <label for="firstname">First Name</label>
                                                 </div>
                                             </div>
@@ -365,7 +365,7 @@
                                         <div class="row g-2">
                                             <div class="col-md">
                                                 <div class="form-floating mb-2">
-                                                    <input class="form-control" type="text" name="fathers_middlename" id="fathers_middlename" type="text" placeholder="Middle Name" required />
+                                                    <input class="form-control" type="text" name="fathers_middlename" id="fathers_middlename" type="text" placeholder="Middle Name"  />
                                                     <label for="firstname">Middle Name</label>
                                                 </div>
                                             </div>
@@ -382,13 +382,13 @@
                                             <h6 class="text-success mb-0"><strong>Mother's Maiden Name</strong></h6>
                                             <div class="col-md">
                                                 <div class="form-floating mb-0">
-                                                    <input class="form-control" type="text" id="mothers_lastname" name="mothers_lastname" placeholder="Last Name" required />
+                                                    <input class="form-control" type="text" id="mothers_lastname" name="mothers_lastname" placeholder="Last Name" />
                                                     <label for="mothers_lastname">Last Name</label>
                                                 </div>
                                             </div>
                                             <div class="col-md">
                                                 <div class="form-floating mb-0">
-                                                    <input class="form-control" type="text" id="mothers_firstname" name="mothers_firstname" placeholder="First Name" required />
+                                                    <input class="form-control" type="text" id="mothers_firstname" name="mothers_firstname" placeholder="First Name" />
                                                     <label for="mothers_firstname">First Name</label>
                                                 </div>
                                             </div>
@@ -396,7 +396,7 @@
                                         <div class="row g-2">
                                             <div class="col-md">
                                                 <div class="form-floating mb-2">
-                                                    <input class="form-control" type="text" id="mothers_middlename" name="mothers_middlename" placeholder="Middle Name" required />
+                                                    <input class="form-control" type="text" id="mothers_middlename" name="mothers_middlename" placeholder="Middle Name" />
                                                     <label for="mothers_firstname">Middle Name</label>
                                                 </div>
                                             </div>
@@ -413,13 +413,13 @@
                                             <h6 class="text-success mb-0"><strong>Guardian's Name</strong></h6>
                                             <div class="col-md">
                                                 <div class="form-floating mb-0">
-                                                    <input class="form-control" id="guardians_lastname" name="guardians_lastname" type="text" placeholder="Last Name" required />
+                                                    <input class="form-control" id="guardians_lastname" name="guardians_lastname" type="text" placeholder="Last Name"  />
                                                     <label for="guardians_lastname">Last Name</label>
                                                 </div>
                                             </div>
                                             <div class="col-md">
                                                 <div class="form-floating mb-0">
-                                                    <input class="form-control" id="guardians_firstname" name="guardians_firstname" type="text" placeholder="First Name" required />
+                                                    <input class="form-control" id="guardians_firstname" name="guardians_firstname" type="text" placeholder="First Name"  />
                                                     <label for="guardians_firstname">First Name</label>
                                                 </div>
                                             </div>
@@ -427,7 +427,7 @@
                                         <div class="row g-2">
                                             <div class="col-md">
                                                 <div class="form-floating mb-2">
-                                                    <input class="form-control" id="guardians_middlename" name="guardians_middlename" type="text" placeholder="Middle Name" required />
+                                                    <input class="form-control" id="guardians_middlename" name="guardians_middlename" type="text" placeholder="Middle Name"  />
                                                     <label for="guardians_middlename">Middle Name</label>
                                                 </div>
                                             </div>
@@ -439,7 +439,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div style="display: none;" id="balik-aral">
+                                    <div id="balik-aral">
                                         <div class="row g-2">
                                             <h5 class="text-success"><strong>For Returning Learner (Balik-Aral) and Those Who Will Transfer/Move In</strong></h5>
                                             <div class="col-md">
@@ -449,7 +449,7 @@
                                                         <option value="Grade 11">Grade 11</option>
                                                         <option value="Grade 12">Grade 12</option>
                                                     </select>
-                                                    <label id="lastgradelevelLabel"></label>
+                                                    <label id="lastgradelevelLabel">Last Grade Level Completed</label>
                                                 </div>
                                             </div>
                                             <div class="col-md">
@@ -463,8 +463,9 @@
                                                         <option value="2020-2021">2020-2021</option>
                                                         <option value="2021-2022">2021-2022</option>
                                                         <option value="2022-2023">2022-2023</option>
+                                                        <option value="2022-2023">2023-2024</option>
                                                     </select>
-                                                    <label id="lastschoolyearLabel"></label>
+                                                    <label id="lastschoolyearLabel">Last School Year Completed</label>
                                                 </div>
                                             </div>
                                             <div class="form-floating mb-2">
@@ -670,12 +671,10 @@
         document.getElementById('balikaral').addEventListener('change', function() {
             if (this.value === 'Yes') {
                 document.getElementById('balik-aral').style.display = 'block';
-                document.getElementById('transferee').style.display = 'block';
                 document.getElementById('lastschoolyearLabel').textContent = 'Last School Year Completed';
                 document.getElementById('lastgradelevelLabel').textContent = 'Last Grade Level Completed';
             } else {
                 document.getElementById('balik-aral').style.display = 'none';
-                document.getElementById('transferee').style.display = 'none';
             }
         });
 

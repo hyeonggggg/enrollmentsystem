@@ -68,7 +68,7 @@ http_response_code(404);
                         <img width="300" src="404-error-in-desktop-free-png.webp" alt="">
                         <h1 class="fw-bolder text-success mt-5">404 Not Found</h1>
                         <p class="fs-4">The page you are looking for might have been removed, had its name changed or is temporarily unavailable.</p>
-                        <a class="btn btn-success fs-4 mt-4" href="index">Back to Home</a>
+                        <a class="btn btn-success fs-4 mt-4" href="javascript:history.back()">Go Back</a>
                    </div>
 
                 </div>

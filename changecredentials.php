@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
     <meta name="author" content="">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
 
-    <title>Add Faculty | Plaridel Integrated National High School</title>
+    <title>Edit Faculty | Plaridel Integrated National High School</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -83,7 +83,7 @@ if (isset($_SESSION['user'])) {
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="settings">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <span>Faculty</span>
@@ -95,12 +95,13 @@ if (isset($_SESSION['user'])) {
                     <span>Manage Account</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="changecredentials">
                     <i class="fas fa-users-cog"></i>
                     <span>Change Credentials</span>
                 </a>
             </li>
+
 
 
 
@@ -137,11 +138,11 @@ if (isset($_SESSION['user'])) {
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="text-transform:uppercase;">Logged in as, <span class="text-success"><strong><?php echo $_SESSION['user']; ?></strong></span></span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="default-profile-pic.jpg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="settings">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
@@ -159,97 +160,20 @@ if (isset($_SESSION['user'])) {
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
+                <?php
+                include 'conn.php';
+                $id = $_SESSION['user'];
+                $query = mysqli_query($conn, "SELECT * FROM superadmin where id='$id'") or die(mysqli_error());
+                $row = mysqli_fetch_array($query);
+                ?>
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <form class="needs-validation" action="addnewfaculty.php" method="POST" novalidate>
+                    <form class="needs-validation" action="updatefaculty.php" method="POST" novalidate enctype="multipart/form-data">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3">
-                            <div class="btn-toolbar mb-2 mb-md-0">
-                                <div class="btn-group me-1">
-                                    <button type="button" class="btn btn-md btn-success" onclick="window.history.back();">
-                                        <i class="fa fa-chevron-left"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>Add Faculty</b></h1>
-                            <div class="btn-toolbar mb-2 mb-md-0">
-                                <div class="btn-group me-1">
-                                    <button type="submit" class="btn btn-md btn-success">
-                                        <i class="fa fa-save"></i> Save
-                                    </button>
-                                </div>
-                            </div>
+                        <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>Change Credentials</b></h1>
                         </div>
                         <div class="card shadow mb-4 p-4">
                             <div class="card-body">
-                                <div class="form-row">
-                                    <div class="form-group col-md-4">
-                                        <label for="firstName" class="text-success font-weight-bold">First Name</label>
-                                        <input type="text" class="form-control form-control-lg" id="firstName" name="firstName" placeholder="First Name" required>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="middleName" class="text-success font-weight-bold">Middle Initial</label>
-                                        <input type="text" maxlength="2" class="form-control form-control-lg" id="middleName" name="middleName" placeholder="Middle Name" required>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="lastName" class="text-success font-weight-bold">Last Name</label>
-                                        <input type="text" class="form-control form-control-lg" id="lastName" name="lastName" placeholder="Last Name" required>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-5">
-                                        <label for="rank" class="text-success font-weight-bold">Position</label>
-                                        <select class="form-control form-control-lg" id="position" name="position" required>
-                                            <option selected disabled>Choose from options</option>
-                                            <option value="Teacher I">Teacher I</option>
-                                            <option value="Teacher II">Teacher II</option>
-                                            <option value="Teacher III">Teacher III</option>
-                                            <option value="Special Science Teacher I">Special Science Teacher I</option>
-                                            <option value="Special Science Teacher II">Special Science Teacher II</option>
-                                            <option value="Special Science Teacher III">Special Science Teacher III</option>
-                                            <option value="Special Science Teacher IV">Special Science Teacher IV</option>
-                                            <option value="Special Science Teacher V">Special Science Teacher V</option>
-                                            <option value="Master Teacher I">Master Teacher I</option>
-                                            <option value="Master Teacher II">Master Teacher II</option>
-                                            <option value="Master Teacher III">Master Teacher III</option>
-                                            <option value="Master Teacher IV">Master Teacher IV</option>
-                                            <option value="Head Teacher I">Head Teacher I</option>
-                                            <option value="Head Teacher II">Head Teacher II</option>
-                                            <option value="Head Teacher III">Head Teacher III</option>
-                                            <option value="Head Teacher IV">Head Teacher IV</option>
-                                            <option value="Head Teacher V">Head Teacher V</option>
-                                            <option value="Head Teacher VI">Head Teacher VI</option>
-                                            <option value="Assistant Principal I">Assistant Principal I</option>
-                                            <option value="Assistant Principal II">Assistant Principal II</option>
-                                            <option value="Principal I">Principal I</option>
-                                            <option value="Principal II">Principal II</option>
-                                            <option value="Principal III">Principal III</option>
-                                            <option value="Principal IV">Principal IV</option>
-                                        </select>
-
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputCity" class="text-success font-weight-bold">Track</label>
-                                        <select class="form-control form-control-lg" id="track" name="track">
-                                            <option selected disabled>Choose from options</option>
-                                            <option value="Not Applicable">Not Applicable</option>
-                                            <option value="STEM">STEM</option>
-                                            <option value="HUMSS">HUMSS</option>
-                                            <option value="ABM / ICT">ABM / ICT</option>
-                                            <option value="HE / AFA">HE / AFA</option>
-                                        </select>
-
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="inputCity" class="text-success font-weight-bold">Type</label>
-                                        <select class="form-control form-control-lg" id="type" name="type" required>
-                                            <option selected disabled>Choose from options</option>
-                                            <option value="Principal">Principal</option>
-                                            <option value="Teacher">Teacher</option>
-                                            <option value="Subject Group Head">Subject Group Head</option>
-                                            <option value="Senior High School Coordinator">Senior High School Coordinator</option>
-                                        </select>
-                                    </div>
-                                </div>
 
                             </div>
                         </div>

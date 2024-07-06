@@ -50,7 +50,11 @@ if (isset($_SESSION['user'])) {
                 columnDefs: [{
                     targets: [0, 1, 2, 3, 4, 5, 6, 7, 8],
                 }],
-                columns: [{ searchable: false }, null, null, null, null, null, null, null, { orderable: false }],
+                columns: [{
+                    searchable: false
+                }, null, null, null, null, null, null, null, {
+                    orderable: false
+                }],
             });
         });
     </script>
@@ -145,6 +149,12 @@ if (isset($_SESSION['user'])) {
                 <a class="nav-link" href="manageaccount">
                     <i class="fas fa-users-cog"></i>
                     <span>Manage Account</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="changecredentials">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Change Credentials</span>
                 </a>
             </li>
 
@@ -331,8 +341,14 @@ if (isset($_SESSION['user'])) {
                                                     <td>
                                                         <?= $items['id']; ?>
                                                     </td>
-                                                    <td>
-                                                        <img class="img-profile rounded-circle" src="default-profile-pic.jpg" width="100" height="100" alt="">
+                                                    <td style="display: block; margin-left: auto; margin-right: auto;">
+                                                        <?php
+                                                        if (!empty($items['picture'])) {
+                                                            echo '<img class="rounded-circle" src="' . $items['picture'] . '" alt="Profile Picture" width="100">';
+                                                        } else {
+                                                            echo '<img class="rounded-circle" src="default-profile-pic.jpg" alt="Profile Picture" width="100">';
+                                                        }
+                                                        ?>
                                                     </td>
                                                     <td>
                                                         <?= $items['firstName']; ?>

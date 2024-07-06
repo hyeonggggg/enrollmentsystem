@@ -147,7 +147,12 @@ if (isset($_SESSION['user'])) {
                     <span>Manage Account</span>
                 </a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="changecredentials">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Change Credentials</span>
+                </a>
+            </li>
 
 
 
@@ -297,7 +302,6 @@ if (isset($_SESSION['user'])) {
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Username</th>
-                                            <th>Password</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -306,7 +310,6 @@ if (isset($_SESSION['user'])) {
                                             <th>ID</th>
                                             <th>Name</th>
                                             <th>Username</th>
-                                            <th>Password</th>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot>
@@ -327,9 +330,6 @@ if (isset($_SESSION['user'])) {
                                                     </td>
                                                     <td>
                                                         <?= $items['username']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $items['password']; ?>
                                                     </td>
                                                     <td class="text-center">
                                                         <div class="btn-group" role="group">
