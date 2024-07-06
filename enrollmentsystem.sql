@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2024 at 03:48 PM
+-- Generation Time: Jul 06, 2024 at 01:55 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -110,6 +110,13 @@ CREATE TABLE `enrollment` (
   `time` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `enrollment`
+--
+
+INSERT INTO `enrollment` (`id`, `schoolyear`, `gradelevel`, `lrn`, `reference`, `balikaral`, `transfer`, `birthnumber`, `lastname`, `firstname`, `middlename`, `extension`, `sex`, `birthday`, `age`, `mother_tongue`, `placeofbirth`, `ip`, `indigenous`, `pantawid`, `pantawidProgram`, `disability`, `learnerdisability`, `housenumber_text`, `streetname_text`, `barangay_text`, `city_text`, `province_text`, `country_text`, `zipcode`, `permanent_housenumber_text`, `permanent_streetname_text`, `permanent_barangay_text`, `permanent_city_text`, `permanent_province_text`, `permanent_country_text`, `permanent_zipcode`, `fathers_lastname`, `fathers_firstname`, `fathers_middlename`, `fathers_phonenumber`, `mothers_lastname`, `mothers_firstname`, `mothers_middlename`, `mothers_phonenumber`, `guardians_lastname`, `guardians_firstname`, `guardians_middlename`, `guardians_phonenumber`, `lastgradelevel`, `lastschoolyear`, `lastschoolattended`, `schoolid`, `semester`, `track`, `strand`, `modality`, `date`, `time`) VALUES
+(1, '2024 - 2025', 'Grade 12', 'Yes', '108297060075', 'No', 'Yes', '', 'Brosas', 'Kendrix', 'Britiller', 'N/A', 'Male', '2001-05-05', '23', 'Tagalog', 'Liliw', 'No', '', 'No', '', 'No', '', '050', 'Purok 1', 'Kanlurang Bukal', 'Liliw', 'Laguna', 'Philippines', '4004', '050', 'Purok 1', 'Kanlurang Bukal', 'Liliw', 'Laguna', 'Philippines', '4004', 'Brosas', 'Alvin', 'Borlaza', '+639664179718', 'Brosas', 'Joselyn', 'Britiller', '+639664179718', 'Brosas', 'Joselyn', 'Britiller', '+639664179718', 'Grade 12', '2022-2023', 'Liliw Senior High School', '301244', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '06/07/2024', '06:52:00pm');
+
 -- --------------------------------------------------------
 
 --
@@ -133,9 +140,9 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`id`, `firstName`, `middleName`, `lastName`, `position`, `rank`, `track`, `type`, `picture`) VALUES
-(1, 'ROMEO', 'M', 'SULIGUIN', 'Principal II', '', 'Not Applicable', 'Principal', ''),
-(2, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', 'Not Applicable', 'Senior High School Coordinator', ''),
-(4, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', 'STEM', 'Subject Group Head', ''),
+(1, 'ROMEO', 'M', 'SULIGUIN', 'Principal II', '', 'Not Applicable', 'Principal', 'faculty_pictures/favicon.png'),
+(2, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', 'Not Applicable', 'Senior High School Coordinator', 'faculty_pictures/ELIAZAR-ESTEBESA.jpg'),
+(4, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', 'STEM', 'Subject Group Head', 'faculty_pictures/ELIAZAR-ESTEBESA.jpg'),
 (5, 'NIEVA', 'O', 'BUENSOCESO', 'Teacher III', '', 'STEM', 'Teacher', ''),
 (6, 'SHIELA', 'C', 'NARTE', 'Teacher II', '', 'STEM', 'Teacher', ''),
 (7, 'JOSEPH', 'C', 'PANGAYAO', 'Special Science Teacher I', '', 'STEM', 'Teacher', ''),
@@ -206,7 +213,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `enrollment`
 --
 ALTER TABLE `enrollment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `faculty`
