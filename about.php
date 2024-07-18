@@ -223,7 +223,16 @@
                             echo '<img class="rounded-circle border border-warning mb-2" src="default-profile-pic.jpg" alt="Profile Picture" width="150">';
                         }
                         $id = $items['id'];
-                        echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                        $fullName = $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'];
+
+                        // Check if the combined length exceeds 30 characters
+                        if (strlen($fullName) > 30) {
+                            // Break the name into a new line
+                            echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . '<br>' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                        } else {
+                            // Display the name on one line
+                            echo '<h5 class="fw-bolder text-success text-uppercase">' . $fullName . '</h5>';
+                        }
                         echo '<div class="fst-italic text-muted">' . $items['position'] . '</div>';
                         echo '</div>';
                     }
@@ -287,7 +296,162 @@
                             echo '<img class="rounded-circle border border-warning mb-2" src="default-profile-pic.jpg" alt="Profile Picture" width="150">';
                         }
                         $id = $items['id'];
-                        echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                        $fullName = $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'];
+
+                        // Check if the combined length exceeds 30 characters
+                        if (strlen($fullName) > 30) {
+                            // Break the name into a new line
+                            echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . '<br>' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                        } else {
+                            // Display the name on one line
+                            echo '<h5 class="fw-bolder text-success text-uppercase">' . $fullName . '</h5>';
+                        }
+                        echo '<div class="fst-italic text-muted">' . $items['position'] . '</div>';
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
+                <div class="text-center" data-aos="fade-up">
+                <h1 class="fw-bolder display-7 text-success mb-5">Accountancy and Business Management (ABM)<br>Information and Communication Technology (ICT)</h1>
+                </div>
+                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
+                    <div class="col mb-5 mb-5 mb-xl-0">
+                        <div class="text-center">
+                            <?php
+                            include 'conn.php';
+                            $query = "SELECT * FROM faculty WHERE type='Subject Group Head' AND track='ABM / ICT'";
+                            $query_run = mysqli_query($conn, $query);
+                            while ($items = mysqli_fetch_array($query_run)) {
+                                if ($items['picture']) {
+                                    // Display the profile picture
+                                    $picture = $items['picture'];
+                                } else {
+                                    // Use a default profile picture
+                                    $picture = 'default-profile-pic.jpg';
+                                }
+                                echo '<div class="col-auto">';
+
+                                echo '<div class="col text-center">';
+                                if (!empty($picture)) {
+                                    echo '<img class="img-fluid rounded-circle mb-4 px-4" src="' . $picture . '" alt="Profile Picture" width="200">';
+                                } else {
+                                    echo '<img class="rounded-circle border border-warning mb-2" src="default-profile-pic.jpg" alt="Profile Picture" width="150">';
+                                }
+                                $id = $items['id'];
+                                echo '</div>';
+                                echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                                echo '<div class="fst-italic text-muted">' . $items['type'] . ' - ' . $items['track'] . '</div>';
+                                echo '<div class="fst-italic text-muted">' . $items['position'] . '</div>';
+                                echo '</div>';
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap mb-5 row g-5 justify-content-center" data-aos="fade-up">
+                    <?php
+                    include 'conn.php';
+                    $query = "SELECT * FROM faculty WHERE type='Teacher' AND track='ABM / ICT'";
+                    $query_run = mysqli_query($conn, $query);
+                    while ($items = mysqli_fetch_array($query_run)) {
+                        if ($items['picture']) {
+                            // Display the profile picture
+                            $picture = $items['picture'];
+                        } else {
+                            // Use a default profile picture
+                            $picture = 'default-profile-pic.jpg';
+                        }
+                        echo '<div class="col-auto text-center">';
+
+                        if (!empty($picture)) {
+                            echo '<img class="img-fluid rounded-circle mb-4 px-4" src="' . $picture . '" alt="Profile Picture" width="200">';
+                        } else {
+                            echo '<img class="rounded-circle border border-warning mb-2" src="default-profile-pic.jpg" alt="Profile Picture" width="150">';
+                        }
+                        $id = $items['id'];
+                        $fullName = $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'];
+
+                        // Check if the combined length exceeds 30 characters
+                        if (strlen($fullName) > 30) {
+                            // Break the name into a new line
+                            echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . '<br>' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                        } else {
+                            // Display the name on one line
+                            echo '<h5 class="fw-bolder text-success text-uppercase">' . $fullName . '</h5>';
+                        }
+                        echo '<div class="fst-italic text-muted">' . $items['position'] . '</div>';
+                        echo '</div>';
+                    }
+                    ?>
+                </div>
+                <div class="text-center" data-aos="fade-up">
+                <h1 class="fw-bolder display-7 text-success mb-5">Technical Vocational Livelihood (TVL)<br>Home Economics (HE)<br>Agri-Fishery Arts</h1>
+                </div>
+                <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-3 justify-content-center mb-5" data-aos="fade-up">
+                    <div class="col mb-5 mb-5 mb-xl-0">
+                        <div class="text-center">
+                            <?php
+                            include 'conn.php';
+                            $query = "SELECT * FROM faculty WHERE type='Subject Group Head' AND track='HE / AFA'";
+                            $query_run = mysqli_query($conn, $query);
+                            while ($items = mysqli_fetch_array($query_run)) {
+                                if ($items['picture']) {
+                                    // Display the profile picture
+                                    $picture = $items['picture'];
+                                } else {
+                                    // Use a default profile picture
+                                    $picture = 'default-profile-pic.jpg';
+                                }
+                                echo '<div class="col-auto">';
+
+                                echo '<div class="col text-center">';
+                                if (!empty($picture)) {
+                                    echo '<img class="img-fluid rounded-circle mb-4 px-4" src="' . $picture . '" alt="Profile Picture" width="200">';
+                                } else {
+                                    echo '<img class="rounded-circle border border-warning mb-2" src="default-profile-pic.jpg" alt="Profile Picture" width="150">';
+                                }
+                                $id = $items['id'];
+                                echo '</div>';
+                                echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                                echo '<div class="fst-italic text-muted">' . $items['type'] . ' - ' . $items['track'] . '</div>';
+                                echo '<div class="fst-italic text-muted">' . $items['position'] . '</div>';
+                                echo '</div>';
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-wrap mb-5 row g-5 justify-content-center" data-aos="fade-up">
+                    <?php
+                    include 'conn.php';
+                    $query = "SELECT * FROM faculty WHERE type='Teacher' AND track='HE / AFA'";
+                    $query_run = mysqli_query($conn, $query);
+                    while ($items = mysqli_fetch_array($query_run)) {
+                        if ($items['picture']) {
+                            // Display the profile picture
+                            $picture = $items['picture'];
+                        } else {
+                            // Use a default profile picture
+                            $picture = 'default-profile-pic.jpg';
+                        }
+                        echo '<div class="col-auto text-center">';
+
+                        if (!empty($picture)) {
+                            echo '<img class="img-fluid rounded-circle mb-4 px-4" src="' . $picture . '" alt="Profile Picture" width="200">';
+                        } else {
+                            echo '<img class="rounded-circle border border-warning mb-2" src="default-profile-pic.jpg" alt="Profile Picture" width="150">';
+                        }
+                        $id = $items['id'];
+                        $fullName = $items['firstName'] . ' ' . $items['middleName'] . '. ' . $items['lastName'];
+
+                        // Check if the combined length exceeds 30 characters
+                        if (strlen($fullName) > 30) {
+                            // Break the name into a new line
+                            echo '<h5 class="fw-bolder text-success text-uppercase">' . $items['firstName'] . '<br>' . $items['middleName'] . '. ' . $items['lastName'] . '</h5>';
+                        } else {
+                            // Display the name on one line
+                            echo '<h5 class="fw-bolder text-success text-uppercase">' . $fullName . '</h5>';
+                        }
                         echo '<div class="fst-italic text-muted">' . $items['position'] . '</div>';
                         echo '</div>';
                     }

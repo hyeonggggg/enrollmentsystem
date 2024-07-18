@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
     <meta name="author" content="">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
 
-    <title>Edit User | Plaridel Integrated National High School</title>
+    <title>Change Password | Plaridel Integrated National High School</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -54,6 +54,12 @@ if (isset($_SESSION['user'])) {
         .form-select:focus {
             border-color: #28a745;
             box-shadow: 0 0 0 0.3rem rgba(40, 167, 69, 0.25);
+        }
+
+        input[type="checkbox"] {
+            accent-color: #28a745;
+            width: 1em;
+            height: 1em;
         }
 
         a {
@@ -159,11 +165,11 @@ if (isset($_SESSION['user'])) {
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                     <!-- Page Heading -->
-                    <form class="needs-validation" action="updateuser.php" method="POST" novalidate>
-                    <?php
+                    <form class="needs-validation" action="updatepassword.php" method="POST" novalidate>
+                        <?php
                         include 'conn.php';
-                        $id = $_GET['id'];
-                        $query = mysqli_query($conn, "SELECT * FROM admin where id='$id'") or die(mysqli_error());
+                        $user = $_SESSION['user'];
+                        $query = mysqli_query($conn, "SELECT * FROM superadmin where username='$user'") or die(mysqli_error());
                         $row = mysqli_fetch_array($query);
                         ?>
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3">
@@ -174,59 +180,51 @@ if (isset($_SESSION['user'])) {
                                     </button>
                                 </div>
                             </div>
-                            <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>Edit User</b></h1>
+                            <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>Change Password</b></h1>
                             <div class="btn-toolbar mb-2 mb-md-0">
                                 <div class="btn-group me-1">
-                                    <button type="submit" name="updateuser" class="btn btn-md btn-success">
+                                    <button type="submit" name="updatepass" class="btn btn-md btn-success">
                                         <i class="fa fa-save"></i> Save
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <div class="card shadow mb-4 p-4">
-                            <div class="card-body">
-                                <div class="form-row">
-                                    <input type="hidden" name="update_id" value="<?php echo $row['id'] ?>">
-                                    <div class="form-group col-md-4">
-                                        <label for="name" class="text-success font-weight-bold">Name</label>
-                                        <input type="text" class="form-control form-control-lg" id="name" name="name" value="<?php echo $row['name'] ?>" placeholder="Name" required>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="username" class="text-success font-weight-bold">Username</label>
-                                        <input type="text" class="form-control form-control-lg" id="username" name="username" value="<?php echo $row['username'] ?>" placeholder="Username" required>
-                                    </div>
-                                    <div class="form-group col-md-4">
-                                        <label for="password" class="text-success font-weight-bold">Password</label>
-                                        <input type="password" class="form-control form-control-lg" id="floatingPassword" name="password" placeholder="Password" required>
-                                        <div class="mt-0 mb-3 text-start">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="" onclick="myFunction()" id="flexCheckDefault">
-                                                <label class="form-check-label text-dark" for="flexCheckDefault">
-                                                    Show Password
-                                                </label>
-                                            </div>
+                            <div class="card-body d-flex align-items-center" ">
+                                <div class=" form-row justify-content-center w-100">
+                                <input type="hidden" name="update_id" value="<?php echo $row['id'] ?>">
+                                <div class="form-group col-md-4">
+                                    <label for="password" class="text-success font-weight-bold">Password</label>
+                                    <input type="password" class="form-control form-control-lg" id="floatingPassword" name="password" required>
+                                    <div class="mt-0 text-start">
+                                        <div class="form-check mt-1">
+                                            <input class="form-check-input" type="checkbox" value="" onclick="myFunction()" id="flexCheckDefault">
+                                            <label class="form-check-label text-dark ml-1" for="flexCheckDefault">
+                                                Show Password
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                </div>
+                </form>
+            </div>
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+                    <span><b>Copyright &copy; Plaridel Integrated National High School | 2024</b></span>
                 </div>
             </div>
-            <!-- End of Main Content -->
+        </footer>
+        <!-- End of Footer -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span><b>Copyright &copy; Plaridel Integrated National High School | 2024</b></span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->

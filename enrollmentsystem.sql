@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2024 at 01:55 PM
+-- Generation Time: Jul 18, 2024 at 06:45 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `name`) VALUES
-(1, 'admin', 'admin12345', 'Admin'),
+(1, 'admin', 'admin123', 'Admin'),
 (3, 'admintwo', 'admin1234', 'Admin Two');
 
 -- --------------------------------------------------------
@@ -110,13 +110,6 @@ CREATE TABLE `enrollment` (
   `time` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `enrollment`
---
-
-INSERT INTO `enrollment` (`id`, `schoolyear`, `gradelevel`, `lrn`, `reference`, `balikaral`, `transfer`, `birthnumber`, `lastname`, `firstname`, `middlename`, `extension`, `sex`, `birthday`, `age`, `mother_tongue`, `placeofbirth`, `ip`, `indigenous`, `pantawid`, `pantawidProgram`, `disability`, `learnerdisability`, `housenumber_text`, `streetname_text`, `barangay_text`, `city_text`, `province_text`, `country_text`, `zipcode`, `permanent_housenumber_text`, `permanent_streetname_text`, `permanent_barangay_text`, `permanent_city_text`, `permanent_province_text`, `permanent_country_text`, `permanent_zipcode`, `fathers_lastname`, `fathers_firstname`, `fathers_middlename`, `fathers_phonenumber`, `mothers_lastname`, `mothers_firstname`, `mothers_middlename`, `mothers_phonenumber`, `guardians_lastname`, `guardians_firstname`, `guardians_middlename`, `guardians_phonenumber`, `lastgradelevel`, `lastschoolyear`, `lastschoolattended`, `schoolid`, `semester`, `track`, `strand`, `modality`, `date`, `time`) VALUES
-(1, '2024 - 2025', 'Grade 12', 'Yes', '108297060075', 'No', 'Yes', '', 'Brosas', 'Kendrix', 'Britiller', 'N/A', 'Male', '2001-05-05', '23', 'Tagalog', 'Liliw', 'No', '', 'No', '', 'No', '', '050', 'Purok 1', 'Kanlurang Bukal', 'Liliw', 'Laguna', 'Philippines', '4004', '050', 'Purok 1', 'Kanlurang Bukal', 'Liliw', 'Laguna', 'Philippines', '4004', 'Brosas', 'Alvin', 'Borlaza', '+639664179718', 'Brosas', 'Joselyn', 'Britiller', '+639664179718', 'Brosas', 'Joselyn', 'Britiller', '+639664179718', 'Grade 12', '2022-2023', 'Liliw Senior High School', '301244', '1st Semester', 'Technical Vocational Livelihood (TVL)', 'Home Economics (HE)', '', '06/07/2024', '06:52:00pm');
-
 -- --------------------------------------------------------
 
 --
@@ -140,16 +133,36 @@ CREATE TABLE `faculty` (
 --
 
 INSERT INTO `faculty` (`id`, `firstName`, `middleName`, `lastName`, `position`, `rank`, `track`, `type`, `picture`) VALUES
-(1, 'ROMEO', 'M', 'SULIGUIN', 'Principal II', '', 'Not Applicable', 'Principal', 'faculty_pictures/favicon.png'),
-(2, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', 'Not Applicable', 'Senior High School Coordinator', 'faculty_pictures/ELIAZAR-ESTEBESA.jpg'),
-(4, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', 'STEM', 'Subject Group Head', 'faculty_pictures/ELIAZAR-ESTEBESA.jpg'),
+(1, 'ROMEO', 'M', 'SULIGUIN', 'Principal II', '', 'Not Applicable', 'Principal', ''),
+(2, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', 'Not Applicable', 'Senior High School Coordinator', ''),
+(4, 'ELIAZAR', 'O', 'ESTEBESA', 'Master Teacher I', '', 'STEM', 'Subject Group Head', ''),
 (5, 'NIEVA', 'O', 'BUENSOCESO', 'Teacher III', '', 'STEM', 'Teacher', ''),
 (6, 'SHIELA', 'C', 'NARTE', 'Teacher II', '', 'STEM', 'Teacher', ''),
 (7, 'JOSEPH', 'C', 'PANGAYAO', 'Special Science Teacher I', '', 'STEM', 'Teacher', ''),
 (8, 'MIKO REY', 'P', 'PEREZ', 'Special Science Teacher I', '', 'STEM', 'Teacher', ''),
 (9, 'THOMAS JOSEPH', 'DA', 'VIRTUCIO', 'Special Science Teacher I', '', 'STEM', 'Teacher', ''),
 (10, 'ARIENE MAY', 'R', 'URRETE', 'Special Science Teacher I', '', 'STEM', 'Teacher', ''),
-(11, 'REGINA', 'B', 'ARANZA', 'Teacher I', '', 'STEM', 'Teacher', '');
+(11, 'REGINA', 'B', 'ARANZA', 'Teacher I', '', 'STEM', 'Teacher', ''),
+(14, 'DR. DANCEL', 'M', 'SAPIGAO', 'Master Teacher II', '', 'HUMSS', 'Subject Group Head', ''),
+(15, 'BERNADETTE', 'R', 'AQUINO', 'Teacher III', '', 'HUMSS', 'Teacher', ''),
+(16, 'DR. LIZA', 'B', 'TUICO', 'Teacher III', '', 'HUMSS', 'Teacher', ''),
+(17, 'DR. ELOISA', 'D', 'RUBIATO', 'Teacher II', '', 'HUMSS', 'Teacher', ''),
+(18, 'NHEDELEE', 'S', 'ALIUD', 'Teacher II', '', 'HUMSS', 'Teacher', ''),
+(19, 'BERNADETTE VANESSA MAE', 'B', 'SAJONIA', 'Teacher I', '', 'HUMSS', 'Teacher', ''),
+(20, 'ELDRYNE', 'B', 'RAMIREZ', 'Teacher I', '', 'HUMSS', 'Teacher', ''),
+(21, 'NORMIN', 'O', 'AREJOLA', 'Teacher I', '', 'HUMSS', 'Teacher', ''),
+(22, 'MARIAN', 'O', 'QUITOLLA', 'Master Teacher II', '', 'ABM / ICT', 'Subject Group Head', ''),
+(23, 'RICHARD', 'V', 'BUETA', 'Teacher III', '', 'ABM / ICT', 'Teacher', ''),
+(24, 'ARMIN', 'A', 'BUENSALIDA', 'Teacher III', '', 'ABM / ICT', 'Teacher', ''),
+(25, 'HAZELYN', 'J', 'VIREY', 'Teacher II', '', 'ABM / ICT', 'Teacher', ''),
+(26, 'IMELDA', 'B', 'MERJILLA', 'Teacher II', '', 'ABM / ICT', 'Teacher', ''),
+(27, 'BENEDICT', 'M', 'BUENA', 'Special Science Teacher I', '', 'ABM / ICT', 'Teacher', ''),
+(28, 'JENNETH', 'J', 'BARBA', 'Master Teacher II', '', 'HE / AFA', 'Subject Group Head', ''),
+(29, 'MARIA KRISTINE', 'R', 'MONTSERRAT', 'Teacher II', '', 'HE / AFA', 'Teacher', ''),
+(30, 'ANTONIA', 'S', 'GURRIBA', 'Teacher II', '', 'HE / AFA', 'Teacher', ''),
+(31, 'FLORDELIZA', 'B', 'NAGUIT', 'Teacher II', '', 'HE / AFA', 'Teacher', ''),
+(32, 'REA ROSE', 'E', 'AGAPAY', 'Teacher II', '', 'HE / AFA', 'Teacher', ''),
+(33, 'LERNIE', 'C', 'CLAVE', 'Teacher II', '', 'HE / AFA', 'Teacher', '');
 
 -- --------------------------------------------------------
 
@@ -161,15 +174,16 @@ CREATE TABLE `superadmin` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `last_password_change` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `superadmin`
 --
 
-INSERT INTO `superadmin` (`id`, `name`, `username`, `password`) VALUES
-(1, 'super', 'super', 'super123');
+INSERT INTO `superadmin` (`id`, `name`, `username`, `password`, `last_password_change`) VALUES
+(1, 'Super', 'super', 'super123', '2024-07-18 17:45:11');
 
 --
 -- Indexes for dumped tables
@@ -213,13 +227,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `enrollment`
 --
 ALTER TABLE `enrollment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `superadmin`

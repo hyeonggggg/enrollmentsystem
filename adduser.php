@@ -95,6 +95,12 @@ if (isset($_SESSION['user'])) {
                     <span>Manage Account</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="changecredentials">
+                    <i class="fas fa-users-cog"></i>
+                    <span>Change Credentials</span>
+                </a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

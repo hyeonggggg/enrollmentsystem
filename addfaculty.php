@@ -324,7 +324,7 @@ if (isset($_SESSION['user'])) {
     </script>
     <script>
         document.querySelector('[name="firstName"]').addEventListener('input', function(e) {
-            this.value = this.value.replace(/[^a-zA-Z ]/g, '').toUpperCase();
+            this.value = this.value.replace(/[^a-zA-Z .]/g, '').toUpperCase();
         });
         document.querySelector('[name="middleName"]').addEventListener('input', function(e) {
             this.value = this.value.replace(/[^a-zA-Z ]/g, '').toUpperCase();

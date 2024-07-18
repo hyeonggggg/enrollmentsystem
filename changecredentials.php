@@ -27,7 +27,7 @@ if (isset($_SESSION['user'])) {
     <meta name="author" content="">
     <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
 
-    <title>Edit Faculty | Plaridel Integrated National High School</title>
+    <title>Change Credentials | Plaridel Integrated National High School</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -170,10 +170,99 @@ if (isset($_SESSION['user'])) {
                     <!-- Page Heading -->
                     <form class="needs-validation" action="updatefaculty.php" method="POST" novalidate enctype="multipart/form-data">
                         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3">
-                        <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>Change Credentials</b></h1>
+                            <h1 class="h1 mb-0 text-success" style="text-transform:uppercase;"><b>Change Credentials</b></h1>
                         </div>
-                        <div class="card shadow mb-4 p-4">
+                        <?php
+                        if (isset($_SESSION['updateerror'])) {
+                        ?>
+                            <div class="alert alert-warning alert-dismissible fade show text-start" role="alert">
+                                <i class="fas fa-exclamation-triangle" width="24" height="24"></i>
+                                <?= $_SESSION['updateerror']; ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php
+                            unset($_SESSION['updateerror']);
+                        }
+                        ?>
+                        <?php
+                        if (isset($_SESSION['updatesuccess'])) {
+                        ?>
+                            <div class="alert alert-success alert-dismissible fade show text-start" role="alert">
+                                <i class="fas fa-check-circle" width="24" height="24"></i>
+                                <?= $_SESSION['updatesuccess']; ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        <?php
+                            unset($_SESSION['updatesuccess']);
+                        }
+                        ?>
+                        <div class="card shadow mb-4 p-1">
                             <div class="card-body">
+                                <div class="card">
+                                    <div class="card-header fw-bold">
+                                        <i class="fas fa-key text-success "></i> Change Password
+                                    </div>
+                                    <?php
+                                    include 'conn.php';
+                                    $user = $_SESSION['user'];
+                                    $query = mysqli_query($conn, "SELECT * FROM superadmin where username='$user'") or die(mysqli_error());
+                                    $row = mysqli_fetch_array($query);
+                                    ?>
+                                    <div class="card-body fs-5 fw-bold mb-0 d-flex justify-content-between align-items-center">
+                                        <p style="margin-bottom: 0px;">Password
+                                            <br><span style="font-size: 15px;" class="text-secondary fw-normal fst-italic">
+                                                <?php
+                                                $lastPasswordChange = new DateTime($row['last_password_change']);
+                                                $now = new DateTime();
+
+                                                $interval = $lastPasswordChange->diff($now);
+                                                if ($interval->y > 0) {
+                                                    if ($interval->y == 1) {
+                                                        echo "You changed your password " . $interval->format('%y year') . " ago.";
+                                                    } else {
+                                                        echo "You changed your password " . $interval->format('%y years') . " ago.";
+                                                    }
+                                                } elseif ($interval->m > 0) {
+                                                    if ($interval->m == 1) {
+                                                        echo "You changed your password " . $interval->format('%m month') . " ago.";
+                                                    } else {
+                                                        echo "You changed your password " . $interval->format('%m months') . " ago.";
+                                                    }
+                                                } elseif ($interval->d > 0) {
+                                                    if ($interval->d == 1) {
+                                                        echo "You changed your password " . $interval->format('%d day') . " ago.";
+                                                    } else {
+                                                        echo "You changed your password " . $interval->format('%d days') . " ago.";
+                                                    }
+                                                } elseif ($interval->h > 0) {
+                                                    if ($interval->h == 1) {
+                                                        echo "You changed your password " . $interval->format('%h hour') . " ago.";
+                                                    } else {
+                                                        echo "You changed your password " . $interval->format('%h hours') . " ago.";
+                                                    }
+                                                } elseif ($interval->i > 0) {
+                                                    if ($interval->i == 1) {
+                                                        echo "You changed your password " . $interval->format('%i minute') . " ago.";
+                                                    } else {
+                                                        echo "You changed your password " . $interval->format('%i minutes') . " ago.";
+                                                    }
+                                                } else {
+                                                    if ($interval->s == 1) {
+                                                        echo "You changed your password " . $interval->format('%s second') . " ago.";
+                                                    } else {
+                                                        echo "You changed your password " . $interval->format('%s seconds') . " ago.";
+                                                    }
+                                                } ?>
+                                        </p>
+                                        <a href="changepassword.php?id=<?php echo md5($user); ?>" class="btn btn-success">
+                                        <i class="fas fa-key"></i></i>
+                                        </a>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
